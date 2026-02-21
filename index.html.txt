@@ -1,0 +1,253 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>$RIG — Built to work. Ready to earn.</title>
+  <meta name="description" content="$RIG is a Solana community built on Proof-of-Work values: grind, integrity, and long-term building." />
+  <style>
+    :root{
+      --bg:#0b0f1a;
+      --card:#111a2f;
+      --text:#eaf0ff;
+      --muted:#9fb0d0;
+      --accent:#3b82f6;
+      --good:#22c55e;
+      --danger:#ef4444;
+      --border:rgba(255,255,255,.10);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(59,130,246,.22), transparent 60%),
+                  radial-gradient(1000px 700px at 90% 30%, rgba(34,197,94,.10), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.35;
+    }
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:26px}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px;border:1px solid var(--border);border-radius:14px;
+      background:rgba(17,26,47,.65);backdrop-filter: blur(10px);
+      position:sticky;top:16px;z-index:10;
+    }
+    .brand{display:flex;gap:12px;align-items:center;font-weight:900;letter-spacing:.2px}
+    .logo{
+      width:38px;height:38px;border-radius:10px;background:rgba(59,130,246,.18);
+      display:grid;place-items:center;border:1px solid var(--border);
+    }
+    .logo span{font-size:18px}
+    .navlinks{display:flex;gap:14px;flex-wrap:wrap}
+    .navlinks a{opacity:.85;text-decoration:none;font-weight:700}
+    .navlinks a:hover{opacity:1;text-decoration:underline}
+
+    .hero{padding:42px 0 22px;display:grid;gap:18px}
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:8px 12px;border-radius:999px;border:1px solid var(--border);
+      background:rgba(17,26,47,.55);color:var(--muted);font-weight:800;
+      width:max-content;
+    }
+    .pill b{color:var(--text)}
+    h1{font-size:44px;margin:0;letter-spacing:-.8px}
+    .sub{color:var(--muted);font-size:18px;max-width:820px}
+
+    .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 14px;border-radius:12px;border:1px solid var(--border);
+      background:rgba(17,26,47,.65);text-decoration:none;font-weight:900;
+      min-width:160px;
+    }
+    .btn.primary{background:linear-gradient(135deg, rgba(59,130,246,.95), rgba(37,99,235,.92));border-color:rgba(59,130,246,.45)}
+    .btn.green{background:linear-gradient(135deg, rgba(34,197,94,.92), rgba(22,163,74,.90));border-color:rgba(34,197,94,.45)}
+    .btn.disabled{opacity:.55;pointer-events:none}
+    .btn:hover{transform:translateY(-1px)}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin:22px 0}
+    .card{
+      grid-column:span 12;
+      padding:18px;border-radius:16px;border:1px solid var(--border);
+      background:rgba(17,26,47,.65);backdrop-filter: blur(10px);
+    }
+    .card h2{margin:0 0 10px;font-size:20px}
+    .card p{margin:0;color:var(--muted)}
+    @media (min-width: 900px){
+      .card.span6{grid-column:span 6}
+      .card.span4{grid-column:span 4}
+      .card.span8{grid-column:span 8}
+    }
+
+    ul{margin:10px 0 0 18px;color:var(--muted)}
+    li{margin:8px 0}
+
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:13px;color:#cfe0ff;background:rgba(0,0,0,.25);
+      border:1px dashed rgba(255,255,255,.18);padding:10px;border-radius:12px;overflow:auto
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:12px;border:1px solid var(--border);
+      background:rgba(0,0,0,.18);font-weight:900;color:var(--text)
+    }
+    .danger{color:#ffd3d3}
+    .small{font-size:14px;color:var(--muted)}
+    .hr{height:1px;background:rgba(255,255,255,.10);margin:18px 0}
+    .footer{padding:26px 0 40px;color:var(--muted);font-size:14px}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo"><span>🔧</span></div>
+        <div>$RIG</div>
+      </div>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#token">Token</a>
+        <a href="#safety">Safety</a>
+        <a href="#links">Links</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="pill">🧱 <b>Foundation Phase</b> — community + credibility first</div>
+      <h1>Built to work. Ready to earn. 🔧</h1>
+      <div class="sub">
+        $RIG is a <b>Solana</b> community built on Proof-of-Work values: grind, integrity, and long-term building.
+        No “team” DMs. No fake promises. We build it right.
+      </div>
+
+      <div class="ctas">
+        <a class="btn green" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
+        <a class="btn primary disabled" href="#">Buy (Coming Soon)</a>
+        <a class="btn disabled" href="#">Chart (Coming Soon)</a>
+      </div>
+
+      <div class="grid">
+        <div class="card span4">
+          <h2>🛠 Culture</h2>
+          <p>For workers, builders, and grinders. A community you can actually recognize.</p>
+        </div>
+        <div class="card span4">
+          <h2>🔍 Transparency</h2>
+          <p>Clear links, clear info, clear rules. Trust is the product.</p>
+        </div>
+        <div class="card span4">
+          <h2>📈 Long-term</h2>
+          <p>Not chasing one candle. Building something that can grow into millions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="grid">
+      <div class="card span8">
+        <h2>What is $RIG?</h2>
+        <p>
+          $RIG is community-first. The vision is simple:
+          <b>crypto should respect real work.</b>
+          We’re building a blue-collar identity in a space full of copy/paste memes.
+        </p>
+        <div class="hr"></div>
+        <div style="display:grid;gap:10px">
+          <div class="badge">🔧 Proof-of-Work mindset</div>
+          <div class="badge">👷 Blue-collar community + culture</div>
+          <div class="badge">🧱 Foundation-first building approach</div>
+        </div>
+      </div>
+
+      <div class="card span4">
+        <h2>Mission</h2>
+        <p>
+          Build the most trusted blue-collar crypto community on Solana — and grow it through consistent work, not fake hype.
+        </p>
+      </div>
+    </section>
+
+    <section id="roadmap" class="grid">
+      <div class="card span12">
+        <h2>Roadmap</h2>
+        <ul>
+          <li><b>Phase 1 — Foundation:</b> Telegram + website + community culture + transparency setup.</li>
+          <li><b>Phase 2 — Expansion:</b> Listings prep (trackers), community growth systems, regular weekly updates.</li>
+          <li><b>Phase 3 — Utility:</b> Launch the first “Proof-of-Work” community mechanism (rewards/roles/recognition).</li>
+          <li><b>Phase 4 — Scale:</b> Partnerships + blue-collar creator network + merch + real-world tie-ins.</li>
+        </ul>
+        <p class="small">Roadmap is direction, not a promise. We ship what we can support long-term.</p>
+      </div>
+    </section>
+
+    <section id="token" class="grid">
+      <div class="card span6">
+        <h2>Token Info</h2>
+        <p>Chain: <b>Solana</b></p>
+        <p class="small">Contract Address (CA):</p>
+        <div class="mono" id="ca">COMING SOON</div>
+        <div class="ctas" style="margin-top:12px">
+          <button class="btn disabled" type="button">Copy CA</button>
+        </div>
+        <p class="small">
+          CA will be posted here + pinned in Telegram. Always verify before buying.
+        </p>
+      </div>
+
+      <div class="card span6">
+        <h2>Transparency</h2>
+        <ul>
+          <li><b>Liquidity:</b> Not locked yet (will be disclosed publicly when done).</li>
+          <li><b>Dev/Team allocation:</b> Will be disclosed publicly.</li>
+          <li><b>Holders:</b> Community-first growth, no fake promises.</li>
+        </ul>
+        <p class="small">As we finalize launch details, this section will be updated with proof links.</p>
+      </div>
+    </section>
+
+    <section id="safety" class="grid">
+      <div class="card span12">
+        <h2>Safety & Anti-Scam</h2>
+        <p class="danger">
+          Admins will NEVER DM you first. No airdrops in DMs. No “support” links in DMs.
+          Only trust links posted on this website and pinned messages in the official Telegram.
+        </p>
+        <ul>
+          <li>Verify the contract address before buying.</li>
+          <li>Ignore anyone pretending to be “team” in DMs.</li>
+          <li>Report scam links in Telegram immediately.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="links" class="grid">
+      <div class="card span4">
+        <h2>Official Links</h2>
+        <ul>
+          <li><a href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Telegram</a></li>
+          <li><span class="small">X: add your link here</span></li>
+          <li><span class="small">Buy/Chart: coming soon</span></li>
+        </ul>
+      </div>
+
+      <div class="card span8">
+        <h2>Weekly Updates</h2>
+        <p>
+          We post weekly progress updates. If it’s not posted publicly, it’s not promised.
+          This is how trust is built over time.
+        </p>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div><b>$RIG</b> — Built to work. Ready to earn. 🔧</div>
+      <div class="small">Not financial advice. Crypto is risky. Only risk what you can afford to lose.</div>
+    </div>
+  </div>
+</body>
+</html>
