@@ -2,405 +2,533 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>$RIG — Built to Work. Ready to Earn.</title>
-  <meta name="description" content="$RIG is a blue-collar Solana community built on Proof-of-Work values: grind, integrity, and long-term building." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>$RIG — Built to work. Ready to earn.</title>
+  <meta name="description" content="$RIG is a blue-collar memecoin community on Solana. Built different. Credibility first. No fake promises." />
   <meta name="theme-color" content="#0b0f1a" />
 
   <style>
     :root{
       --bg:#070a12;
-      --bg2:#0b1020;
-      --card:rgba(255,255,255,.06);
-      --border:rgba(255,255,255,.10);
-      --text:#eef2ff;
-      --muted:rgba(238,242,255,.72);
-      --muted2:rgba(238,242,255,.55);
-      --accent:#f59e0b; /* gold */
-      --good:#22c55e;
-      --blue:#3b82f6;
+      --card:#0e1323;
+      --card2:#0b1020;
+      --text:#eaf1ff;
+      --muted:#a7b3d6;
+      --line:rgba(255,255,255,.10);
+      --accent:#3b82f6;
+      --accent2:#22c55e;
+      --warn:#f59e0b;
       --danger:#ef4444;
-      --shadow: 0 24px 70px rgba(0,0,0,.55);
-      --radius:18px;
-      --max:1100px;
+
+      --radius:20px;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --max: 1120px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       background:
-        radial-gradient(900px 500px at 15% 15%, rgba(59,130,246,.20), transparent 60%),
-        radial-gradient(900px 500px at 85% 25%, rgba(245,158,11,.14), transparent 62%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+        radial-gradient(900px 500px at 12% 10%, rgba(59,130,246,.22), transparent 60%),
+        radial-gradient(900px 500px at 85% 15%, rgba(34,197,94,.18), transparent 60%),
+        radial-gradient(900px 600px at 50% 95%, rgba(245,158,11,.10), transparent 55%),
+        linear-gradient(180deg, #040611 0%, var(--bg) 55%, #050815 100%);
+      color:var(--text);
       overflow-x:hidden;
     }
-    a{color:inherit}
-    .wrap{max-width:var(--max);margin:0 auto;padding:18px 16px 70px}
-    .glass{
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    /* Layout */
+    .wrap{max-width:var(--max); margin:0 auto; padding: 18px 16px 64px;}
+    .section{padding: 54px 0;}
+    .grid-2{display:grid; grid-template-columns: 1.15fr .85fr; gap: 22px; align-items:center;}
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px;}
+    .grid-4{display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px;}
+    @media (max-width: 980px){
+      .grid-2{grid-template-columns:1fr; gap: 14px;}
+      .grid-3{grid-template-columns:1fr; }
+      .grid-4{grid-template-columns:1fr 1fr;}
+    }
+    @media (max-width: 560px){
+      .grid-4{grid-template-columns:1fr;}
+      .section{padding: 40px 0;}
     }
 
-    /* Top warning bar */
-    .bar{
-      display:flex;gap:10px;align-items:center;justify-content:center;
-      padding:10px 12px;
-      border-radius:14px;
-      background: rgba(239,68,68,.12);
-      border:1px solid rgba(239,68,68,.35);
-      color:#ffd6d6;
-      font-weight:800;
-      text-align:center;
+    /* Top bar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(6,9,18,.55);
+      border-bottom: 1px solid var(--line);
     }
-    .bar b{color:#fff}
-
-    /* Nav */
     .nav{
-      position:sticky;top:12px;z-index:50;
-      margin-top:12px;
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      padding:12px 14px;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
     }
     .brand{
-      display:flex;align-items:center;gap:10px;
-      font-weight:1000;letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: .2px;
     }
-    .logo{
-      width:42px;height:42px;border-radius:14px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.06);
+    .brand .logo{
+      width: 42px; height:42px;
+      border-radius: 14px;
       overflow:hidden;
-      display:grid;place-items:center;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-    .logo img{width:100%;height:100%;object-fit:cover}
-    .navlinks{
-      display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
-      font-weight:900;color:var(--muted2);
-    }
-    .navlinks a{text-decoration:none}
-    .navlinks a:hover{color:var(--text)}
-    .navcta{
-      display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;
+    .brand small{
+      display:block;
+      font-weight:700;
+      color: var(--muted);
+      letter-spacing: .3px;
+      margin-top: 1px;
     }
 
-    /* Buttons */
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:10px 14px;border-radius:14px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.05);
-      text-decoration:none;
-      font-weight:1000;
-      transition: transform .15s ease, filter .15s ease;
-      white-space:nowrap;
+    .navlinks{display:flex; gap: 16px; align-items:center; flex-wrap:wrap;}
+    .navlinks a{
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      transition: .15s ease;
     }
-    .btn:hover{transform: translateY(-1px); filter:brightness(1.06)}
-    .btn.primary{background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(22,163,74,.88)); border-color: rgba(34,197,94,.55);}
-    .btn.x{background: linear-gradient(135deg, rgba(59,130,246,.95), rgba(29,78,216,.88)); border-color: rgba(59,130,246,.55);}
-    .btn.disabled{opacity:.55;pointer-events:none}
-    .btn.gold{background: linear-gradient(135deg, rgba(245,158,11,.95), rgba(180,83,9,.88)); border-color: rgba(245,158,11,.55);}
+    .navlinks a:hover{color:var(--text); background: rgba(255,255,255,.06);}
+
+    .cta{display:flex; gap: 10px; align-items:center; flex-wrap:wrap;}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      font-weight: 900;
+      font-size: 14px;
+      box-shadow: 0 16px 45px rgba(0,0,0,.35);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08);}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(59,130,246,.95), rgba(34,197,94,.80));
+      border-color: rgba(255,255,255,.14);
+    }
+    .btn.primary:hover{filter: brightness(1.04);}
+    .btn.warn{background: rgba(245,158,11,.14); border-color: rgba(245,158,11,.35);}
+    .btn.ghost{background: rgba(255,255,255,.04);}
+    .btn.small{padding: 10px 12px; border-radius: 12px; font-size: 13px;}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    /* Mobile menu */
+    .menuBtn{display:none}
+    @media (max-width: 860px){
+      .navlinks{display:none}
+      .menuBtn{display:inline-flex}
+      .cta .btn.small{display:none}
+    }
+    .mobileMenu{
+      display:none;
+      border-top: 1px solid var(--line);
+      padding: 12px 16px 16px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .mobileMenu a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 14px;
+      color: var(--muted);
+      font-weight: 900;
+      border: 1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.03);
+      margin-top: 10px;
+    }
+    .mobileMenu a:hover{color:var(--text); background: rgba(255,255,255,.06);}
+    .mobileMenu .row{display:grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px;}
 
     /* Hero */
-    .hero{margin-top:14px;padding:18px;text-align:center}
-    .heroGrid{
-      display:grid;gap:14px;
-      grid-template-columns: 1fr;
+    .hero{
+      padding: 26px 0 12px;
+    }
+    .heroCard{
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border-radius: calc(var(--radius) + 8px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .heroInner{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      padding: 22px;
       align-items:center;
     }
-    @media(min-width:900px){
-      .heroGrid{grid-template-columns: 1.1fr .9fr; text-align:left;}
-      .hero{text-align:left}
+    @media (max-width: 980px){
+      .heroInner{grid-template-columns:1fr; padding: 18px;}
+    }
+
+    .headline{
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.02;
+      margin: 10px 0 10px;
+      font-weight: 1000;
+      letter-spacing: -.6px;
+    }
+    .subhead{
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0 0 18px;
+      max-width: 60ch;
+    }
+    .heroActions{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin: 14px 0 10px;
+    }
+    @media (max-width: 560px){
+      .heroActions{display:grid; grid-template-columns: 1fr; }
+      .heroActions .btn{width:100%;}
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    @media (max-width: 560px){
+      .stats{grid-template-columns: 1fr 1fr;}
+    }
+    .stat{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.20);
+      border-radius: 16px;
+      padding: 12px 12px;
+    }
+    .stat .k{font-size: 12px; color: var(--muted); font-weight: 800;}
+    .stat .v{font-size: 14px; font-weight: 1000; margin-top: 4px;}
+
+    .heroMedia{
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      padding: 12px;
     }
     .heroBanner{
-      border-radius: var(--radius);
-      border:1px solid var(--border);
+      border-radius: 18px;
       overflow:hidden;
-      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
     }
-    .heroBanner img{width:100%;display:block;object-fit:cover}
-    h1{
-      margin:10px 0 10px;
-      font-size: clamp(34px, 5vw, 56px);
-      line-height:1.02;
-      letter-spacing:-1px;
-    }
-    .sub{
-      margin:0;
-      font-size: clamp(15px, 2.3vw, 18px);
-      color:var(--muted);
-      line-height:1.5;
-    }
-    .pill{
-      display:inline-flex;gap:10px;align-items:center;
-      padding:8px 12px;border-radius:999px;
-      border:1px solid var(--border);
-      color:var(--muted);
-      background:rgba(255,255,255,.04);
-      font-weight:900;
-      width:fit-content;
-    }
-    .heroActions{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
-    .stats{
-      margin-top:14px;
-      display:grid;grid-template-columns: repeat(2, 1fr);gap:10px;
-    }
-    @media(min-width:900px){ .stats{grid-template-columns: repeat(4, 1fr);} }
-    .stat{
-      padding:12px;border-radius:16px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-    }
-    .stat .k{color:var(--muted2);font-weight:900;font-size:12px}
-    .stat .v{font-weight:1000;margin-top:6px}
 
-    /* Sections */
-    .section{margin-top:16px;padding:18px}
-    .section h2{margin:0 0 8px;font-size:22px;letter-spacing:-.4px}
-    .lead{margin:0;color:var(--muted);line-height:1.55}
-    .grid3{margin-top:12px;display:grid;gap:12px;grid-template-columns:1fr}
-    @media(min-width:900px){ .grid3{grid-template-columns: repeat(3,1fr);} }
+    .scamBar{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(239,68,68,.08);
+      color: rgba(255,255,255,.92);
+      font-weight: 900;
+      font-size: 13px;
+      text-align:center;
+    }
+
+    /* Cards */
     .card{
-      padding:16px;border-radius:18px;
-      border:1px solid var(--border);
+      border: 1px solid var(--line);
       background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.22);
     }
-    .card h3{margin:0 0 8px;font-size:16px}
-    .card p{margin:0;color:var(--muted);line-height:1.5}
+    .card h3{margin: 0 0 8px; font-size: 16px;}
+    .card p{margin: 0; color: var(--muted); font-weight: 650; line-height: 1.55;}
+    .kicker{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      color: var(--muted);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    .title{
+      font-size: 28px;
+      font-weight: 1000;
+      margin: 0 0 10px;
+      letter-spacing: -.3px;
+    }
+    .lead{color: var(--muted); font-weight: 650; line-height: 1.6; margin: 0;}
 
-    /* Roadmap timeline */
-    .timeline{margin-top:12px;display:grid;gap:12px}
+    /* Roadmap */
+    .steps{display:grid; gap: 12px;}
     .step{
-      display:flex;gap:12px;align-items:flex-start;
-      padding:14px;border-radius:18px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
     }
     .dot{
-      width:38px;height:38px;border-radius:14px;
-      display:grid;place-items:center;
-      background: rgba(245,158,11,.16);
-      border:1px solid rgba(245,158,11,.35);
-      font-weight:1000;
-      flex:0 0 auto;
+      min-width: 34px; height: 34px;
+      border-radius: 12px;
+      display:grid; place-items:center;
+      font-weight: 1000;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(59,130,246,.14);
     }
-    .step b{display:block;margin-bottom:6px}
-    .step ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.55}
-    .step li{margin:6px 0}
-
-    /* Tokenomics table */
-    table{width:100%;border-collapse:separate;border-spacing:0}
-    .table{
-      overflow:hidden;border-radius:18px;border:1px solid var(--border);
-      margin-top:12px;
-    }
-    th,td{padding:12px 12px;text-align:left}
-    th{background: rgba(255,255,255,.06);color:var(--muted2);font-weight:1000;font-size:12px}
-    td{background: rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
-    .tag{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:6px 10px;border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      font-weight:900;color:var(--muted2);font-size:12px;
-    }
-
-    /* How to buy */
-    .steps{margin-top:12px;display:grid;gap:12px;grid-template-columns:1fr}
-    @media(min-width:900px){ .steps{grid-template-columns: repeat(3,1fr);} }
-    .how{
-      padding:16px;border-radius:18px;border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-    }
-    .how .n{font-weight:1000;color:rgba(245,158,11,.95)}
-    .how p{margin:8px 0 0;color:var(--muted);line-height:1.5}
-
-    /* FAQ */
-    details{
-      margin-top:10px;
-      border:1px solid var(--border);
-      border-radius:18px;
-      background: rgba(255,255,255,.04);
-      padding:12px 14px;
-    }
-    summary{cursor:pointer;font-weight:1000}
-    details p{margin:10px 0 0;color:var(--muted);line-height:1.55}
+    .step b{display:block; margin-bottom: 4px;}
+    .step ul{margin:8px 0 0; padding-left: 18px; color: var(--muted); font-weight: 650;}
+    .step li{margin: 6px 0;}
 
     /* Footer */
-    .footer{
-      margin-top:16px;
-      padding:16px 18px;
-      text-align:center;
-      color:var(--muted2);
-      font-size:13px;
+    footer{
+      margin-top: 44px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 13px;
+      line-height: 1.55;
     }
-    .footer b{color:var(--text)}
-    .anchor{scroll-margin-top: 95px;}
+
+    /* Smooth anchor offset under sticky nav */
+    section{scroll-margin-top: 84px;}
   </style>
 </head>
 
 <body>
-  <div class="wrap">
 
-    <div class="bar">
-      ⚠️ <b>Beware of scams:</b> Admins will NEVER DM you first. Only trust links on this site + pinned Telegram message.
-    </div>
-
-    <div class="nav glass">
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="nav">
       <div class="brand">
         <div class="logo">
-          <img src="rig-mascot.png.PNG"
+          <!-- Mascot -->
+          <img src="rig-mascot.png.PNG" alt="$RIG mascot">
         </div>
-        <div>$RIG</div>
+        <div>
+          <div>$RIG</div>
+          <small>Built to work. Ready to earn.</small>
+        </div>
       </div>
 
-      <div class="navlinks" aria-label="Primary navigation">
+      <div class="navlinks">
         <a href="#about">About</a>
         <a href="#how">How to Buy</a>
-        <a href="#token">Tokenomics</a>
+        <a href="#tokenomics">Tokenomics</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#safety">Safety</a>
         <a href="#faq">FAQ</a>
         <a href="#links">Links</a>
       </div>
 
-      <div class="navcta">
-        <a class="btn primary" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
-        <a class="btn x" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a>
+      <div class="cta">
+        <a class="btn small ghost" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a>
+        <a class="btn small primary" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
+        <button class="btn small menuBtn" id="menuBtn" aria-label="Open menu">☰ Menu</button>
       </div>
     </div>
 
-    <section class="hero glass">
-      <div class="heroGrid">
-        <div>
-          <div class="pill">🔧 Built different • Blue-collar culture • Long-term build</div>
-          <h1>Built to work.<br/>Ready to earn.</h1>
-          <p class="sub">
-            $RIG is a Solana community built on Proof-of-Work values: grind, integrity, and long-term building.
-            No fake promises. We build it right.
-          </p>
+    <div class="mobileMenu" id="mobileMenu">
+      <a href="#about">About</a>
+      <a href="#how">How to Buy</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#safety">Safety</a>
+      <a href="#faq">FAQ</a>
+      <a href="#links">Links</a>
+      <div class="row">
+        <a href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
+        <a href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a>
+      </div>
+    </div>
+  </div>
 
-          <div class="heroActions">
-            <a class="btn gold disabled" href="#" aria-disabled="true">Buy (Coming Soon)</a>
-            <a class="btn disabled" href="#" aria-disabled="true">Chart (Coming Soon)</a>
-            <a class="btn disabled" href="#" aria-disabled="true">Whitepaper (Soon)</a>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="heroCard">
+        <div class="heroInner">
+          <div>
+            <div class="kicker">🛠️ blue-collar culture • credibility first • long-term build</div>
+            <h1 class="headline">Built to work.<br/>Ready to earn.</h1>
+            <p class="subhead">
+              $RIG is a Solana community built on Proof-of-Work values: grind, integrity, and building something real.
+              No “team” DMs. No fake promises. We build it right.
+            </p>
+
+            <div class="heroActions">
+              <a class="btn primary" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
+              <a class="btn ghost" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a>
+              <button class="btn warn" id="copyCaBtn" type="button" title="Copy contract address">
+                Copy CA (Coming Soon)
+              </button>
+            </div>
+
+            <div class="stats">
+              <div class="stat"><div class="k">Chain</div><div class="v">Solana</div></div>
+              <div class="stat"><div class="k">Contract</div><div class="v">Coming Soon</div></div>
+              <div class="stat"><div class="k">Community</div><div class="v">Telegram + X</div></div>
+              <div class="stat"><div class="k">Focus</div><div class="v">Credibility First</div></div>
+            </div>
           </div>
 
-          <div class="stats">
-            <div class="stat"><div class="k">Chain</div><div class="v">Solana</div></div>
-            <div class="stat"><div class="k">Contract</div><div class="v">Coming Soon</div></div>
-            <div class="stat"><div class="k">Community</div><div class="v">Telegram + X</div></div>
-            <div class="stat"><div class="k">Focus</div><div class="v">Credibility First</div></div>
+          <div class="heroMedia">
+            <div class="heroBanner">
+              <!-- Hero banner -->
+              <img src="rig-hero.png.PNG" alt="$RIG hero banner">
+            </div>
+            <div class="scamBar">
+              ⚠️ Admins will NEVER DM you first. Only trust links on this site + pinned Telegram message.
+            </div>
           </div>
-        </div>
-
-        <div class="heroBanner">
-          <img src="rig-hero.png.PNG" alt="$RIG banner" />
         </div>
       </div>
-    </section>
+    </div>
 
-    <section id="about" class="section glass anchor">
-      <h2>About $RIG</h2>
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="kicker">📌 About</div>
+      <h2 class="title">A memecoin with real-world work ethic.</h2>
       <p class="lead">
-        This is a culture coin built around real-world work ethic. The goal is to build a recognizable community brand
-        that can scale — not just chase a candle.
+        Most coins chase hype. $RIG builds a recognizable brand: workers, builders, and grinders.
+        The goal is to grow the culture first, then ship real utility (Proof-of-Work edition) over time.
       </p>
 
-      <div class="grid3">
+      <div style="height:16px"></div>
+
+      <div class="grid-3">
         <div class="card">
-          <h3>🛠 Culture</h3>
+          <h3>🧰 Culture</h3>
           <p>For workers, builders, and grinders. A community you can actually recognize.</p>
         </div>
         <div class="card">
-          <h3>🔍 Transparency</h3>
+          <h3>🔎 Transparency</h3>
           <p>Clear links, clear rules, consistent updates. Trust is the product.</p>
         </div>
         <div class="card">
           <h3>📈 Long-term</h3>
-          <p>Not a one-day meme. We build step-by-step into something real.</p>
+          <p>Not a one-day meme. Step-by-step growth into something bigger.</p>
         </div>
       </div>
     </section>
 
-    <section id="how" class="section glass anchor">
-      <h2>How to Buy</h2>
-      <p class="lead">When live, we’ll keep this simple and scam-proof.</p>
+    <!-- HOW TO BUY -->
+    <section id="how" class="section">
+      <div class="kicker">🛒 How to Buy</div>
+      <h2 class="title">Simple, scam-proof steps.</h2>
+      <p class="lead">When the contract is live, we’ll keep this easy. Only use official links from this site + pinned Telegram.</p>
+
+      <div style="height:16px"></div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>1) Get a Solana wallet</h3>
+          <p>Use Phantom (recommended) or another trusted Solana wallet. Never share your seed phrase.</p>
+        </div>
+        <div class="card">
+          <h3>2) Load SOL</h3>
+          <p>Buy SOL on a reputable exchange and send it to your wallet address.</p>
+        </div>
+        <div class="card">
+          <h3>3) Use the official link</h3>
+          <p>We’ll post the official buy/chart link here and pin it in Telegram. No random DMs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOKENOMICS -->
+    <section id="tokenomics" class="section">
+      <div class="kicker">🧾 Tokenomics</div>
+      <h2 class="title">Clear details. No confusion.</h2>
+      <p class="lead">Fill these in when finalized. Leaving blanks is better than guessing.</p>
+
+      <div style="height:16px"></div>
+
+      <div class="grid-4">
+        <div class="card"><h3>Ticker</h3><p>$RIG</p></div>
+        <div class="card"><h3>Chain</h3><p>Solana</p></div>
+        <div class="card"><h3>Total Supply</h3><p>Coming Soon</p></div>
+        <div class="card"><h3>Contract</h3><p>Coming Soon</p></div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Liquidity</h3>
+          <p>We’ll publish LP + lock details once live. Only official links.</p>
+        </div>
+        <div class="card">
+          <h3>Taxes</h3>
+          <p>If applicable, we’ll clearly state it here. If none, we’ll state “0%”.</p>
+        </div>
+        <div class="card">
+          <h3>Transparency Posts</h3>
+          <p>Regular updates on what shipped + what’s next. Credibility is the meta.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap" class="section">
+      <div class="kicker">🗺️ Roadmap</div>
+      <h2 class="title">Build it like a real brand.</h2>
+      <p class="lead">This is a practical roadmap. No fantasy promises — just consistent execution.</p>
+
+      <div style="height:16px"></div>
 
       <div class="steps">
-        <div class="how">
-          <div class="n">1) Get a Solana wallet</div>
-          <p>Use Phantom or a trusted Solana wallet. Never share seed phrases.</p>
-        </div>
-        <div class="how">
-          <div class="n">2) Load SOL</div>
-          <p>Buy SOL on a reputable exchange and send it to your wallet.</p>
-        </div>
-        <div class="how">
-          <div class="n">3) Use the official link</div>
-          <p>Only use the buy link posted on this site + pinned Telegram message.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="token" class="section glass anchor">
-      <h2>Tokenomics</h2>
-      <p class="lead">
-        Token details will be posted clearly when finalized. No hidden links. No confusion.
-      </p>
-
-      <div class="table">
-        <table>
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Value</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="tag">Ticker</span></td>
-              <td>$RIG</td>
-              <td>Official ticker</td>
-            </tr>
-            <tr>
-              <td><span class="tag">Chain</span></td>
-              <td>Solana</td>
-              <td>Fast + low fees</td>
-            </tr>
-            <tr>
-              <td><span class="tag">Contract Address</span></td>
-              <td>COMING SOON</td>
-              <td>Will be pinned on Telegram + shown here</td>
-            </tr>
-            <tr>
-              <td><span class="tag">Buy / Chart</span></td>
-              <td>COMING SOON</td>
-              <td>Only official links will appear in the Links section</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section id="roadmap" class="section glass anchor">
-      <h2>Roadmap</h2>
-      <p class="lead">Direction, not fake promises. We ship what we can support.</p>
-
-      <div class="timeline">
         <div class="step">
           <div class="dot">1</div>
           <div>
-            <b>Foundation</b>
+            <b>Foundation Phase</b>
             <ul>
               <li>Telegram structure + moderation</li>
-              <li>Official site + official links</li>
+              <li>Official site + official links only</li>
               <li>Weekly updates + consistent comms</li>
             </ul>
           </div>
@@ -409,11 +537,11 @@
         <div class="step">
           <div class="dot">2</div>
           <div>
-            <b>Credibility</b>
+            <b>Credibility Phase</b>
             <ul>
               <li>Tracking sites + listing readiness</li>
-              <li>Clear transparency posts (LP / locks / supply details)</li>
-              <li>Community growth loops (reply strategy + content)</li>
+              <li>Clear transparency posts (LP / locks / updates)</li>
+              <li>Community growth loops (reply strategy + shareable content)</li>
             </ul>
           </div>
         </div>
@@ -421,80 +549,119 @@
         <div class="step">
           <div class="dot">3</div>
           <div>
-            <b>Proof-of-Work Mechanism</b>
+            <b>Utility Phase (Proof-of-Work edition)</b>
             <ul>
-              <li>First “real work” community program</li>
-              <li>Rewards + milestones tied to contribution</li>
-              <li>Partnerships with blue-collar creators</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="dot">4</div>
-          <div>
-            <b>Scale</b>
-            <ul>
-              <li>Brand expansion + ecosystem tie-ins</li>
-              <li>More utilities only if sustainable</li>
-              <li>Long-term growth to millions+</li>
+              <li>On-chain rewards concept (workers/builders)</li>
+              <li>Partner outreach (blue-collar brands, creators)</li>
+              <li>Ship small features → iterate → scale</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="safety" class="section glass anchor" style="border:1px solid rgba(239,68,68,.35); background: rgba(239,68,68,.08);">
-      <h2>Safety & Anti-Scam</h2>
-      <p class="lead">
-        <b>Admins will NEVER DM you first.</b> No “support” links in DMs. No airdrops in DMs.
-        Only trust links posted on this website and the pinned messages in the official Telegram.
-      </p>
-    </section>
+    <!-- SAFETY -->
+    <section id="safety" class="section">
+      <div class="kicker">🛡️ Safety</div>
+      <h2 class="title">Stay safe. Stay real.</h2>
+      <p class="lead">This section keeps your community from getting drained by scammers.</p>
 
-    <section id="faq" class="section glass anchor">
-      <h2>FAQ</h2>
+      <div style="height:16px"></div>
 
-      <details>
-        <summary>When is the contract address (CA) posted?</summary>
-        <p>When finalized. It will be displayed on this site and pinned in Telegram. Do not trust any other source.</p>
-      </details>
-
-      <details>
-        <summary>Why “Built to work”?</summary>
-        <p>It’s the culture: consistency, integrity, and long-term building — not fake hype.</p>
-      </details>
-
-      <details>
-        <summary>Will there be a whitepaper/audit?</summary>
-        <p>We’ll publish documents when they’re real and ready — not placeholders with empty promises.</p>
-      </details>
-    </section>
-
-    <section id="links" class="section glass anchor">
-      <h2>Official Links</h2>
-      <div class="grid3">
+      <div class="grid-3">
         <div class="card">
-          <h3>Community</h3>
-          <p><a class="btn primary" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Telegram</a></p>
+          <h3>Admins never DM first</h3>
+          <p>If someone messages you “support” or “verification” — it’s a scam. Block instantly.</p>
         </div>
         <div class="card">
-          <h3>Social</h3>
-          <p><a class="btn x" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">X (Twitter)</a></p>
+          <h3>Only trust pinned links</h3>
+          <p>Official links live on this website + pinned Telegram message. Everything else is fake.</p>
         </div>
         <div class="card">
-          <h3>Trading</h3>
-          <p><span class="btn disabled" aria-disabled="true">Buy (Soon)</span></p>
-          <p style="margin-top:10px;"><span class="btn disabled" aria-disabled="true">Chart (Soon)</span></p>
+          <h3>Never share seed phrases</h3>
+          <p>Not for “airdrops”, not for “whitelists”, not for anything. Seed phrase = your wallet.</p>
         </div>
       </div>
     </section>
 
-    <div class="footer glass">
-      <div><b>$RIG</b> — Built to work. Ready to earn. 🔧</div>
-      <div style="margin-top:6px;">Not financial advice. Crypto is risky. Only risk what you can afford to lose.</div>
-    </div>
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="kicker">❓ FAQ</div>
+      <h2 class="title">Quick answers.</h2>
+
+      <div style="height:16px"></div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Is the contract live?</h3>
+          <p>Not yet. When it is, the CA will be posted here + pinned in Telegram.</p>
+        </div>
+        <div class="card">
+          <h3>Where’s the community?</h3>
+          <p>Telegram for real-time + X for updates and content drops.</p>
+        </div>
+        <div class="card">
+          <h3>What makes $RIG different?</h3>
+          <p>Blue-collar identity + long-term credibility. No fake promises — just building.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section id="links" class="section">
+      <div class="kicker">🔗 Links</div>
+      <h2 class="title">Official links only.</h2>
+      <p class="lead">Bookmark these. Ignore everything else.</p>
+
+      <div style="height:16px"></div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Telegram</h3>
+          <p><a class="btn small primary" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a></p>
+        </div>
+        <div class="card">
+          <h3>X</h3>
+          <p><a class="btn small ghost" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a></p>
+        </div>
+        <div class="card">
+          <h3>Chart / Buy</h3>
+          <p><span class="pill">Coming soon — only from official links</span></p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div><b>Disclaimer:</b> $RIG is a community memecoin. Crypto is risky. Never invest money you can’t afford to lose.</div>
+      <div style="margin-top:10px;">Security note: Admins will never DM first. Only trust links on this site + pinned Telegram message.</div>
+    </footer>
 
   </div>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu){
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.style.display = (mobileMenu.style.display === 'block') ? 'none' : 'block';
+      });
+    }
+
+    // Copy CA button (placeholder)
+    const copyBtn = document.getElementById('copyCaBtn');
+    if (copyBtn){
+      copyBtn.addEventListener('click', async () => {
+        const CA = "COMING_SOON";
+        try{
+          await navigator.clipboard.writeText(CA);
+          copyBtn.textContent = "Copied!";
+          setTimeout(()=> copyBtn.textContent = "Copy CA (Coming Soon)", 1200);
+        }catch(e){
+          alert("Contract address not set yet.");
+        }
+      });
+    }
+  </script>
 </body>
 </html>
