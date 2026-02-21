@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,248 +5,401 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>$RIG — Built to work. Ready to earn.</title>
   <meta name="description" content="$RIG is a Solana community built on Proof-of-Work values: grind, integrity, and long-term building." />
+  <meta name="theme-color" content="#0b1220" />
   <style>
     :root{
-      --bg:#0b0f1a;
-      --card:#111a2f;
-      --text:#eaf0ff;
-      --muted:#9fb0d0;
-      --accent:#3b82f6;
-      --good:#22c55e;
-      --danger:#ef4444;
+      --bg0:#070b14;
+      --bg1:#0b1220;
+      --card:rgba(255,255,255,.06);
       --border:rgba(255,255,255,.10);
+      --text:#eef2ff;
+      --muted:rgba(238,242,255,.72);
+      --muted2:rgba(238,242,255,.55);
+      --accent:#2f80ff;
+      --accent2:#22c55e;
+      --shadow: 0 24px 70px rgba(0,0,0,.55);
+      --radius:18px;
+      --max: 1080px;
     }
+
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: radial-gradient(1200px 800px at 10% 10%, rgba(59,130,246,.22), transparent 60%),
-                  radial-gradient(1000px 700px at 90% 30%, rgba(34,197,94,.10), transparent 60%),
-                  var(--bg);
       color:var(--text);
-      line-height:1.35;
+      background:
+        radial-gradient(900px 500px at 20% 15%, rgba(47,128,255,.22), transparent 60%),
+        radial-gradient(800px 500px at 80% 20%, rgba(34,197,94,.12), transparent 60%),
+        radial-gradient(900px 600px at 50% 95%, rgba(255,255,255,.06), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
     }
-    a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:26px}
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:14px 18px;border:1px solid var(--border);border-radius:14px;
-      background:rgba(17,26,47,.65);backdrop-filter: blur(10px);
-      position:sticky;top:16px;z-index:10;
-    }
-    .brand{display:flex;gap:12px;align-items:center;font-weight:900;letter-spacing:.2px}
-    .logo{
-      width:38px;height:38px;border-radius:10px;background:rgba(59,130,246,.18);
-      display:grid;place-items:center;border:1px solid var(--border);
-    }
-    .logo span{font-size:18px}
-    .navlinks{display:flex;gap:14px;flex-wrap:wrap}
-    .navlinks a{opacity:.85;text-decoration:none;font-weight:700}
-    .navlinks a:hover{opacity:1;text-decoration:underline}
 
-    .hero{padding:42px 0 22px;display:grid;gap:18px}
+    a{color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:22px 18px 60px}
+    .glass{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    /* Top bar */
+    .topbar{
+      position:sticky;top:14px;z-index:20;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:12px 14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.2px;
+    }
+    .mark{
+      width:40px;height:40px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(47,128,255,.35), rgba(34,197,94,.18));
+      border:1px solid var(--border);
+      display:grid;place-items:center;
+    }
+    .mark span{font-size:18px}
+    .nav{
+      display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+      font-weight:800;color:var(--muted2);
+    }
+    .nav a{text-decoration:none}
+    .nav a:hover{color:var(--text)}
+    .navRight{
+      display:flex;gap:10px;align-items:center;justify-content:flex-end;
+      color:var(--muted2);
+      font-weight:800;
+      min-width:64px;
+    }
+
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      padding:30px 18px 18px;
+      text-align:center;
+    }
     .pill{
-      display:inline-flex;gap:8px;align-items:center;
-      padding:8px 12px;border-radius:999px;border:1px solid var(--border);
-      background:rgba(17,26,47,.55);color:var(--muted);font-weight:800;
-      width:max-content;
+      display:inline-flex;gap:10px;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--muted);
+      background:rgba(255,255,255,.04);
+      font-weight:800;
     }
     .pill b{color:var(--text)}
-    h1{font-size:44px;margin:0;letter-spacing:-.8px}
-    .sub{color:var(--muted);font-size:18px;max-width:820px}
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height:1.02;
+      letter-spacing:-1px;
+    }
+    .sub{
+      margin:0 auto;
+      max-width:780px;
+      font-size: clamp(15px, 2.3vw, 18px);
+      color:var(--muted);
+      line-height:1.45;
+    }
 
-    .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+    .ctaRow{
+      margin-top:18px;
+      display:flex;gap:12px;flex-wrap:wrap;
+      justify-content:center;
+    }
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
-      padding:12px 14px;border-radius:12px;border:1px solid var(--border);
-      background:rgba(17,26,47,.65);text-decoration:none;font-weight:900;
-      min-width:160px;
+      padding:12px 16px;border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      font-weight:900;text-decoration:none;
+      min-width: 170px;
+      transition: transform .15s ease, filter .15s ease, background .15s ease;
     }
-    .btn.primary{background:linear-gradient(135deg, rgba(59,130,246,.95), rgba(37,99,235,.92));border-color:rgba(59,130,246,.45)}
-    .btn.green{background:linear-gradient(135deg, rgba(34,197,94,.92), rgba(22,163,74,.90));border-color:rgba(34,197,94,.45)}
+    .btn:hover{transform: translateY(-1px); filter:brightness(1.06)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(47,128,255,.95), rgba(22,88,255,.86));
+      border-color: rgba(47,128,255,.55);
+    }
+    .btn.green{
+      background: linear-gradient(135deg, rgba(34,197,94,.92), rgba(22,163,74,.88));
+      border-color: rgba(34,197,94,.55);
+    }
+    .btn.ghost{background:rgba(255,255,255,.04)}
     .btn.disabled{opacity:.55;pointer-events:none}
-    .btn:hover{transform:translateY(-1px)}
 
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin:22px 0}
+    .miniNote{
+      margin-top:14px;
+      font-size:13px;
+      color:var(--muted2);
+    }
+
+    /* Feature grid */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (min-width: 860px){
+      .grid{grid-template-columns: repeat(3, 1fr)}
+    }
     .card{
-      grid-column:span 12;
-      padding:18px;border-radius:16px;border:1px solid var(--border);
-      background:rgba(17,26,47,.65);backdrop-filter: blur(10px);
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      text-align:left;
     }
-    .card h2{margin:0 0 10px;font-size:20px}
-    .card p{margin:0;color:var(--muted)}
-    @media (min-width: 900px){
-      .card.span6{grid-column:span 6}
-      .card.span4{grid-column:span 4}
-      .card.span8{grid-column:span 8}
+    .card h3{
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:-.2px;
+    }
+    .card p{margin:0;color:var(--muted);line-height:1.45}
+
+    /* Sections */
+    .section{
+      margin-top:16px;
+      padding:18px;
+      text-align:center;
+    }
+    .section h2{
+      margin:0 0 8px;
+      font-size:22px;
+      letter-spacing:-.4px;
+    }
+    .section .lead{
+      margin:0 auto;
+      max-width:860px;
+      color:var(--muted);
+      line-height:1.55;
     }
 
-    ul{margin:10px 0 0 18px;color:var(--muted)}
-    li{margin:8px 0}
+    .twoCol{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      text-align:left;
+    }
+    @media (min-width: 860px){
+      .twoCol{grid-template-columns: 1fr 1fr}
+    }
 
+    .list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+    .list li{margin:8px 0}
     .mono{
+      margin-top:10px;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size:13px;color:#cfe0ff;background:rgba(0,0,0,.25);
-      border:1px dashed rgba(255,255,255,.18);padding:10px;border-radius:12px;overflow:auto
+      font-size:13px;
+      color:#dbe7ff;
+      background: rgba(0,0,0,.28);
+      border:1px dashed rgba(255,255,255,.18);
+      padding:12px;
+      border-radius:14px;
+      overflow:auto;
+      text-align:left;
     }
-    .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border-radius:12px;border:1px solid var(--border);
-      background:rgba(0,0,0,.18);font-weight:900;color:var(--text)
+
+    .warning{
+      border:1px solid rgba(239,68,68,.35);
+      background: rgba(239,68,68,.07);
     }
-    .danger{color:#ffd3d3}
-    .small{font-size:14px;color:var(--muted)}
-    .hr{height:1px;background:rgba(255,255,255,.10);margin:18px 0}
-    .footer{padding:26px 0 40px;color:var(--muted);font-size:14px}
+    .warning strong{color:#ffd6d6}
+
+    /* Footer */
+    .footer{
+      margin-top:16px;
+      padding:16px 18px;
+      text-align:center;
+      color:var(--muted2);
+      font-size:13px;
+    }
+    .footer a{color:var(--muted);text-decoration:none}
+    .footer a:hover{color:var(--text)}
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="nav">
+
+    <!-- Top Bar -->
+    <div class="topbar glass">
       <div class="brand">
-        <div class="logo"><span>🔧</span></div>
+        <div class="mark"><span>🔧</span></div>
         <div>$RIG</div>
       </div>
-      <div class="navlinks">
+
+      <nav class="nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#token">Token</a>
         <a href="#safety">Safety</a>
         <a href="#links">Links</a>
-      </div>
+      </nav>
+
+      <div class="navRight">Solana</div>
     </div>
 
-    <section class="hero">
+    <!-- Hero -->
+    <section class="hero glass">
       <div class="pill">🧱 <b>Foundation Phase</b> — community + credibility first</div>
-      <h1>Built to work. Ready to earn. 🔧</h1>
-      <div class="sub">
-        $RIG is a <b>Solana</b> community built on Proof-of-Work values: grind, integrity, and long-term building.
+
+      <h1>Built to work.<br/>Ready to earn. 🔧</h1>
+
+      <p class="sub">
+        $RIG is a Solana community built on Proof-of-Work values: grind, integrity, and long-term building.
         No “team” DMs. No fake promises. We build it right.
-      </div>
+      </p>
 
-      <div class="ctas">
+      <div class="ctaRow">
         <a class="btn green" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
-        <a class="btn primary disabled" href="#">Buy (Coming Soon)</a>
-        <a class="btn disabled" href="#">Chart (Coming Soon)</a>
+        <a class="btn primary disabled" href="#" aria-disabled="true">Buy (Coming Soon)</a>
+        <a class="btn ghost disabled" href="#" aria-disabled="true">Chart (Coming Soon)</a>
       </div>
 
-      <div class="grid">
-        <div class="card span4">
-          <h2>🛠 Culture</h2>
+      <div class="miniNote">
+        Tip: verify contract address only from this site + pinned Telegram message.
+      </div>
+
+      <div class="grid" style="margin-top:18px;">
+        <div class="card">
+          <h3>🛠 Culture</h3>
           <p>For workers, builders, and grinders. A community you can actually recognize.</p>
         </div>
-        <div class="card span4">
-          <h2>🔍 Transparency</h2>
+        <div class="card">
+          <h3>🔍 Transparency</h3>
           <p>Clear links, clear info, clear rules. Trust is the product.</p>
         </div>
-        <div class="card span4">
-          <h2>📈 Long-term</h2>
+        <div class="card">
+          <h3>📈 Long-term</h3>
           <p>Not chasing one candle. Building something that can grow into millions.</p>
         </div>
       </div>
     </section>
 
-    <section id="about" class="grid">
-      <div class="card span8">
-        <h2>What is $RIG?</h2>
-        <p>
-          $RIG is community-first. The vision is simple:
-          <b>crypto should respect real work.</b>
-          We’re building a blue-collar identity in a space full of copy/paste memes.
-        </p>
-        <div class="hr"></div>
-        <div style="display:grid;gap:10px">
-          <div class="badge">🔧 Proof-of-Work mindset</div>
-          <div class="badge">👷 Blue-collar community + culture</div>
-          <div class="badge">🧱 Foundation-first building approach</div>
+    <!-- About -->
+    <section id="about" class="section glass">
+      <h2>What is $RIG?</h2>
+      <p class="lead">
+        $RIG is community-first. The vision is simple: <b>crypto should respect real work.</b>
+        We’re building a blue-collar identity in a space full of copy/paste memes — with consistent updates and clean communication.
+      </p>
+
+      <div class="twoCol">
+        <div class="card">
+          <h3>Mission</h3>
+          <p>Build the most trusted blue-collar crypto community on Solana — and grow it through consistent work, not fake hype.</p>
+        </div>
+        <div class="card">
+          <h3>What makes it different</h3>
+          <ul class="list">
+            <li>Foundation-first approach (community + credibility before hype)</li>
+            <li>Clear public links + safety-first messaging</li>
+            <li>Proof-of-Work mindset + real-builder culture</li>
+          </ul>
         </div>
       </div>
-
-      <div class="card span4">
-        <h2>Mission</h2>
-        <p>
-          Build the most trusted blue-collar crypto community on Solana — and grow it through consistent work, not fake hype.
-        </p>
-      </div>
     </section>
 
-    <section id="roadmap" class="grid">
-      <div class="card span12">
-        <h2>Roadmap</h2>
-        <ul>
-          <li><b>Phase 1 — Foundation:</b> Telegram + website + community culture + transparency setup.</li>
-          <li><b>Phase 2 — Expansion:</b> Listings prep (trackers), community growth systems, regular weekly updates.</li>
-          <li><b>Phase 3 — Utility:</b> Launch the first “Proof-of-Work” community mechanism (rewards/roles/recognition).</li>
-          <li><b>Phase 4 — Scale:</b> Partnerships + blue-collar creator network + merch + real-world tie-ins.</li>
-        </ul>
-        <p class="small">Roadmap is direction, not a promise. We ship what we can support long-term.</p>
-      </div>
-    </section>
+    <!-- Roadmap -->
+    <section id="roadmap" class="section glass">
+      <h2>Roadmap</h2>
+      <p class="lead">Direction, not promises. We ship what we can support long-term.</p>
 
-    <section id="token" class="grid">
-      <div class="card span6">
-        <h2>Token Info</h2>
-        <p>Chain: <b>Solana</b></p>
-        <p class="small">Contract Address (CA):</p>
-        <div class="mono" id="ca">COMING SOON</div>
-        <div class="ctas" style="margin-top:12px">
-          <button class="btn disabled" type="button">Copy CA</button>
+      <div class="twoCol">
+        <div class="card">
+          <h3>Phase 1 — Foundation</h3>
+          <ul class="list">
+            <li>Telegram + moderation</li>
+            <li>Website + official links</li>
+            <li>Community culture loops + weekly updates</li>
+          </ul>
         </div>
-        <p class="small">
-          CA will be posted here + pinned in Telegram. Always verify before buying.
-        </p>
-      </div>
-
-      <div class="card span6">
-        <h2>Transparency</h2>
-        <ul>
-          <li><b>Liquidity:</b> Not locked yet (will be disclosed publicly when done).</li>
-          <li><b>Dev/Team allocation:</b> Will be disclosed publicly.</li>
-          <li><b>Holders:</b> Community-first growth, no fake promises.</li>
-        </ul>
-        <p class="small">As we finalize launch details, this section will be updated with proof links.</p>
+        <div class="card">
+          <h3>Phase 2–4 — Expansion to Scale</h3>
+          <ul class="list">
+            <li>Listings prep (trackers) + credibility upgrades</li>
+            <li>First Proof-of-Work community mechanism</li>
+            <li>Partnerships + creator network + real-world tie-ins</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section id="safety" class="grid">
-      <div class="card span12">
-        <h2>Safety & Anti-Scam</h2>
-        <p class="danger">
-          Admins will NEVER DM you first. No airdrops in DMs. No “support” links in DMs.
-          Only trust links posted on this website and pinned messages in the official Telegram.
-        </p>
-        <ul>
-          <li>Verify the contract address before buying.</li>
-          <li>Ignore anyone pretending to be “team” in DMs.</li>
-          <li>Report scam links in Telegram immediately.</li>
-        </ul>
+    <!-- Token -->
+    <section id="token" class="section glass">
+      <h2>Token</h2>
+      <p class="lead">
+        Contract address and trading links will be posted here when finalized.
+        Always verify the CA from this page and the pinned Telegram message.
+      </p>
+
+      <div class="twoCol">
+        <div class="card">
+          <h3>Contract Address (CA)</h3>
+          <div class="mono">COMING SOON</div>
+          <p style="margin:10px 0 0;color:var(--muted2);font-size:13px;">
+            When live, this box will show the official CA.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Transparency Checklist</h3>
+          <ul class="list">
+            <li>LP / lock status will be publicly disclosed</li>
+            <li>Allocation details will be posted clearly</li>
+            <li>Only official links listed on this site + pinned Telegram</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section id="links" class="grid">
-      <div class="card span4">
-        <h2>Official Links</h2>
-        <ul>
-          <li><a href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Telegram</a></li>
-          <li><span class="small">X: add your link here</span></li>
-          <li><span class="small">Buy/Chart: coming soon</span></li>
-        </ul>
-      </div>
+    <!-- Safety -->
+    <section id="safety" class="section glass warning">
+      <h2>Safety & Anti-Scam</h2>
+      <p class="lead">
+        <strong>Admins will NEVER DM you first.</strong> No airdrops in DMs. No “support” links in DMs.
+        Only trust links posted on this website and pinned messages in the official Telegram.
+      </p>
+    </section>
 
-      <div class="card span8">
-        <h2>Weekly Updates</h2>
-        <p>
-          We post weekly progress updates. If it’s not posted publicly, it’s not promised.
-          This is how trust is built over time.
-        </p>
+    <!-- Links -->
+    <section id="links" class="section glass">
+      <h2>Official Links</h2>
+      <p class="lead">We keep links clean and minimal to reduce scams.</p>
+
+      <div class="twoCol">
+        <div class="card">
+          <h3>Community</h3>
+          <ul class="list">
+            <li><a href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Telegram (Official)</a></li>
+            <li>X (Coming soon)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Trading</h3>
+          <ul class="list">
+            <li>Buy link (Coming soon)</li>
+            <li>Chart link (Coming soon)</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <div class="footer">
+    <div class="footer glass">
       <div><b>$RIG</b> — Built to work. Ready to earn. 🔧</div>
-      <div class="small">Not financial advice. Crypto is risky. Only risk what you can afford to lose.</div>
+      <div style="margin-top:6px;">Not financial advice. Crypto is risky. Only risk what you can afford to lose.</div>
     </div>
+
   </div>
 </body>
 </html>
