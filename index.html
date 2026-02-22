@@ -3,30 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>$RIG — RIG MACHINE</title>
-  <meta name="description" content="$RIG launches on Solana. Blue collar energy. Built to run." />
-  <meta property="og:title" content="$RIG — RIG MACHINE" />
-  <meta property="og:description" content="Blue collar energy. Built to run." />
+  <title>$RIG — Rig Machine</title>
+  <meta name="description" content="$RIG on Solana. The machine is live." />
+  <meta property="og:title" content="$RIG — Rig Machine" />
+  <meta property="og:description" content="The machine is live. CA + chart inside." />
   <meta name="theme-color" content="#0b0f1a" />
 
   <style>
     :root{
-      --bg:#070a12;
-      --panel:rgba(13,18,35,.72);
-      --panel2:rgba(12,15,28,.55);
-      --text:#e9ecff;
-      --muted:rgba(233,236,255,.72);
-      --line:rgba(233,236,255,.12);
-      --glow:rgba(120,140,255,.22);
+      --bg:#070812;
+      --panel:rgba(12,14,25,.72);
+      --line:rgba(255,255,255,.10);
+      --text:#eef0ff;
+      --muted:rgba(238,240,255,.70);
       --accent:#7c5cff;
       --accent2:#00d4ff;
       --good:#2ee59d;
-      --bad:#ff4d6d;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --radius:18px;
-      --max:1100px;
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --r:18px;
+      --max:980px;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial;
     }
 
     *{box-sizing:border-box}
@@ -35,22 +32,23 @@
       margin:0;
       font-family:var(--sans);
       color:var(--text);
-      background: radial-gradient(1200px 800px at 15% 10%, rgba(124,92,255,.18), transparent 55%),
-                  radial-gradient(900px 650px at 80% 20%, rgba(0,212,255,.12), transparent 50%),
-                  radial-gradient(900px 650px at 60% 90%, rgba(255,77,109,.10), transparent 55%),
-                  var(--bg);
+      background:
+        radial-gradient(1000px 650px at 15% 10%, rgba(124,92,255,.20), transparent 55%),
+        radial-gradient(900px 650px at 85% 15%, rgba(0,212,255,.14), transparent 52%),
+        radial-gradient(900px 650px at 55% 90%, rgba(46,229,157,.10), transparent 55%),
+        var(--bg);
       overflow-x:hidden;
     }
 
-    /* animated “energy” background */
-    .bg{
+    /* subtle moving background */
+    .bgGlow{
       position:fixed; inset:-20%;
+      filter: blur(44px);
+      opacity:.85;
       background:
-        radial-gradient(circle at 20% 30%, rgba(124,92,255,.18), transparent 40%),
-        radial-gradient(circle at 70% 40%, rgba(0,212,255,.12), transparent 38%),
-        radial-gradient(circle at 50% 80%, rgba(46,229,157,.09), transparent 40%);
-      filter: blur(40px);
-      opacity:.9;
+        radial-gradient(circle at 25% 30%, rgba(124,92,255,.25), transparent 45%),
+        radial-gradient(circle at 75% 40%, rgba(0,212,255,.16), transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(46,229,157,.12), transparent 55%);
       animation: floaty 10s ease-in-out infinite alternate;
       z-index:-2;
       transform: translate3d(0,0,0);
@@ -60,134 +58,92 @@
       to  { transform: translate(2%, 1%) scale(1.05); }
     }
 
-    /* subtle moving grid */
-    .grid{
-      position:fixed; inset:0;
-      background-image:
-        linear-gradient(to right, rgba(233,236,255,.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(233,236,255,.06) 1px, transparent 1px);
-      background-size: 56px 56px;
-      mask-image: radial-gradient(circle at 50% 30%, rgba(0,0,0,.9), transparent 70%);
-      opacity:.25;
-      animation: drift 22s linear infinite;
-      z-index:-1;
-    }
-    @keyframes drift{
-      from{ background-position: 0 0, 0 0; }
-      to{ background-position: 280px 0, 0 280px; }
-    }
-
     header{
       position:sticky; top:0;
-      backdrop-filter: blur(14px);
-      background: rgba(7,10,18,.55);
-      border-bottom:1px solid var(--line);
       z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(7,8,18,.55);
+      border-bottom:1px solid var(--line);
     }
     .nav{
       max-width:var(--max);
       margin:0 auto;
-      padding:14px 18px;
+      padding:14px 16px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
+      gap:12px;
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight:800;
-      letter-spacing:.4px;
-    }
-    .badge{
-      width:36px; height:36px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(124,92,255,.9), rgba(0,212,255,.65));
-      box-shadow: 0 10px 30px rgba(124,92,255,.22);
-      display:grid; place-items:center;
       font-weight:900;
+      letter-spacing:.2px;
     }
-    .nav a{
-      color:var(--muted);
+    .logoDot{
+      width:38px; height:38px; border-radius:14px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(0,212,255,.70));
+      box-shadow: 0 16px 44px rgba(124,92,255,.22);
+      font-weight:1000;
+    }
+    .navLinks{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    .navLinks a{
       text-decoration:none;
-      font-weight:600;
-      font-size:14px;
-      padding:8px 10px;
-      border-radius:10px;
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
+      padding:9px 10px;
+      border-radius:12px;
       border:1px solid transparent;
     }
-    .nav a:hover{
+    .navLinks a:hover{
       color:var(--text);
       border-color:var(--line);
-      background:rgba(255,255,255,.04);
+      background: rgba(255,255,255,.04);
     }
-    .nav-right{display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end}
 
     main{
       max-width:var(--max);
       margin:0 auto;
-      padding:22px 18px 60px;
-    }
-
-    .hero{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:18px;
-      margin-top:16px;
-    }
-    @media (max-width: 920px){
-      .hero{grid-template-columns: 1fr; }
+      padding:18px 16px 60px;
     }
 
     .card{
-      background: linear-gradient(180deg, var(--panel), rgba(13,18,35,.42));
+      background: linear-gradient(180deg, var(--panel), rgba(12,14,25,.45));
       border:1px solid var(--line);
-      border-radius:var(--radius);
+      border-radius:var(--r);
       box-shadow:var(--shadow);
       overflow:hidden;
-      position:relative;
     }
-    .card::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(800px 200px at 20% 0%, rgba(124,92,255,.22), transparent 60%),
-                  radial-gradient(500px 240px at 80% 10%, rgba(0,212,255,.16), transparent 55%);
-      opacity:.55;
-      pointer-events:none;
-    }
+    .inner{padding:22px; position:relative}
 
-    .card-inner{ position:relative; padding:22px; }
-    .kicker{
-      display:inline-flex; gap:10px; align-items:center;
-      font-weight:800;
-      color:rgba(233,236,255,.9);
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      font-size:12px;
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      align-items:center;
     }
-    .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: var(--good);
-      box-shadow: 0 0 18px rgba(46,229,157,.45);
-    }
-    h1{
-      margin:10px 0 10px;
-      font-size: clamp(34px, 4.3vw, 56px);
-      line-height:1.02;
+    @media (max-width: 860px){ .hero{ grid-template-columns:1fr; } }
+
+    .title{
+      font-size: clamp(34px, 4.6vw, 54px);
+      line-height:1.03;
+      margin:0 0 10px;
       letter-spacing:-.02em;
     }
     .sub{
       color:var(--muted);
-      font-size:16px;
-      line-height:1.55;
-      max-width:60ch;
+      margin:0 0 14px;
+      line-height:1.6;
+      font-size:15.5px;
     }
 
-    .cta-row{
+    .btnRow{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-top:16px;
+      margin-top:14px;
     }
-
     .btn{
       display:inline-flex;
       align-items:center;
@@ -198,145 +154,92 @@
       border:1px solid var(--line);
       background: rgba(255,255,255,.04);
       color:var(--text);
-      font-weight:800;
+      font-weight:900;
       text-decoration:none;
       cursor:pointer;
       transition:.15s ease;
       user-select:none;
     }
     .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); }
-    .btn:active{ transform: translateY(0px) scale(.99); }
     .btn.primary{
-      border-color: transparent;
-      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(0,212,255,.75));
-      box-shadow: 0 16px 40px rgba(124,92,255,.22);
-    }
-    .btn.primary:hover{ filter: brightness(1.05); }
-    .btn.small{ padding:10px 12px; border-radius:12px; font-size:14px; }
-
-    .mono{
-      font-family:var(--mono);
-      font-size:13px;
-      color:rgba(233,236,255,.86);
-      word-break:break-all;
+      border-color:transparent;
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(0,212,255,.78));
+      box-shadow: 0 16px 46px rgba(124,92,255,.22);
     }
 
-    .row{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
+    .caBox{
       margin-top:14px;
-    }
-    @media (max-width: 700px){
-      .row{ grid-template-columns:1fr; }
-    }
-
-    .mini{
-      background: linear-gradient(180deg, var(--panel2), rgba(12,15,28,.35));
+      padding:12px 12px;
+      border-radius:14px;
       border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px;
-      position:relative;
-      overflow:hidden;
-    }
-    .mini .label{
-      color:var(--muted);
-      font-weight:700;
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-    .mini .value{
-      margin-top:8px;
-      font-size:18px;
-      font-weight:900;
-      letter-spacing:-.01em;
-    }
-    .mini .value.good{ color:var(--good); }
-    .mini .value.bad{ color:var(--bad); }
-
-    .section{
-      margin-top:18px;
-    }
-    .section h2{
-      margin:0 0 10px;
-      font-size:20px;
-      letter-spacing:-.01em;
-    }
-    .help{
-      color:var(--muted);
-      line-height:1.6;
-      font-size:15px;
-    }
-    .steps{
-      margin:10px 0 0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:10px;
-    }
-    .steps li{
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:12px 14px;
-      background: rgba(255,255,255,.03);
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-    .num{
-      width:28px; height:28px; border-radius:10px;
-      background: rgba(124,92,255,.18);
-      border:1px solid rgba(124,92,255,.25);
-      display:grid; place-items:center;
-      font-weight:900;
-      flex:0 0 auto;
-    }
-
-    .chart-wrap{
-      padding:0;
-      overflow:hidden;
-      border-radius:var(--radius);
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.25);
-    }
-    .chart-head{
+      background: rgba(0,0,0,.18);
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:10px;
-      padding:14px 16px;
-      border-bottom:1px solid var(--line);
-      background: rgba(255,255,255,.03);
     }
-    .chart-title{
-      font-weight:900;
-      letter-spacing:-.01em;
-    }
-    iframe{
-      width:100%;
-      height:520px;
-      border:0;
-      display:block;
-    }
-    @media (max-width: 700px){
-      iframe{ height:520px; }
+    .caText{
+      font-family:var(--mono);
+      font-size:13px;
+      color:rgba(238,240,255,.86);
+      word-break:break-all;
     }
 
-    footer{
-      max-width:var(--max);
-      margin:22px auto 0;
-      padding:0 18px 28px;
-      color:rgba(233,236,255,.55);
-      font-size:13px;
-      line-height:1.5;
+    .mascotWrap{
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
+    .mascot{
+      width:min(360px, 100%);
+      height:auto;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 22px 70px rgba(0,0,0,.55);
+      background: rgba(255,255,255,.03);
+      animation: bob 3.6s ease-in-out infinite;
+    }
+    @keyframes bob{
+      0%,100%{ transform: translateY(0px); }
+      50%{ transform: translateY(-7px); }
+    }
+
+    .section{ margin-top:16px; }
+    .sectionTitle{
+      font-weight:1000;
+      letter-spacing:-.01em;
+      font-size:18px;
+      margin:0 0 10px;
+    }
+
+    .chartWrap{
+      margin-top:16px;
+      border-radius:var(--r);
+      border:1px solid var(--line);
+      overflow:hidden;
+      background: rgba(0,0,0,.25);
+    }
+    .chartHead{
+      padding:12px 14px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      background: rgba(255,255,255,.03);
+    }
+    .chartHead span{ font-weight:1000; }
+    .chartHead a{ font-size:13px; }
+
+    iframe{ width:100%; height:560px; border:0; display:block; }
+    @media (max-width: 720px){ iframe{ height:560px; } }
+
     .toast{
       position:fixed;
       left:50%;
-      bottom:18px;
+      bottom:16px;
       transform: translateX(-50%);
-      background: rgba(12,15,28,.85);
+      background: rgba(12,14,25,.88);
       border:1px solid var(--line);
       padding:10px 12px;
       border-radius:14px;
@@ -345,234 +248,131 @@
       pointer-events:none;
       transition:.18s ease;
       z-index:999;
-      font-weight:700;
+      font-weight:900;
     }
     .toast.show{ opacity:1; transform: translateX(-50%) translateY(-2px); }
+
+    footer{
+      max-width:var(--max);
+      margin:16px auto 0;
+      padding:0 16px 26px;
+      color:rgba(238,240,255,.55);
+      font-size:13px;
+      line-height:1.5;
+    }
   </style>
 </head>
 
 <body>
-  <div class="bg"></div>
-  <div class="grid"></div>
+  <div class="bgGlow"></div>
 
   <header>
     <div class="nav">
       <div class="brand">
-        <div class="badge">R</div>
+        <div class="logoDot">R</div>
         <div>
-          <div style="font-size:14px; font-weight:900;">$RIG</div>
-          <div style="font-size:12px; color:var(--muted); margin-top:1px;">RIG MACHINE • Solana</div>
+          <div style="font-size:14px;">$RIG</div>
+          <div style="font-size:12px; color:var(--muted); margin-top:2px;">Rig Machine • Solana</div>
         </div>
       </div>
 
-      <div class="nav-right">
-        <a id="navChart" href="#" target="_blank" rel="noopener">Chart</a>
+      <div class="navLinks">
         <a id="navBuy" href="#" target="_blank" rel="noopener">Buy</a>
-        <a id="navTG" href="https://t.me/rigmachinecoinofficial" target="_blank" rel="noopener">Telegram</a>
-        <a id="navX" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noopener">X</a>
+        <a id="navChart" href="#" target="_blank" rel="noopener">Chart</a>
+        <a href="https://rig-solana.com/" target="_blank" rel="noopener">Website</a>
+        <a href="https://t.me/rigmachinecoinofficial" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noopener">X</a>
       </div>
     </div>
   </header>
 
   <main>
-    <div class="hero">
-      <!-- LEFT: hero / stats -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="kicker"><span class="dot"></span> LIVE • READY TO RUN</div>
-          <h1>RIG MACHINE</h1>
-          <p class="sub">
-            Built with blue-collar energy on Solana. Watch the chart, track the stats, and copy the CA in one click.
-          </p>
-
-          <div class="cta-row">
-            <a class="btn primary" id="buyBtn" href="#" target="_blank" rel="noopener">🚀 Buy $RIG</a>
-            <a class="btn" id="chartBtn" href="#" target="_blank" rel="noopener">📈 Open Chart</a>
-            <button class="btn" id="copyBtn">📋 Copy CA</button>
-          </div>
-
-          <div class="section" style="margin-top:16px;">
-            <div class="help" style="margin-bottom:8px;">Contract Address</div>
-            <div class="mini">
-              <div class="mono" id="caText"></div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="mini">
-              <div class="label">Price (USD)</div>
-              <div class="value" id="price">$—</div>
-            </div>
-            <div class="mini">
-              <div class="label">24H Change</div>
-              <div class="value" id="change">—</div>
-            </div>
-            <div class="mini">
-              <div class="label">Liquidity</div>
-              <div class="value" id="liq">$—</div>
-            </div>
-            <div class="mini">
-              <div class="label">24H Volume</div>
-              <div class="value" id="vol">$—</div>
-            </div>
-            <div class="mini">
-              <div class="label">24H Buys / Sells</div>
-              <div class="value" id="txns">—</div>
-            </div>
-            <div class="mini">
-              <div class="label">FDV / MCap (est.)</div>
-              <div class="value" id="fdv">$—</div>
-            </div>
-          </div>
-
-          <div class="section">
-            <h2>How to Buy at 7:00 PM EST</h2>
-            <ul class="steps">
-              <li><div class="num">1</div><div><b>Open Pump.fun</b> and connect <b>Phantom</b> or <b>Solflare</b>.</div></li>
-              <li><div class="num">2</div><div><b>Paste the CA</b> (copy button above) into search.</div></li>
-              <li><div class="num">3</div><div>Choose your amount, set a reasonable slippage, and hit <b>BUY</b>.</div></li>
-              <li><div class="num">4</div><div>Open the <b>chart</b> below to track price, volume, and momentum.</div></li>
-            </ul>
-            <p class="help" style="margin-top:10px;">
-              Tip: If the chart spikes instantly, consider splitting buys (small first, save some for the first dip).
+    <div class="card">
+      <div class="inner">
+        <div class="hero">
+          <div>
+            <h1 class="title">RIG MACHINE</h1>
+            <p class="sub">
+              The machine is live. Copy the CA, buy on Pump.fun, and track the chart in real-time.
             </p>
-          </div>
-        </div>
-      </div>
 
-      <!-- RIGHT: quick links / socials -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="kicker"><span class="dot" style="background:var(--accent2); box-shadow:0 0 18px rgba(0,212,255,.45)"></span> LINKS</div>
-          <h2 style="margin:10px 0 10px;">Everything you need</h2>
-          <p class="help" style="margin:0 0 14px;">
-            Share these links everywhere. Keep the CA consistent.
-          </p>
-
-          <div class="section" style="margin-top:6px;">
-            <div class="mini" style="margin-bottom:10px;">
-              <div class="label">Website</div>
-              <div class="value" style="font-size:15px;">
-                <a href="https://rig-solana.com/" target="_blank" rel="noopener" style="color:var(--text); text-decoration:none;">
-                  rig-solana.com
-                </a>
-              </div>
+            <div class="btnRow">
+              <a class="btn primary" id="buyBtn" href="#" target="_blank" rel="noopener">🚀 Buy $RIG</a>
+              <a class="btn" id="chartBtn" href="#" target="_blank" rel="noopener">📈 Open Chart</a>
+              <button class="btn" id="copyBtn">📋 Copy CA</button>
             </div>
 
-            <div class="mini" style="margin-bottom:10px;">
-              <div class="label">Telegram</div>
-              <div class="value" style="font-size:15px;">
-                <a href="https://t.me/rigmachinecoinofficial" target="_blank" rel="noopener" style="color:var(--text); text-decoration:none;">
-                  t.me/rigmachinecoinofficial
-                </a>
-              </div>
+            <div class="caBox">
+              <div class="caText" id="caText"></div>
+              <button class="btn" id="copyBtn2" style="padding:10px 12px; border-radius:12px;">Copy</button>
             </div>
 
-            <div class="mini" style="margin-bottom:10px;">
-              <div class="label">X</div>
-              <div class="value" style="font-size:15px;">
-                <a href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noopener" style="color:var(--text); text-decoration:none;">
-                  @rigmachinecoin
-                </a>
+            <div class="section">
+              <div class="sectionTitle">How to buy</div>
+              <div style="color:var(--muted); line-height:1.6; font-size:15px;">
+                1) Open Pump.fun • 2) Connect Phantom/Solflare • 3) Paste CA • 4) Buy • 5) Watch chart
               </div>
-            </div>
-
-            <div class="mini">
-              <div class="label">Explorer</div>
-              <div class="value" style="font-size:15px;">
-                <a id="solscanLink" href="#" target="_blank" rel="noopener" style="color:var(--text); text-decoration:none;">
-                  Solscan
-                </a>
-              </div>
-            </div>
-
-            <div class="cta-row" style="margin-top:14px;">
-              <a class="btn primary" id="shareX" href="#" target="_blank" rel="noopener">🔥 Share on X</a>
-              <button class="btn" id="copyLinkBtn">🔗 Copy Website</button>
             </div>
           </div>
 
-          <div class="section" style="margin-top:18px;">
-            <h2>Live Chart</h2>
-            <p class="help" style="margin-top:-6px;">
-              Embedded Dexscreener view (dark). If embed ever blocks, use “Open Chart”.
-            </p>
+          <div class="mascotWrap">
+            <!-- Put your old image file in the same folder and name it rig.png -->
+            <img class="mascot" src="rig.png" alt="$RIG Mascot" />
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="section chart-wrap" style="margin-top:18px;">
-      <div class="chart-head">
-        <div class="chart-title">📈 Dexscreener Chart — $RIG</div>
-        <div class="cta-row" style="margin:0;">
-          <a class="btn small" id="openChartTop" href="#" target="_blank" rel="noopener">Open Chart</a>
-          <a class="btn small" id="openBuyTop" href="#" target="_blank" rel="noopener">Buy</a>
+        <div class="chartWrap">
+          <div class="chartHead">
+            <span>📈 Live Chart (Dexscreener)</span>
+            <div class="btnRow" style="margin:0;">
+              <a class="btn" id="chartTop" href="#" target="_blank" rel="noopener" style="padding:10px 12px; border-radius:12px;">Open</a>
+              <a class="btn primary" id="buyTop" href="#" target="_blank" rel="noopener" style="padding:10px 12px; border-radius:12px;">Buy</a>
+            </div>
+          </div>
+          <iframe id="chartFrame" title="Dexscreener chart"></iframe>
         </div>
       </div>
-
-      <iframe id="chartFrame" title="Dexscreener chart"></iframe>
     </div>
   </main>
 
   <footer>
-    <div style="max-width:var(--max); margin:0 auto;">
-      <div style="border-top:1px solid var(--line); padding-top:16px;">
-        <b>Disclaimer:</b> Crypto is high risk. This site is informational only and not financial advice.
-      </div>
+    <div style="border-top:1px solid var(--line); padding-top:14px;">
+      <b>Disclaimer:</b> Crypto is high risk. This site is informational only and not financial advice.
     </div>
   </footer>
 
   <div class="toast" id="toast">Copied ✅</div>
 
   <script>
-    // ========= CONFIG =========
-    const TOKEN_CA = "ECfjJM1B4NQhbuTHaqMcGuVGZYVkrBveCrWnDpeipump";
+    // ====== CONFIG ======
+    const CA = "ECfjJM1B4NQhbuTHaqMcGuVGZYVkrBveCrWnDpeipump";
 
-    // Links
     const WEBSITE = "https://rig-solana.com/";
-    const TELEGRAM = "https://t.me/rigmachinecoinofficial";
-    const X_URL = "https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw";
+    const TG = "https://t.me/rigmachinecoinofficial";
+    const X = "https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw";
 
-    // Pump.fun formats can vary; this is the common pattern:
-    const PUMP_URL = `https://pump.fun/coin/${TOKEN_CA}`;
+    // Pump.fun common pattern:
+    const BUY_URL = `https://pump.fun/coin/${CA}`;
 
-    // Dexscreener token page with embed:
-    const DEX_URL = `https://dexscreener.com/solana/${TOKEN_CA}`;
-    const DEX_EMBED = `https://dexscreener.com/solana/${TOKEN_CA}?embed=1&theme=dark&info=0&trades=0`;
+    // Dexscreener:
+    const CHART_URL = `https://dexscreener.com/solana/${CA}`;
+    const CHART_EMBED = `${CHART_URL}?embed=1&theme=dark&info=0&trades=0`;
 
-    // Solscan token page:
-    const SOLSCAN = `https://solscan.io/token/${TOKEN_CA}`;
-
-    // Dexscreener API (token)
-    const DEX_API = `https://api.dexscreener.com/latest/dex/tokens/${TOKEN_CA}`;
-
-    // ========= DOM =========
+    // ====== WIRE UP ======
     const $ = (id) => document.getElementById(id);
 
-    // Fill static content
-    $("caText").textContent = TOKEN_CA;
+    $("caText").textContent = CA;
 
-    // Nav + buttons
-    $("navChart").href = DEX_URL;
-    $("navBuy").href = PUMP_URL;
+    $("buyBtn").href = BUY_URL;
+    $("buyTop").href = BUY_URL;
+    $("navBuy").href = BUY_URL;
 
-    $("buyBtn").href = PUMP_URL;
-    $("chartBtn").href = DEX_URL;
+    $("chartBtn").href = CHART_URL;
+    $("chartTop").href = CHART_URL;
+    $("navChart").href = CHART_URL;
 
-    $("openChartTop").href = DEX_URL;
-    $("openBuyTop").href = PUMP_URL;
+    $("chartFrame").src = CHART_EMBED;
 
-    $("solscanLink").href = SOLSCAN;
-
-    // Share on X prefill
-    const shareText = encodeURIComponent(`T-15 MINUTES 🚨\n$RIG launches 7:00 PM EST 🚀\n\nCA: ${TOKEN_CA}\n\nWebsite: ${WEBSITE}\nTG: ${TELEGRAM}\nChart: ${DEX_URL}`);
-    $("shareX").href = `https://twitter.com/intent/tweet?text=${shareText}`;
-
-    // Chart iframe
-    $("chartFrame").src = DEX_EMBED;
-
-    // Copy helpers
     function toast(msg="Copied ✅"){
       const t = $("toast");
       t.textContent = msg;
@@ -585,7 +385,6 @@
         await navigator.clipboard.writeText(text);
         toast("Copied ✅");
       }catch(e){
-        // fallback
         const ta = document.createElement("textarea");
         ta.value = text;
         document.body.appendChild(ta);
@@ -596,79 +395,8 @@
       }
     }
 
-    $("copyBtn").addEventListener("click", ()=> copyText(TOKEN_CA));
-    $("copyLinkBtn").addEventListener("click", ()=> copyText(WEBSITE));
-
-    // ========= STATS =========
-    function fmtUSD(x){
-      if(x === null || x === undefined || isNaN(x)) return "—";
-      const n = Number(x);
-      if(n >= 1e9) return "$" + (n/1e9).toFixed(2) + "B";
-      if(n >= 1e6) return "$" + (n/1e6).toFixed(2) + "M";
-      if(n >= 1e3) return "$" + (n/1e3).toFixed(2) + "K";
-      if(n >= 1) return "$" + n.toFixed(4);
-      // tiny prices
-      return "$" + n.toPrecision(4);
-    }
-
-    function setChange(el, pct){
-      const node = $(el);
-      if(pct === null || pct === undefined || isNaN(pct)){
-        node.textContent = "—";
-        node.classList.remove("good","bad");
-        return;
-      }
-      const p = Number(pct);
-      node.textContent = (p >= 0 ? "+" : "") + p.toFixed(2) + "%";
-      node.classList.toggle("good", p >= 0);
-      node.classList.toggle("bad", p < 0);
-    }
-
-    async function loadStats(){
-      try{
-        const res = await fetch(DEX_API, { cache: "no-store" });
-        if(!res.ok) throw new Error("dex api failed");
-        const data = await res.json();
-        const pairs = Array.isArray(data?.pairs) ? data.pairs : [];
-
-        if(!pairs.length) throw new Error("no pairs yet");
-
-        // choose “best” pair: highest liquidity USD
-        const best = pairs.slice().sort((a,b)=> (b?.liquidity?.usd||0) - (a?.liquidity?.usd||0))[0];
-
-        const priceUsd = best?.priceUsd ? Number(best.priceUsd) : null;
-        const liqUsd = best?.liquidity?.usd ?? null;
-        const vol24 = best?.volume?.h24 ?? null;
-        const fdv = best?.fdv ?? best?.marketCap ?? null;
-
-        const buys = best?.txns?.h24?.buys ?? null;
-        const sells = best?.txns?.h24?.sells ?? null;
-
-        $("price").textContent = priceUsd ? fmtUSD(priceUsd) : "—";
-        $("liq").textContent = fmtUSD(liqUsd);
-        $("vol").textContent = fmtUSD(vol24);
-        $("fdv").textContent = fmtUSD(fdv);
-
-        $("txns").textContent = (buys !== null && sells !== null) ? `${buys} / ${sells}` : "—";
-
-        // price change 24h
-        const ch24 = best?.priceChange?.h24 ?? null;
-        setChange("change", ch24);
-
-      }catch(err){
-        // keep UI calm if not live yet
-        $("price").textContent = "$—";
-        $("liq").textContent = "$—";
-        $("vol").textContent = "$—";
-        $("fdv").textContent = "$—";
-        $("txns").textContent = "—";
-        $("change").textContent = "—";
-        $("change").classList.remove("good","bad");
-      }
-    }
-
-    loadStats();
-    setInterval(loadStats, 20000);
+    $("copyBtn").addEventListener("click", () => copyText(CA));
+    $("copyBtn2").addEventListener("click", () => copyText(CA));
   </script>
 </body>
 </html>
