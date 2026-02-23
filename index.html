@@ -486,26 +486,25 @@
               <a class="btn primary" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
               <a class="btn ghost" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a>
 
-              <a class="btn good disabled" id="buyBtn" href="#" aria-disabled="true">Buy (Not Live Yet)</a>
-              <a class="btn warn disabled" id="chartBtn" href="#" aria-disabled="true">Chart (Not Live Yet)</a>
+              <a class="btn good" id="buyBtn" href="#" target="_blank" rel="noreferrer">Buy $RIG</a>
+              <a class="btn warn" id="chartBtn" href="#" target="_blank" rel="noreferrer">View Chart</a>
             </div>
 
             <!-- Copy CA -->
             <div class="caBox">
               <div>
                 <div class="pill">Contract Address</div>
-                <div class="caText" id="caText">COMING_SOON</div>
+                <div class="caText" id="caText">—</div>
               </div>
               <div class="caBtns">
                 <button class="btn small warn" id="copyCaBtn" type="button">📋 Copy CA</button>
-                <button class="btn small ghost" id="setLiveBtn" type="button" title="This only changes local view">Test Live UI</button>
               </div>
             </div>
 
-            <!-- Stats bar (placeholders now) -->
+            <!-- Stats bar -->
             <div class="stats">
               <div class="stat"><div class="k">Holders</div><div class="v" id="holdersVal">—</div></div>
-              <div class="stat"><div class="k">Market Cap</div><div class="v" id="mcVal">—</div></div>
+              <div class="stat"><div class="k">Market Cap / FDV</div><div class="v" id="mcVal">—</div></div>
               <div class="stat"><div class="k">Liquidity</div><div class="v" id="liqVal">—</div></div>
               <div class="stat"><div class="k">24h Volume</div><div class="v" id="volVal">—</div></div>
             </div>
@@ -569,7 +568,7 @@
         </div>
         <div class="card">
           <h3>3) Use the official buy link</h3>
-          <p>When live, the “Buy” button + chart will be enabled here. Ignore DMs.</p>
+          <p>Use the “Buy $RIG” button on this site. Ignore DMs.</p>
         </div>
       </div>
     </section>
@@ -585,8 +584,8 @@
       <div class="grid-4">
         <div class="card"><h3>Ticker</h3><p>$RIG</p></div>
         <div class="card"><h3>Chain</h3><p>Solana</p></div>
-        <div class="card"><h3>Total Supply</h3><p id="supplyVal">Coming Soon</p></div>
-        <div class="card"><h3>Taxes</h3><p id="taxVal">Coming Soon</p></div>
+        <div class="card"><h3>Total Supply</h3><p id="supplyVal">—</p></div>
+        <div class="card"><h3>Taxes</h3><p id="taxVal">—</p></div>
       </div>
 
       <div style="height:14px"></div>
@@ -594,7 +593,7 @@
       <div class="grid-3">
         <div class="card">
           <h3>Liquidity / Lock</h3>
-          <p id="lpVal">Details posted when live.</p>
+          <p id="lpVal">—</p>
         </div>
         <div class="card">
           <h3>Top Holder Notes</h3>
@@ -612,7 +611,7 @@
       <div class="kicker">📈 Chart</div>
       <h2 class="title">Live chart (Dexscreener)</h2>
       <p class="lead">
-        This section turns on automatically when you paste the Dexscreener embed URL in the config.
+        This turns on automatically once Dexscreener has a Solana pair for your CA.
       </p>
 
       <div class="embedWrap" id="dexWrap" style="display:none;">
@@ -626,8 +625,8 @@
       </div>
 
       <div class="card" id="dexPlaceholder" style="margin-top:14px;">
-        <h3>Not live yet</h3>
-        <p>Once the token is live, we’ll enable the chart and the Buy button here.</p>
+        <h3>Chart indexing…</h3>
+        <p>If this stays here, Dexscreener hasn’t indexed your pair yet. It will auto-load when available.</p>
       </div>
     </section>
 
@@ -714,7 +713,7 @@
       <div class="grid-3">
         <div class="card">
           <h3>Is the contract live?</h3>
-          <p>Not yet. When it is, the CA will be posted here + pinned in Telegram.</p>
+          <p>Yes — the CA is posted on this page. Always verify it matches the pinned Telegram message.</p>
         </div>
         <div class="card">
           <h3>Where’s the community?</h3>
@@ -746,7 +745,7 @@
         </div>
         <div class="card">
           <h3>Buy / Chart</h3>
-          <p><span class="pill">Enabled at launch (official links only)</span></p>
+          <p><span class="pill">Live • Official links only</span></p>
         </div>
       </div>
     </section>
@@ -760,15 +759,16 @@
 
   <script>
     /***************
-     * CONFIG (change these when live)
+     * LIVE CONFIG
      ***************/
     const RIG = {
-      contract: "ECfjJM1B4NQhbuTHaqMcGuVGZYVkrBveCrWnDpeipump", // <-- CA set
-      buyUrl: "",                                               // <-- paste buy link (Raydium/Pump) here when live
-      dexscreenerUrl: "",                                       // <-- paste Dexscreener page url here (optional)
-      dexscreenerEmbedUrl: "",                                  // <-- paste Dexscreener EMBED url here (iframe src)
+      contract: "ECfjJM1B4NQhbuTHaqMcGuVGZYVkrBveCrWnDpeipump",
+      // Buy on pump.fun (common pattern)
+      buyUrl: "https://pump.fun/coin/ECfjJM1B4NQhbuTHaqMcGuVGZYVkrBveCrWnDpeipump",
+      dexscreenerUrl: "",        // auto-filled
+      dexscreenerEmbedUrl: "",   // auto-filled
       stats: {
-        holders: "—",                                           // optional placeholders until you wire an API later
+        holders: "—",            // Dexscreener API usually doesn't provide holders
         marketCap: "—",
         liquidity: "—",
         volume24h: "—"
@@ -795,7 +795,6 @@
     let ticking = false;
     function onScroll(){
       const y = window.scrollY || 0;
-      // subtle movement (Doge/Shiba vibe, not dizzy)
       bg1.style.transform = `translate3d(0, ${y * 0.10}px, 0)`;
       bg2.style.transform = `translate3d(0, ${y * 0.18}px, 0)`;
       bg3.style.transform = `translate3d(0, ${y * 0.06}px, 0)`;
@@ -810,7 +809,7 @@
     onScroll();
 
     /***************
-     * Wire UI from config
+     * Wire UI
      ***************/
     const caText = document.getElementById('caText');
     const copyCaBtn = document.getElementById('copyCaBtn');
@@ -827,21 +826,19 @@
     const dexPlaceholder = document.getElementById('dexPlaceholder');
     const dexOpenBtn = document.getElementById('dexOpenBtn');
 
-    function setDisabled(el, disabled){
-      if (!el) return;
-      if (disabled){
-        el.classList.add('disabled');
-        el.setAttribute('aria-disabled','true');
-        if (el.tagName === 'A') el.setAttribute('href', '#');
-      } else {
-        el.classList.remove('disabled');
-        el.setAttribute('aria-disabled','false');
-      }
+    function fmtUSD(n){
+      const x = Number(n);
+      if (!isFinite(x) || x <= 0) return "—";
+      if (x >= 1e9) return `$${(x/1e9).toFixed(2)}B`;
+      if (x >= 1e6) return `$${(x/1e6).toFixed(2)}M`;
+      if (x >= 1e3) return `$${(x/1e3).toFixed(2)}K`;
+      if (x >= 1) return `$${x.toFixed(2)}`;
+      return `$${x.toPrecision(4)}`;
     }
 
     function applyConfig(){
       // CA
-      if (caText) caText.textContent = RIG.contract || "COMING_SOON";
+      if (caText) caText.textContent = RIG.contract || "—";
 
       // Stats
       if (holdersVal) holdersVal.textContent = RIG.stats.holders ?? "—";
@@ -851,38 +848,24 @@
 
       // Buy
       if (buyBtn){
-        if (RIG.buyUrl){
-          buyBtn.textContent = "Buy $RIG";
-          buyBtn.href = RIG.buyUrl;
-          buyBtn.target = "_blank";
-          buyBtn.rel = "noreferrer";
-          setDisabled(buyBtn, false);
-        } else {
-          buyBtn.textContent = "Buy (Not Live Yet)";
-          setDisabled(buyBtn, true);
-        }
+        buyBtn.textContent = "Buy $RIG";
+        buyBtn.href = RIG.buyUrl;
+        buyBtn.target = "_blank";
+        buyBtn.rel = "noreferrer";
       }
 
       // Chart button
       if (chartBtn){
-        if (RIG.dexscreenerUrl){
-          chartBtn.textContent = "View Chart";
-          chartBtn.href = RIG.dexscreenerUrl;
-          chartBtn.target = "_blank";
-          chartBtn.rel = "noreferrer";
-          setDisabled(chartBtn, false);
-        } else {
-          chartBtn.textContent = "Chart (Not Live Yet)";
-          setDisabled(chartBtn, true);
-        }
+        chartBtn.textContent = RIG.dexscreenerUrl ? "View Chart" : "Chart (Indexing...)";
+        chartBtn.href = RIG.dexscreenerUrl || "#chart";
+        chartBtn.target = "_blank";
+        chartBtn.rel = "noreferrer";
       }
 
       // Dex embed
       if (RIG.dexscreenerEmbedUrl){
         if (dexIframe) dexIframe.src = RIG.dexscreenerEmbedUrl;
-        if (dexOpenBtn){
-          dexOpenBtn.href = RIG.dexscreenerUrl || RIG.dexscreenerEmbedUrl;
-        }
+        if (dexOpenBtn) dexOpenBtn.href = RIG.dexscreenerUrl || RIG.dexscreenerEmbedUrl;
         if (dexWrap) dexWrap.style.display = "block";
         if (dexPlaceholder) dexPlaceholder.style.display = "none";
       } else {
@@ -898,10 +881,6 @@
      ***************/
     if (copyCaBtn){
       copyCaBtn.addEventListener('click', async () => {
-        if (!RIG.contract || RIG.contract === "COMING_SOON"){
-          alert("Contract address not set yet.");
-          return;
-        }
         try{
           await navigator.clipboard.writeText(RIG.contract);
           const old = copyCaBtn.textContent;
@@ -914,20 +893,60 @@
     }
 
     /***************
-     * Test Live UI (local-only)
+     * LIVE: Auto-detect Dexscreener pair + stats
      ***************/
-    const setLiveBtn = document.getElementById('setLiveBtn');
-    if (setLiveBtn){
-      setLiveBtn.addEventListener('click', () => {
-        // This does NOT change your real config; it's just a preview toggle for you.
-        RIG.contract = (RIG.contract === "COMING_SOON") ? "EXAMPLE_CA_1234" : "COMING_SOON";
-        RIG.buyUrl = RIG.buyUrl ? "" : "https://example.com/buy";
-        RIG.dexscreenerUrl = RIG.dexscreenerUrl ? "" : "https://dexscreener.com/";
-        RIG.dexscreenerEmbedUrl = RIG.dexscreenerEmbedUrl ? "" : "https://dexscreener.com/";
-        RIG.stats = RIG.buyUrl ? { holders:"412", marketCap:"$185k", liquidity:"$32k", volume24h:"$71k" } : { holders:"—", marketCap:"—", liquidity:"—", volume24h:"—" };
+    const DEX_API = `https://api.dexscreener.com/latest/dex/tokens/${encodeURIComponent(RIG.contract)}`;
+
+    async function refreshDex(){
+      try{
+        const res = await fetch(DEX_API, { cache: "no-store" });
+        if (!res.ok) throw new Error("Dex API error");
+        const data = await res.json();
+
+        const pairs = Array.isArray(data?.pairs) ? data.pairs : [];
+        const solPairs = pairs.filter(p => (p?.chainId || "").toLowerCase() === "solana");
+
+        if (!solPairs.length) {
+          // Still indexing
+          RIG.dexscreenerUrl = "";
+          RIG.dexscreenerEmbedUrl = "";
+          RIG.stats.marketCap = "—";
+          RIG.stats.liquidity = "—";
+          RIG.stats.volume24h = "—";
+          applyConfig();
+          return;
+        }
+
+        // Best pair = highest liquidity (USD)
+        solPairs.sort((a,b)=> (Number(b?.liquidity?.usd||0) - Number(a?.liquidity?.usd||0)));
+        const best = solPairs[0];
+
+        const pairAddr = best?.pairAddress;
+        if (!pairAddr) return;
+
+        const pairUrl = `https://dexscreener.com/solana/${pairAddr}`;
+        const embedUrl = `${pairUrl}?embed=1&theme=dark&info=0&trades=0`;
+
+        RIG.dexscreenerUrl = pairUrl;
+        RIG.dexscreenerEmbedUrl = embedUrl;
+
+        // Stats
+        const liq = best?.liquidity?.usd;
+        const vol24 = best?.volume?.h24;
+        const mcOrFdv = best?.marketCap ?? best?.fdv;
+
+        RIG.stats.liquidity = fmtUSD(liq);
+        RIG.stats.volume24h = fmtUSD(vol24);
+        RIG.stats.marketCap = fmtUSD(mcOrFdv);
+
         applyConfig();
-      });
+      } catch (e) {
+        // don’t crash UI
+      }
     }
+
+    refreshDex();
+    setInterval(refreshDex, 20000);
   </script>
 </body>
 </html>
