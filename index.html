@@ -21,422 +21,251 @@
       --danger:#ef4444;
 
       --radius:20px;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --shadow: 0 18px 50px rgba(0,0,0,.55);
       --max: 1120px;
+      --pad: 22px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
-      background: var(--bg);
+      background:
+        radial-gradient(1200px 650px at 20% -10%, rgba(59,130,246,.22), transparent 55%),
+        radial-gradient(900px 550px at 95% 0%, rgba(34,197,94,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, #04060b 100%);
       overflow-x:hidden;
     }
+
     a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}
-
-    /* ===== Parallax background layers ===== */
-    .bg{
-      position:fixed;
-      inset:0;
-      z-index:-5;
-      overflow:hidden;
-      pointer-events:none;
-      background: linear-gradient(180deg, #040611 0%, var(--bg) 55%, #050815 100%);
-    }
-    .bg .layer{
-      position:absolute;
-      inset:-12%;
-      background-repeat:no-repeat;
-      background-size: cover;
-      opacity:1;
-      transform: translate3d(0,0,0);
-      will-change: transform;
-    }
-    .bg .l1{
-      background-image:
-        radial-gradient(900px 500px at 12% 10%, rgba(59,130,246,.22), transparent 60%),
-        radial-gradient(900px 500px at 85% 15%, rgba(34,197,94,.18), transparent 60%),
-        radial-gradient(900px 600px at 50% 95%, rgba(245,158,11,.10), transparent 55%);
-      opacity:.95;
-      filter: blur(0px);
-    }
-    .bg .l2{
-      background-image:
-        radial-gradient(800px 420px at 20% 70%, rgba(255,255,255,.06), transparent 65%),
-        radial-gradient(900px 520px at 85% 65%, rgba(255,255,255,.04), transparent 65%);
-      opacity:.85;
-      filter: blur(0px);
-      mix-blend-mode: screen;
-    }
-    .bg .noise{
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
-      opacity:.10;
-      mix-blend-mode: overlay;
-    }
-
-    /* Layout */
-    .wrap{max-width:var(--max); margin:0 auto; padding: 18px 16px 64px;}
-    .section{padding: 54px 0;}
-    .grid-2{display:grid; grid-template-columns: 1.15fr .85fr; gap: 22px; align-items:center;}
-    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px;}
-    .grid-4{display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px;}
-    @media (max-width: 980px){
-      .grid-2{grid-template-columns:1fr; gap: 14px;}
-      .grid-3{grid-template-columns:1fr;}
-      .grid-4{grid-template-columns:1fr 1fr;}
-    }
-    @media (max-width: 560px){
-      .grid-4{grid-template-columns:1fr;}
-      .section{padding: 40px 0;}
-    }
-
-    /* Top bar */
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
     .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(6,9,18,.60);
-      border-bottom: 1px solid var(--line);
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,10,18,.75);
+      border-bottom:1px solid var(--line);
     }
-    .nav{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 12px 16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
+    .topbar .row{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
     }
     .brand{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      font-weight: 900;
-      letter-spacing: .2px;
+      display:flex; align-items:center; gap:12px;
+      font-weight:800; letter-spacing:.2px;
     }
-    .brand .logo{
-      width: 42px; height:42px;
-      border-radius: 14px;
-      overflow:hidden;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background:
+        radial-gradient(18px 18px at 35% 35%, rgba(255,255,255,.35), transparent 60%),
+        linear-gradient(135deg, rgba(59,130,246,.9), rgba(17,24,39,.9));
+      box-shadow: 0 12px 30px rgba(59,130,246,.18);
+      border:1px solid rgba(255,255,255,.12);
     }
-    .brand small{
-      display:block;
-      font-weight:700;
-      color: var(--muted);
-      letter-spacing: .3px;
-      margin-top: 1px;
+    .brand span{font-size:16px}
+    nav{
+      display:flex; align-items:center; gap:14px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
     }
-
-    .navlinks{display:flex; gap: 16px; align-items:center; flex-wrap:wrap;}
-    .navlinks a{
-      color: var(--muted);
-      font-weight: 800;
-      font-size: 14px;
-      padding: 8px 10px;
-      border-radius: 12px;
-      transition: .15s ease;
-    }
-    .navlinks a:hover{color:var(--text); background: rgba(255,255,255,.06);}
-
-    .cta{display:flex; gap: 10px; align-items:center; flex-wrap:wrap;}
+    nav a{padding:8px 10px; border-radius:12px}
+    nav a:hover{background:rgba(255,255,255,.05); color:var(--text)}
+    .actions{display:flex; align-items:center; gap:10px}
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      font-weight: 900;
-      font-size: 14px;
-      box-shadow: 0 16px 45px rgba(0,0,0,.35);
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, filter .12s ease;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:800;
+      font-size:13px;
       cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
       user-select:none;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08);}
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.16)}
     .btn.primary{
-      background: linear-gradient(135deg, rgba(59,130,246,.95), rgba(34,197,94,.80));
-      border-color: rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(59,130,246,.95), rgba(59,130,246,.45));
+      border-color: rgba(59,130,246,.65);
+      box-shadow: 0 14px 40px rgba(59,130,246,.22);
     }
-    .btn.good{background: rgba(34,197,94,.14); border-color: rgba(34,197,94,.35);}
-    .btn.warn{background: rgba(245,158,11,.14); border-color: rgba(245,158,11,.35);}
-    .btn.ghost{background: rgba(255,255,255,.04);}
-    .btn.small{padding: 10px 12px; border-radius: 12px; font-size: 13px;}
-    .btn.disabled{
-      opacity:.55;
-      cursor:not-allowed;
-      pointer-events:none;
-    }
+    .btn.small{padding:8px 12px; font-weight:800; font-size:12px; border-radius:12px}
+    .btn.ghost{background:transparent}
     .pill{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--muted);
-      font-weight: 800;
-      font-size: 13px;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:700;
+      font-size:12px;
     }
-
-    /* Mobile menu */
-    .menuBtn{display:none}
-    @media (max-width: 860px){
-      .navlinks{display:none}
-      .menuBtn{display:inline-flex}
-      .cta .btn.small{display:none}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--warn); box-shadow: 0 0 0 3px rgba(245,158,11,.15)}
+    .dot.live{background:var(--good); box-shadow: 0 0 0 3px rgba(34,197,94,.15)}
+    .hero{
+      padding:44px 0 18px;
     }
-    .mobileMenu{
-      display:none;
-      border-top: 1px solid var(--line);
-      padding: 12px 16px 16px;
-      max-width: var(--max);
-      margin: 0 auto;
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:start;
     }
-    .mobileMenu a{
-      display:block;
-      padding: 12px 12px;
-      border-radius: 14px;
-      color: var(--muted);
-      font-weight: 900;
-      border: 1px solid rgba(255,255,255,.06);
-      background: rgba(255,255,255,.03);
-      margin-top: 10px;
-    }
-    .mobileMenu a:hover{color:var(--text); background: rgba(255,255,255,.06);}
-    .mobileMenu .row{display:grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px;}
-
-    /* Hero */
-    .hero{padding: 26px 0 12px;}
+    .h1{font-size:52px; line-height:1.02; margin:14px 0 12px; letter-spacing:-.8px}
+    .sub{color:var(--muted); font-size:16px; line-height:1.6; max-width:54ch}
     .heroCard{
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      border-radius: calc(var(--radius) + 8px);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .heroInner{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 18px;
-      padding: 22px;
-      align-items:center;
-    }
-    @media (max-width: 980px){
-      .heroInner{grid-template-columns:1fr; padding: 18px;}
-    }
-    .kicker{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      color: var(--muted);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-    .headline{
-      font-size: clamp(34px, 5vw, 56px);
-      line-height: 1.02;
-      margin: 10px 0 10px;
-      font-weight: 1000;
-      letter-spacing: -.6px;
-    }
-    .subhead{
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 1.5;
-      margin: 0 0 18px;
-      max-width: 60ch;
-    }
-    .heroActions{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      margin: 14px 0 10px;
-    }
-    @media (max-width: 560px){
-      .heroActions{display:grid; grid-template-columns: 1fr; }
-      .heroActions .btn{width:100%;}
-    }
-
-    .stats{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 14px;
-    }
-    @media (max-width: 560px){
-      .stats{grid-template-columns: 1fr 1fr;}
-    }
-    .stat{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.20);
-      border-radius: 16px;
-      padding: 12px 12px;
-    }
-    .stat .k{font-size: 12px; color: var(--muted); font-weight: 800;}
-    .stat .v{font-size: 14px; font-weight: 1000; margin-top: 4px;}
-
-    .heroMedia{
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.22);
-      padding: 12px;
-    }
-    .heroBanner{
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-    .scamBar{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(239,68,68,.08);
-      color: rgba(255,255,255,.92);
-      font-weight: 900;
-      font-size: 13px;
-      text-align:center;
-    }
-
-    /* Cards */
-    .card{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
       border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: 0 16px 40px rgba(0,0,0,.22);
+      box-shadow: var(--shadow);
+      padding:18px;
     }
-    .card h3{margin: 0 0 8px; font-size: 16px;}
-    .card p{margin: 0; color: var(--muted); font-weight: 650; line-height: 1.55;}
-    .title{
-      font-size: 28px;
-      font-weight: 1000;
-      margin: 0 0 10px;
-      letter-spacing: -.3px;
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px}
+    .metric{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius:16px;
+      padding:12px;
     }
-    .lead{color: var(--muted); font-weight: 650; line-height: 1.6; margin: 0;}
+    .metric .k{color:var(--muted); font-size:12px; font-weight:700}
+    .metric .v{font-size:18px; font-weight:900; margin-top:6px}
+    .ca{
+      margin-top:14px;
+      border:1px dashed rgba(255,255,255,.18);
+      background: rgba(0,0,0,.25);
+      border-radius:16px;
+      padding:12px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .ca code{
+      color:var(--text);
+      font-weight:800;
+      font-size:12px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 100%;
+      display:block;
+    }
+    .warn{
+      margin-top:12px;
+      color:#cbd5ff;
+      background: rgba(59,130,246,.10);
+      border:1px solid rgba(59,130,246,.20);
+      border-radius:16px;
+      padding:12px;
+      font-size:13px;
+      line-height:1.5;
+    }
 
-    /* Copy CA box */
-    .caBox{
-      margin-top: 12px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.22);
-      border-radius: 18px;
-      padding: 12px;
-      display:flex;
-      gap: 10px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
+    section{padding:24px 0}
+    .sectionTitle{font-size:22px; margin:0 0 6px; letter-spacing:-.2px}
+    .sectionSub{margin:0 0 14px; color:var(--muted); line-height:1.6}
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius:18px;
+      padding:16px;
     }
-    .caText{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 13px;
-      color: rgba(234,241,255,.90);
-      overflow-wrap:anywhere;
-    }
-    .caBtns{display:flex; gap:10px; flex-wrap:wrap;}
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); line-height:1.6; font-size:13px}
 
-    /* Dex embed */
-    .embedWrap{
-      margin-top: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.22);
-      border-radius: 18px;
+    .chartWrap{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius:18px;
       overflow:hidden;
     }
-    .embedHeader{
-      display:flex; gap: 10px; align-items:center; justify-content:space-between;
-      padding: 12px 12px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      flex-wrap:wrap;
+    .chartTop{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      padding:12px 12px;
+      border-bottom:1px solid var(--line);
     }
-    .embedHeader .left{display:flex; gap:10px; align-items:center; color:var(--muted); font-weight:900;}
-    iframe{width:100%; height: 560px; border:0; display:block;}
-    @media (max-width: 560px){ iframe{height: 520px;} }
-
-    /* Roadmap checks */
-    .checks{display:grid; gap:12px; margin-top: 14px;}
-    .check{
-      display:flex; gap:12px; align-items:flex-start;
-      padding: 14px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-    }
-    .badge{
-      min-width: 34px; height: 34px;
-      border-radius: 12px;
-      display:grid; place-items:center;
-      font-weight: 1000;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-    }
-    .badge.done{background: rgba(34,197,94,.16); border-color: rgba(34,197,94,.35);}
-    .badge.doing{background: rgba(245,158,11,.16); border-color: rgba(245,158,11,.35);}
-    .badge.todo{background: rgba(59,130,246,.14); border-color: rgba(59,130,246,.25);}
-    .check b{display:block; margin-bottom: 4px;}
-    .check ul{margin:8px 0 0; padding-left: 18px; color: var(--muted); font-weight: 650;}
-    .check li{margin: 6px 0;}
-
-    /* Footer */
-    footer{
-      margin-top: 44px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-weight: 650;
-      font-size: 13px;
-      line-height: 1.55;
+    iframe{display:block; width:100%; height:560px; border:0}
+    .chartNote{
+      padding:12px;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid var(--line);
+      background: rgba(0,0,0,.20);
     }
 
-    section{scroll-margin-top: 84px;}
+    .footer{
+      padding:26px 0 36px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    .mobileMenuBtn{display:none}
+
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns:1fr}
+      .h1{font-size:42px}
+      .cards{grid-template-columns:1fr}
+      nav{display:none}
+      .mobileMenuBtn{display:inline-flex}
+      .mobileNav{
+        display:none;
+        padding:10px 0 14px;
+        border-top:1px solid var(--line);
+      }
+      .mobileNav a{
+        display:block;
+        padding:10px 0;
+        color:var(--muted);
+        font-weight:700;
+      }
+      .mobileNav a:hover{color:var(--text)}
+      .mobileNav.show{display:block}
+    }
   </style>
 </head>
 
 <body>
-  <!-- Parallax background -->
-  <div class="bg" aria-hidden="true">
-    <div class="layer l1" id="bg1"></div>
-    <div class="layer l2" id="bg2"></div>
-    <div class="layer noise" id="bg3"></div>
-  </div>
-
-  <div class="topbar">
-    <div class="nav">
-      <div class="brand">
-        <div class="logo">
-          <img src="rig-mascot.png.PNG" alt="$RIG mascot">
+  <header class="topbar">
+    <div class="wrap">
+      <div class="row">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <span>$RIG</span>
+          <span class="pill" title="Status pulled from Dexscreener">
+            <span id="statusDot" class="dot" aria-hidden="true"></span>
+            <span id="statusText">Indexing…</span>
+          </span>
         </div>
-        <div>
-          <div>$RIG</div>
-          <small>Built to work. Ready to earn.</small>
+
+        <nav aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#buy">How to Buy</a>
+          <a href="#tokenomics">Tokenomics</a>
+          <a href="#chart">Chart</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#safety">Safety</a>
+          <a href="#faq">FAQ</a>
+          <a href="#links">Links</a>
+        </nav>
+
+        <div class="actions">
+          <a id="xBtn" class="btn ghost" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noopener">Follow on X</a>
+          <a id="tgBtn" class="btn ghost" href="https://t.me/rigmachinecoinofficial" target="_blank" rel="noopener">Join Telegram</a>
+          <button id="menuBtn" class="btn mobileMenuBtn" type="button">☰ Menu</button>
         </div>
       </div>
 
-      <div class="navlinks">
+      <div id="mobileNav" class="mobileNav" aria-label="Mobile">
         <a href="#about">About</a>
-        <a href="#how">How to Buy</a>
+        <a href="#buy">How to Buy</a>
         <a href="#tokenomics">Tokenomics</a>
         <a href="#chart">Chart</a>
         <a href="#roadmap">Roadmap</a>
@@ -444,124 +273,107 @@
         <a href="#faq">FAQ</a>
         <a href="#links">Links</a>
       </div>
-
-      <div class="cta">
-        <a class="btn small ghost" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a>
-        <a class="btn small primary" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
-        <button class="btn small menuBtn" id="menuBtn" aria-label="Open menu">☰ Menu</button>
-      </div>
     </div>
+  </header>
 
-    <div class="mobileMenu" id="mobileMenu">
-      <a href="#about">About</a>
-      <a href="#how">How to Buy</a>
-      <a href="#tokenomics">Tokenomics</a>
-      <a href="#chart">Chart</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#safety">Safety</a>
-      <a href="#faq">FAQ</a>
-      <a href="#links">Links</a>
-      <div class="row">
-        <a href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
-        <a href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a>
-      </div>
-    </div>
-  </div>
+  <main class="wrap">
+    <section class="hero" id="top">
+      <div class="heroGrid">
+        <div>
+          <div class="pill">🛠️ blue-collar culture • credibility first • long-term build</div>
+          <h1 class="h1">Built to work.<br/>Ready to earn.</h1>
+          <p class="sub">
+            <b>$RIG</b> is a Solana community built on Proof-of-Work values: grind, integrity, and building something real.
+            No “team” DMs. No fake promises. We build it right.
+          </p>
 
-  <div class="wrap">
-
-    <!-- HERO -->
-    <div class="hero">
-      <div class="heroCard">
-        <div class="heroInner">
-          <div>
-            <div class="kicker">🛠️ blue-collar culture • credibility first • long-term build</div>
-            <h1 class="headline">Built to work.<br/>Ready to earn.</h1>
-            <p class="subhead">
-              $RIG is a Solana community built on Proof-of-Work values: grind, integrity, and building something real.
-              No “team” DMs. No fake promises. We build it right.
-            </p>
-
-            <div class="heroActions">
-              <a class="btn primary" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
-              <a class="btn ghost" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a>
-
-              <a class="btn good disabled" id="buyBtn" href="#" aria-disabled="true">Buy (Not Live Yet)</a>
-              <a class="btn warn disabled" id="chartBtn" href="#" aria-disabled="true">Chart (Not Live Yet)</a>
-            </div>
-
-            <!-- Copy CA -->
-            <div class="caBox">
-              <div>
-                <div class="pill">Contract Address</div>
-                <div class="caText" id="caText">COMING_SOON</div>
-              </div>
-              <div class="caBtns">
-                <button class="btn small warn" id="copyCaBtn" type="button">📋 Copy CA</button>
-                <button class="btn small ghost" id="setLiveBtn" type="button" title="This only changes local view">Test Live UI</button>
-              </div>
-            </div>
-
-            <!-- Stats bar (placeholders now) -->
-            <div class="stats">
-              <div class="stat"><div class="k">Holders</div><div class="v" id="holdersVal">—</div></div>
-              <div class="stat"><div class="k">Market Cap</div><div class="v" id="mcVal">—</div></div>
-              <div class="stat"><div class="k">Liquidity</div><div class="v" id="liqVal">—</div></div>
-              <div class="stat"><div class="k">24h Volume</div><div class="v" id="volVal">—</div></div>
-            </div>
+          <div class="ctaRow">
+            <a id="buyBtn" class="btn primary" href="#" target="_blank" rel="noopener">Buy $RIG</a>
+            <a id="chartBtn" class="btn" href="#chart">Live Chart</a>
+            <button id="copyBtn" class="btn" type="button">Copy CA</button>
           </div>
 
-          <div class="heroMedia">
-            <div class="heroBanner">
-              <img src="rig-hero.png.PNG" alt="$RIG hero banner">
+          <div class="ca" title="Contract Address">
+            <div style="min-width:0">
+              <div style="color:var(--muted); font-weight:800; font-size:12px; margin-bottom:6px;">Contract Address</div>
+              <code id="contractAddress">FgrMj7fTByZ6AeJqbs5qdgMdQuXzZVsSE7eY8cJRpump</code>
             </div>
-            <div class="scamBar">
-              ⚠️ Admins will NEVER DM you first. Only trust links on this site + pinned Telegram message.
-            </div>
+            <span class="pill" id="copyState" style="opacity:.9">Ready</span>
+          </div>
+
+          <div class="warn">
+            ⚠️ Admins will <b>NEVER</b> DM you first. Only trust links on this website + the pinned Telegram message.
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="kicker">📌 About</div>
-      <h2 class="title">A memecoin with real-world work ethic.</h2>
-      <p class="lead">
+        <div class="heroCard">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+            <div style="font-weight:900;">Live Stats</div>
+            <span class="pill">Dexscreener feed</span>
+          </div>
+
+          <div class="grid2">
+            <div class="metric">
+              <div class="k">Price</div>
+              <div id="mPrice" class="v">—</div>
+            </div>
+            <div class="metric">
+              <div class="k">24h Volume</div>
+              <div id="mVol" class="v">—</div>
+            </div>
+            <div class="metric">
+              <div class="k">Liquidity</div>
+              <div id="mLiq" class="v">—</div>
+            </div>
+            <div class="metric">
+              <div class="k">Market Cap / FDV</div>
+              <div id="mMc" class="v">—</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a id="pumpBtn" class="btn" href="#" target="_blank" rel="noopener">Open on pump.fun</a>
+            <a id="dexOpenBtn" class="btn" href="#" target="_blank" rel="noopener">Open on Dexscreener</a>
+          </div>
+
+          <p id="statsNote" style="margin:12px 0 0; color:var(--muted); font-size:13px; line-height:1.6;">
+            If stats show “—”, Dexscreener is still indexing the token/pair. It will turn on automatically once detected.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="sectionTitle">A memecoin with real-world work ethic.</h2>
+      <p class="sectionSub">
         Most coins chase hype. $RIG builds a recognizable brand: workers, builders, and grinders.
-        We grow the culture first, then ship real utility (Proof-of-Work edition) over time.
+        We grow the culture first, then ship real utility over time.
       </p>
 
-      <div style="height:16px"></div>
-
-      <div class="grid-3">
+      <div class="cards">
         <div class="card">
-          <h3>🧰 Culture</h3>
+          <h3>🧱 Culture</h3>
           <p>For workers, builders, and grinders. A community you can actually recognize.</p>
         </div>
         <div class="card">
-          <h3>🔎 Transparency</h3>
+          <h3>🧾 Transparency</h3>
           <p>Clear links, clear rules, consistent updates. Trust is the product.</p>
         </div>
         <div class="card">
-          <h3>📈 Long-term</h3>
+          <h3>🛠️ Long-term</h3>
           <p>Not a one-day meme. Step-by-step growth into something bigger.</p>
         </div>
       </div>
     </section>
 
-    <!-- HOW TO BUY -->
-    <section id="how" class="section">
-      <div class="kicker">🛒 How to Buy</div>
-      <h2 class="title">Simple, scam-proof steps.</h2>
-      <p class="lead">Only use official links from this site + pinned Telegram message.</p>
+    <section id="buy">
+      <h2 class="sectionTitle">Simple, scam-proof steps.</h2>
+      <p class="sectionSub">Only use official links from this website + pinned Telegram message.</p>
 
-      <div style="height:16px"></div>
-
-      <div class="grid-3">
+      <div class="cards">
         <div class="card">
           <h3>1) Get a Solana wallet</h3>
-          <p>Use Phantom (recommended) or another trusted Solana wallet. Never share your seed phrase.</p>
+          <p>Use Phantom (recommended) or another trusted wallet. Never share your seed phrase.</p>
         </div>
         <div class="card">
           <h3>2) Load SOL</h3>
@@ -569,126 +381,76 @@
         </div>
         <div class="card">
           <h3>3) Use the official buy link</h3>
-          <p>When live, the “Buy” button + chart will be enabled here. Ignore DMs.</p>
+          <p>Use the <b>Buy $RIG</b> button on this site. Ignore DMs and “support” messages.</p>
         </div>
       </div>
     </section>
 
-    <!-- TOKENOMICS -->
-    <section id="tokenomics" class="section">
-      <div class="kicker">🧾 Tokenomics</div>
-      <h2 class="title">Clear details. No confusion.</h2>
-      <p class="lead">Update these the moment you go live (don’t guess).</p>
+    <section id="tokenomics">
+      <h2 class="sectionTitle">Clear details. No confusion.</h2>
+      <p class="sectionSub">Update these anytime you change public info. Credibility is the meta.</p>
 
-      <div style="height:16px"></div>
-
-      <div class="grid-4">
-        <div class="card"><h3>Ticker</h3><p>$RIG</p></div>
-        <div class="card"><h3>Chain</h3><p>Solana</p></div>
-        <div class="card"><h3>Total Supply</h3><p id="supplyVal">Coming Soon</p></div>
-        <div class="card"><h3>Taxes</h3><p id="taxVal">Coming Soon</p></div>
-      </div>
-
-      <div style="height:14px"></div>
-
-      <div class="grid-3">
+      <div class="cards">
         <div class="card">
-          <h3>Liquidity / Lock</h3>
-          <p id="lpVal">Details posted when live.</p>
+          <h3>Ticker</h3>
+          <p><b>$RIG</b></p>
         </div>
         <div class="card">
-          <h3>Top Holder Notes</h3>
-          <p id="holdersNote">We’ll publish transparency updates as we scale.</p>
+          <h3>Chain</h3>
+          <p>Solana</p>
         </div>
         <div class="card">
-          <h3>Execution</h3>
-          <p>Roadmap progress will be updated publicly. Credibility is the meta.</p>
+          <h3>Taxes</h3>
+          <p>Typically none on Solana tokens — always verify where you trade.</p>
         </div>
       </div>
     </section>
 
-    <!-- CHART -->
-    <section id="chart" class="section">
-      <div class="kicker">📈 Chart</div>
-      <h2 class="title">Live chart (Dexscreener)</h2>
-      <p class="lead">
-        This section turns on automatically when you paste the Dexscreener embed URL in the config.
-      </p>
+    <section id="chart">
+      <h2 class="sectionTitle">Live chart (Dexscreener)</h2>
+      <p class="sectionSub">This chart turns on automatically when a Dexscreener Solana pair is detected for your CA.</p>
 
-      <div class="embedWrap" id="dexWrap" style="display:none;">
-        <div class="embedHeader">
-          <div class="left">✅ Verified links • Dexscreener embed</div>
-          <div class="right">
-            <a class="btn small ghost" id="dexOpenBtn" href="#" target="_blank" rel="noreferrer">Open on Dexscreener</a>
-          </div>
-        </div>
-        <iframe id="dexIframe" title="$RIG chart"></iframe>
-      </div>
-
-      <div class="card" id="dexPlaceholder" style="margin-top:14px;">
-        <h3>Not live yet</h3>
-        <p>Once the token is live, we’ll enable the chart and the Buy button here.</p>
-      </div>
-    </section>
-
-    <!-- ROADMAP -->
-    <section id="roadmap" class="section">
-      <div class="kicker">🗺️ Roadmap</div>
-      <h2 class="title">Progress you can track.</h2>
-      <p class="lead">Doge/Shiba-style: clear steps + visible execution.</p>
-
-      <div class="checks">
-        <div class="check">
-          <div class="badge done">✓</div>
-          <div>
-            <b>Website Live</b>
-            <div class="lead">Official website + branding online.</div>
+      <div class="chartWrap">
+        <div class="chartTop">
+          <span class="pill">✅ Verified links • Dexscreener embed</span>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a id="dexOpenTop" class="btn small" href="#" target="_blank" rel="noopener">Open on Dexscreener</a>
           </div>
         </div>
 
-        <div class="check">
-          <div class="badge done">✓</div>
-          <div>
-            <b>Community Hubs</b>
-            <div class="lead">Telegram + X are active and growing.</div>
-          </div>
-        </div>
+        <iframe id="dexFrame" title="Dexscreener chart" src="about:blank" loading="lazy"></iframe>
 
-        <div class="check">
-          <div class="badge doing">•</div>
-          <div>
-            <b>Launch + Official Links</b>
-            <ul>
-              <li>Post CA on website + pinned Telegram</li>
-              <li>Enable Buy + Chart buttons</li>
-              <li>Dexscreener profile submission</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="check">
-          <div class="badge todo">→</div>
-          <div>
-            <b>Proof-of-Work Mechanism</b>
-            <ul>
-              <li>Reward contributions (builders/workers)</li>
-              <li>Community milestones + events</li>
-              <li>Partnership outreach (blue-collar creators/brands)</li>
-            </ul>
-          </div>
+        <div id="chartNote" class="chartNote">
+          Chart is loading… If it stays blank, Dexscreener may not have indexed your pair yet.
         </div>
       </div>
     </section>
 
-    <!-- SAFETY -->
-    <section id="safety" class="section">
-      <div class="kicker">🛡️ Safety</div>
-      <h2 class="title">Stay safe. Stay real.</h2>
-      <p class="lead">Admins will never DM first. Only trust official links.</p>
+    <section id="roadmap">
+      <h2 class="sectionTitle">Progress you can track.</h2>
+      <p class="sectionSub">Doge/Shiba-style: clear steps + visible execution.</p>
 
-      <div style="height:16px"></div>
+      <div class="cards">
+        <div class="card">
+          <h3>✓ Website Live</h3>
+          <p>Official website + branding online.</p>
+        </div>
+        <div class="card">
+          <h3>• Launch + Official Links</h3>
+          <p>CA on website + pinned Telegram • Buy + Chart enabled • Dexscreener profile submission.</p>
+        </div>
+        <div class="card">
+          <h3>→ Proof-of-Work Mechanism</h3>
+          <p>Reward contributions (builders/workers) • Milestones/events • Outreach to blue-collar creators/brands.</p>
+        </div>
+      </div>
+    </section>
 
-      <div class="grid-3">
+    <section id="safety">
+      <h2 class="sectionTitle">Stay safe. Stay real.</h2>
+      <p class="sectionSub">Admins will never DM first. Only trust official links.</p>
+
+      <div class="cards">
         <div class="card">
           <h3>Admins never DM first</h3>
           <p>If someone messages you “support” or “verification” — it’s a scam.</p>
@@ -704,17 +466,14 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
-      <div class="kicker">❓ FAQ</div>
-      <h2 class="title">Quick answers.</h2>
+    <section id="faq">
+      <h2 class="sectionTitle">Quick answers.</h2>
+      <p class="sectionSub">No fluff. Just what people ask.</p>
 
-      <div style="height:16px"></div>
-
-      <div class="grid-3">
+      <div class="cards">
         <div class="card">
           <h3>Is the contract live?</h3>
-          <p>Not yet. When it is, the CA will be posted here + pinned in Telegram.</p>
+          <p>Yes — your CA is posted above. Always verify you’re using the same one.</p>
         </div>
         <div class="card">
           <h3>Where’s the community?</h3>
@@ -727,207 +486,164 @@
       </div>
     </section>
 
-    <!-- LINKS -->
-    <section id="links" class="section">
-      <div class="kicker">🔗 Links</div>
-      <h2 class="title">Official links only.</h2>
-      <p class="lead">Bookmark these. Ignore everything else.</p>
+    <section id="links">
+      <h2 class="sectionTitle">Official links only.</h2>
+      <p class="sectionSub">Bookmark these. Ignore everything else.</p>
 
-      <div style="height:16px"></div>
-
-      <div class="grid-3">
+      <div class="cards">
         <div class="card">
           <h3>Telegram</h3>
-          <p><a class="btn small primary" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a></p>
+          <p><a href="https://t.me/rigmachinecoinofficial" target="_blank" rel="noopener" style="color:var(--accent); font-weight:900;">Join Telegram</a></p>
         </div>
         <div class="card">
           <h3>X</h3>
-          <p><a class="btn small ghost" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a></p>
+          <p><a href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noopener" style="color:var(--accent); font-weight:900;">Follow on X</a></p>
         </div>
         <div class="card">
-          <h3>Buy / Chart</h3>
-          <p><span class="pill">Enabled at launch (official links only)</span></p>
+          <h3>Buy</h3>
+          <p><a id="buyLinkBottom" href="#" target="_blank" rel="noopener" style="color:var(--accent); font-weight:900;">Buy $RIG</a></p>
         </div>
       </div>
     </section>
 
-    <footer>
-      <div><b>Disclaimer:</b> $RIG is a community memecoin. Crypto is risky. Never invest money you can’t afford to lose.</div>
-      <div style="margin-top:10px;">Security note: Admins will never DM first. Only trust links on this site + pinned Telegram message.</div>
-    </footer>
-
-  </div>
+    <div class="footer">
+      Disclaimer: $RIG is a community memecoin. Crypto is risky. Never invest money you can’t afford to lose.<br/>
+      Security note: Admins will never DM first. Only trust links on this site + pinned Telegram message.
+    </div>
+  </main>
 
   <script>
-    /***************
-     * CONFIG (change these when live)
-     ***************/
-    const RIG = {
-      contract: "ECfjJM1B4NQhbuTHaqMcGuVGZYVkrBveCrWnDpeipump", // <-- CA set
-      buyUrl: "",                                               // <-- paste buy link (Raydium/Pump) here when live
-      dexscreenerUrl: "",                                       // <-- paste Dexscreener page url here (optional)
-      dexscreenerEmbedUrl: "",                                  // <-- paste Dexscreener EMBED url here (iframe src)
-      stats: {
-        holders: "—",                                           // optional placeholders until you wire an API later
-        marketCap: "—",
-        liquidity: "—",
-        volume24h: "—"
-      }
-    };
+    // ====== CONFIG (already filled) ======
+    const CA = "FgrMj7fTByZ6AeJqbs5qdgMdQuXzZVsSE7eY8cJRpump";
+    const BUY_URL = `https://pump.fun/coin/${CA}`;
 
-    /***************
-     * Mobile menu
-     ***************/
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (menuBtn && mobileMenu){
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.style.display = (mobileMenu.style.display === 'block') ? 'none' : 'block';
-      });
+    // Dexscreener endpoints
+    const DEX_TOKEN_API = `https://api.dexscreener.com/latest/dex/tokens/${CA}`;
+
+    // UI refs
+    const $ = (id)=>document.getElementById(id);
+    const statusDot = $("statusDot");
+    const statusText = $("statusText");
+
+    function setStatus(live, text){
+      statusDot.classList.toggle("live", !!live);
+      statusText.textContent = text;
     }
 
-    /***************
-     * Parallax background
-     ***************/
-    const bg1 = document.getElementById('bg1');
-    const bg2 = document.getElementById('bg2');
-    const bg3 = document.getElementById('bg3');
-    let ticking = false;
-    function onScroll(){
-      const y = window.scrollY || 0;
-      // subtle movement (Doge/Shiba vibe, not dizzy)
-      bg1.style.transform = `translate3d(0, ${y * 0.10}px, 0)`;
-      bg2.style.transform = `translate3d(0, ${y * 0.18}px, 0)`;
-      bg3.style.transform = `translate3d(0, ${y * 0.06}px, 0)`;
-      ticking = false;
+    function fmtUSD(n){
+      const x = Number(n);
+      if (!isFinite(x) || x <= 0) return "—";
+      if (x >= 1e9) return `$${(x/1e9).toFixed(2)}B`;
+      if (x >= 1e6) return `$${(x/1e6).toFixed(2)}M`;
+      if (x >= 1e3) return `$${(x/1e3).toFixed(2)}K`;
+      return `$${x.toFixed(2)}`;
     }
-    window.addEventListener('scroll', () => {
-      if (!ticking){
-        window.requestAnimationFrame(onScroll);
-        ticking = true;
+    function fmtPrice(n){
+      const x = Number(n);
+      if (!isFinite(x) || x <= 0) return "—";
+      if (x >= 1) return `$${x.toFixed(4)}`;
+      if (x >= 0.01) return `$${x.toFixed(6)}`;
+      return `$${x.toPrecision(4)}`;
+    }
+
+    // Wire links immediately
+    $("buyBtn").href = BUY_URL;
+    $("pumpBtn").href = BUY_URL;
+    $("buyLinkBottom").href = BUY_URL;
+
+    // Copy CA
+    $("copyBtn").addEventListener("click", async ()=>{
+      try{
+        await navigator.clipboard.writeText(CA);
+        $("copyState").textContent = "Copied ✅";
+        setTimeout(()=>{$("copyState").textContent="Ready";}, 1200);
+      }catch(e){
+        $("copyState").textContent = "Copy failed";
+        setTimeout(()=>{$("copyState").textContent="Ready";}, 1200);
       }
     });
-    onScroll();
 
-    /***************
-     * Wire UI from config
-     ***************/
-    const caText = document.getElementById('caText');
-    const copyCaBtn = document.getElementById('copyCaBtn');
-    const buyBtn = document.getElementById('buyBtn');
-    const chartBtn = document.getElementById('chartBtn');
+    // Mobile menu
+    $("menuBtn").addEventListener("click", ()=>{
+      $("mobileNav").classList.toggle("show");
+    });
 
-    const holdersVal = document.getElementById('holdersVal');
-    const mcVal = document.getElementById('mcVal');
-    const liqVal = document.getElementById('liqVal');
-    const volVal = document.getElementById('volVal');
+    // ====== Auto-detect Dexscreener pair + load embed ======
+    async function loadDex(){
+      setStatus(false, "Indexing…");
 
-    const dexWrap = document.getElementById('dexWrap');
-    const dexIframe = document.getElementById('dexIframe');
-    const dexPlaceholder = document.getElementById('dexPlaceholder');
-    const dexOpenBtn = document.getElementById('dexOpenBtn');
+      try{
+        const res = await fetch(DEX_TOKEN_API, { cache: "no-store" });
+        if (!res.ok) throw new Error("Dex API not OK");
+        const data = await res.json();
 
-    function setDisabled(el, disabled){
-      if (!el) return;
-      if (disabled){
-        el.classList.add('disabled');
-        el.setAttribute('aria-disabled','true');
-        if (el.tagName === 'A') el.setAttribute('href', '#');
+        const pairs = Array.isArray(data?.pairs) ? data.pairs : [];
+        const solPairs = pairs.filter(p => (p?.chainId || "").toLowerCase() === "solana");
+
+        // Prefer highest liquidity pair if multiple
+        solPairs.sort((a,b)=> (Number(b?.liquidity?.usd||0) - Number(a?.liquidity?.usd||0)));
+
+        const best = solPairs[0];
+        if (!best?.pairAddress){
+          setStatus(false, "Waiting for pair…");
+          $("chartNote").textContent = "Dexscreener hasn’t indexed a Solana pair for this CA yet. Check back soon.";
+          return false;
+        }
+
+        const pairAddress = best.pairAddress;
+        const dexPairUrl = `https://dexscreener.com/solana/${pairAddress}`;
+        const dexEmbedUrl = `${dexPairUrl}?embed=1&theme=dark&info=0&trades=0`;
+
+        // Set chart + open links
+        $("dexFrame").src = dexEmbedUrl;
+        $("dexOpenBtn").href = dexPairUrl;
+        $("dexOpenTop").href = dexPairUrl;
+
+        // Stats
+        $("mPrice").textContent = fmtPrice(best?.priceUsd);
+        $("mVol").textContent   = fmtUSD(best?.volume?.h24);
+        $("mLiq").textContent   = fmtUSD(best?.liquidity?.usd);
+        // marketCap or fdv can appear depending on pair; display whichever exists
+        const mc = best?.marketCap ?? best?.fdv;
+        $("mMc").textContent    = fmtUSD(mc);
+
+        $("chartNote").textContent = "Live chart loaded from Dexscreener.";
+        setStatus(true, "Live");
+
+        return true;
+      }catch(err){
+        setStatus(false, "API unavailable");
+        $("chartNote").textContent = "Couldn’t reach Dexscreener API from this browser/network. Try again soon.";
+        return false;
+      }
+    }
+
+    // Poll until pair is found, then slow down
+    (async function boot(){
+      // First attempt immediately
+      let live = await loadDex();
+
+      // If not live yet, poll more frequently for the first few minutes
+      if (!live){
+        let attempts = 0;
+        const fast = setInterval(async ()=>{
+          attempts++;
+          const ok = await loadDex();
+          if (ok || attempts >= 30){ // ~5 minutes
+            clearInterval(fast);
+            // After that, slow poll
+            setInterval(loadDex, 60_000);
+          }
+        }, 10_000);
       } else {
-        el.classList.remove('disabled');
-        el.setAttribute('aria-disabled','false');
-      }
-    }
-
-    function applyConfig(){
-      // CA
-      if (caText) caText.textContent = RIG.contract || "COMING_SOON";
-
-      // Stats
-      if (holdersVal) holdersVal.textContent = RIG.stats.holders ?? "—";
-      if (mcVal) mcVal.textContent = RIG.stats.marketCap ?? "—";
-      if (liqVal) liqVal.textContent = RIG.stats.liquidity ?? "—";
-      if (volVal) volVal.textContent = RIG.stats.volume24h ?? "—";
-
-      // Buy
-      if (buyBtn){
-        if (RIG.buyUrl){
-          buyBtn.textContent = "Buy $RIG";
-          buyBtn.href = RIG.buyUrl;
-          buyBtn.target = "_blank";
-          buyBtn.rel = "noreferrer";
-          setDisabled(buyBtn, false);
-        } else {
-          buyBtn.textContent = "Buy (Not Live Yet)";
-          setDisabled(buyBtn, true);
-        }
+        setInterval(loadDex, 60_000);
       }
 
-      // Chart button
-      if (chartBtn){
-        if (RIG.dexscreenerUrl){
-          chartBtn.textContent = "View Chart";
-          chartBtn.href = RIG.dexscreenerUrl;
-          chartBtn.target = "_blank";
-          chartBtn.rel = "noreferrer";
-          setDisabled(chartBtn, false);
-        } else {
-          chartBtn.textContent = "Chart (Not Live Yet)";
-          setDisabled(chartBtn, true);
-        }
-      }
-
-      // Dex embed
-      if (RIG.dexscreenerEmbedUrl){
-        if (dexIframe) dexIframe.src = RIG.dexscreenerEmbedUrl;
-        if (dexOpenBtn){
-          dexOpenBtn.href = RIG.dexscreenerUrl || RIG.dexscreenerEmbedUrl;
-        }
-        if (dexWrap) dexWrap.style.display = "block";
-        if (dexPlaceholder) dexPlaceholder.style.display = "none";
-      } else {
-        if (dexWrap) dexWrap.style.display = "none";
-        if (dexPlaceholder) dexPlaceholder.style.display = "block";
-      }
-    }
-
-    applyConfig();
-
-    /***************
-     * Copy CA
-     ***************/
-    if (copyCaBtn){
-      copyCaBtn.addEventListener('click', async () => {
-        if (!RIG.contract || RIG.contract === "COMING_SOON"){
-          alert("Contract address not set yet.");
-          return;
-        }
-        try{
-          await navigator.clipboard.writeText(RIG.contract);
-          const old = copyCaBtn.textContent;
-          copyCaBtn.textContent = "Copied ✓";
-          setTimeout(()=> copyCaBtn.textContent = old, 900);
-        }catch(e){
-          alert("Couldn’t copy. Try selecting the CA manually.");
-        }
-      });
-    }
-
-    /***************
-     * Test Live UI (local-only)
-     ***************/
-    const setLiveBtn = document.getElementById('setLiveBtn');
-    if (setLiveBtn){
-      setLiveBtn.addEventListener('click', () => {
-        // This does NOT change your real config; it's just a preview toggle for you.
-        RIG.contract = (RIG.contract === "COMING_SOON") ? "EXAMPLE_CA_1234" : "COMING_SOON";
-        RIG.buyUrl = RIG.buyUrl ? "" : "https://example.com/buy";
-        RIG.dexscreenerUrl = RIG.dexscreenerUrl ? "" : "https://dexscreener.com/";
-        RIG.dexscreenerEmbedUrl = RIG.dexscreenerEmbedUrl ? "" : "https://dexscreener.com/";
-        RIG.stats = RIG.buyUrl ? { holders:"412", marketCap:"$185k", liquidity:"$32k", volume24h:"$71k" } : { holders:"—", marketCap:"—", liquidity:"—", volume24h:"—" };
-        applyConfig();
-      });
-    }
+      // Dex search fallback (clickable even if pair not found)
+      const fallbackDexSearch = `https://dexscreener.com/solana/${CA}`;
+      $("dexOpenBtn").href = fallbackDexSearch;
+      $("dexOpenTop").href = fallbackDexSearch;
+    })();
   </script>
 </body>
 </html>
