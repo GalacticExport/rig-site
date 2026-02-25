@@ -3,950 +3,855 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>$RIG — Built to work. Ready to earn.</title>
-  <meta name="description" content="$RIG is a blue-collar Solana community built on Proof-of-Work values: grind, integrity, long-term building." />
+  <title>Axis Field Group | Field Observation, Documentation & Technical Support</title>
+
+  <meta name="description" content="Axis Field Group provides independent field observation, documentation, and technical support for concrete placements and critical construction activities." />
   <meta name="theme-color" content="#0b0f1a" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Axis Field Group" />
+  <meta property="og:description" content="Independent field observation, documentation, and technical support for concrete placements and critical construction activities." />
+  <meta property="og:type" content="website" />
 
   <style>
     :root{
       --bg:#070a12;
       --bg2:#0b1020;
       --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.09);
       --line:rgba(255,255,255,.10);
       --text:#eaf1ff;
       --muted:#a7b3d6;
+      --muted2:#7f8bb3;
       --accent:#3b82f6;
+      --accent2:#60a5fa;
       --good:#22c55e;
       --warn:#f59e0b;
-      --danger:#ef4444;
 
-      --radius:20px;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --max: 1120px;
+      --radius:18px;
+      --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --max: 1140px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
-      background: var(--bg);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(59,130,246,.20), transparent 60%),
+        radial-gradient(900px 550px at 85% 20%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(900px 550px at 50% 85%, rgba(34,197,94,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
     }
+
     a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}
-
-    /* ===== Parallax background layers ===== */
-    .bg{
-      position:fixed;
-      inset:0;
-      z-index:-5;
-      overflow:hidden;
-      pointer-events:none;
-      background: linear-gradient(180deg, #040611 0%, var(--bg) 55%, #050815 100%);
-    }
-    .bg .layer{
-      position:absolute;
-      inset:-12%;
-      background-repeat:no-repeat;
-      background-size: cover;
-      opacity:1;
-      transform: translate3d(0,0,0);
-      will-change: transform;
-    }
-    .bg .l1{
-      background-image:
-        radial-gradient(900px 500px at 12% 10%, rgba(59,130,246,.22), transparent 60%),
-        radial-gradient(900px 500px at 85% 15%, rgba(34,197,94,.18), transparent 60%),
-        radial-gradient(900px 600px at 50% 95%, rgba(245,158,11,.10), transparent 55%);
-      opacity:.95;
-      filter: blur(0px);
-    }
-    .bg .l2{
-      background-image:
-        radial-gradient(800px 420px at 20% 70%, rgba(255,255,255,.06), transparent 65%),
-        radial-gradient(900px 520px at 85% 65%, rgba(255,255,255,.04), transparent 65%);
-      opacity:.85;
-      filter: blur(0px);
-      mix-blend-mode: screen;
-    }
-    .bg .noise{
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
-      opacity:.10;
-      mix-blend-mode: overlay;
-    }
-
-    /* Layout */
-    .wrap{max-width:var(--max); margin:0 auto; padding: 18px 16px 64px;}
-    .section{padding: 54px 0;}
-    .grid-2{display:grid; grid-template-columns: 1.15fr .85fr; gap: 22px; align-items:center;}
-    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px;}
-    .grid-4{display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px;}
-    @media (max-width: 980px){
-      .grid-2{grid-template-columns:1fr; gap: 14px;}
-      .grid-3{grid-template-columns:1fr;}
-      .grid-4{grid-template-columns:1fr 1fr;}
-    }
-    @media (max-width: 560px){
-      .grid-4{grid-template-columns:1fr;}
-      .section{padding: 40px 0;}
-    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
 
     /* Top bar */
     .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position:sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
-      background: rgba(6,9,18,.60);
-      border-bottom: 1px solid var(--line);
+      background: rgba(7,10,18,.55);
+      border-bottom:1px solid var(--line);
     }
     .nav{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 12px 16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
     }
     .brand{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      font-weight: 900;
-      letter-spacing: .2px;
+      display:flex; align-items:center; gap:12px;
+      min-width: 220px;
     }
-    .brand .logo{
-      width: 42px; height:42px;
-      border-radius: 14px;
+    .logoMark{
+      width:38px; height:38px; border-radius:12px;
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.25), transparent 60%),
+        conic-gradient(from 220deg, rgba(59,130,246,.95), rgba(96,165,250,.45), rgba(59,130,246,.95));
+      box-shadow: 0 14px 30px rgba(59,130,246,.18);
+      position:relative;
+      border:1px solid rgba(255,255,255,.12);
       overflow:hidden;
-      border: 1px solid var(--line);
+    }
+    .logoMark:before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.0), rgba(0,0,0,.35) 70%);
+      transform: rotate(25deg);
+    }
+    .brandTitle{
+      display:flex; flex-direction:column; line-height:1.05;
+    }
+    .brandTitle strong{letter-spacing:.12em; font-size:13px}
+    .brandTitle span{font-size:12px; color:var(--muted); letter-spacing:.08em}
+
+    .links{
+      display:flex; align-items:center; gap:18px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .links a{
+      font-size:13px; color:var(--muted);
+      padding:8px 10px; border-radius:10px;
+      border:1px solid transparent;
+    }
+    .links a:hover{
+      color:var(--text);
+      border-color: rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-    .brand small{
-      display:block;
-      font-weight:700;
-      color: var(--muted);
-      letter-spacing: .3px;
-      margin-top: 1px;
+    .cta{
+      display:flex; align-items:center; gap:10px;
     }
-
-    .navlinks{display:flex; gap: 16px; align-items:center; flex-wrap:wrap;}
-    .navlinks a{
-      color: var(--muted);
-      font-weight: 800;
-      font-size: 14px;
-      padding: 8px 10px;
-      border-radius: 12px;
-      transition: .15s ease;
-    }
-    .navlinks a:hover{color:var(--text); background: rgba(255,255,255,.06);}
-
-    .cta{display:flex; gap: 10px; align-items:center; flex-wrap:wrap;}
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      font-weight: 900;
-      font-size: 14px;
-      box-shadow: 0 16px 45px rgba(0,0,0,.35);
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, filter .12s ease;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:11px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:600;
+      font-size:13px;
       cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
       user-select:none;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08);}
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.20)}
     .btn.primary{
-      background: linear-gradient(135deg, rgba(59,130,246,.95), rgba(34,197,94,.80));
-      border-color: rgba(255,255,255,.14);
+      border-color: rgba(59,130,246,.45);
+      background: linear-gradient(135deg, rgba(59,130,246,.95), rgba(96,165,250,.60));
+      color:#071018;
+      box-shadow: 0 14px 35px rgba(59,130,246,.18);
     }
-    .btn.good{background: rgba(34,197,94,.14); border-color: rgba(34,197,94,.35);}
-    .btn.warn{background: rgba(245,158,11,.14); border-color: rgba(245,158,11,.35);}
-    .btn.ghost{background: rgba(255,255,255,.04);}
-    .btn.small{padding: 10px 12px; border-radius: 12px; font-size: 13px;}
-    .btn.disabled{
-      opacity:.55;
-      cursor:not-allowed;
-      pointer-events:none;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--muted);
-      font-weight: 800;
-      font-size: 13px;
-    }
-
-    /* Mobile menu */
-    .menuBtn{display:none}
-    @media (max-width: 860px){
-      .navlinks{display:none}
-      .menuBtn{display:inline-flex}
-      .cta .btn.small{display:none}
-    }
-    .mobileMenu{
+    .btn.primary:hover{transform: translateY(-1px); filter: brightness(1.04)}
+    .btn small{opacity:.8; font-weight:700}
+    .hamburger{
       display:none;
-      border-top: 1px solid var(--line);
-      padding: 12px 16px 16px;
-      max-width: var(--max);
-      margin: 0 auto;
+      width:42px; height:40px; border-radius:12px;
     }
-    .mobileMenu a{
-      display:block;
-      padding: 12px 12px;
-      border-radius: 14px;
-      color: var(--muted);
-      font-weight: 900;
-      border: 1px solid rgba(255,255,255,.06);
-      background: rgba(255,255,255,.03);
-      margin-top: 10px;
-    }
-    .mobileMenu a:hover{color:var(--text); background: rgba(255,255,255,.06);}
-    .mobileMenu .row{display:grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px;}
 
     /* Hero */
-    .hero{padding: 26px 0 12px;}
-    .heroCard{
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      border-radius: calc(var(--radius) + 8px);
-      box-shadow: var(--shadow);
-      overflow:hidden;
+    .hero{
+      padding:64px 0 28px;
       position:relative;
     }
-    .heroInner{
+    .heroGrid{
       display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 18px;
-      padding: 22px;
-      align-items:center;
+      grid-template-columns: 1.25fr .85fr;
+      gap:22px;
+      align-items:stretch;
     }
-    @media (max-width: 980px){
-      .heroInner{grid-template-columns:1fr; padding: 18px;}
+    .badgeRow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-bottom:14px;
     }
-    .kicker{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      color: var(--muted);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-size: 12px;
-      margin-bottom: 12px;
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--muted);
+      font-size:12px;
     }
-    .headline{
-      font-size: clamp(34px, 5vw, 56px);
-      line-height: 1.02;
-      margin: 10px 0 10px;
-      font-weight: 1000;
-      letter-spacing: -.6px;
+    .badge b{color:var(--text)}
+    h1{
+      margin:0;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height:1.05;
+      letter-spacing:-.02em;
     }
-    .subhead{
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 1.5;
-      margin: 0 0 18px;
+    .sub{
+      margin:14px 0 0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
       max-width: 60ch;
     }
     .heroActions{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      margin: 14px 0 10px;
-    }
-    @media (max-width: 560px){
-      .heroActions{display:grid; grid-template-columns: 1fr; }
-      .heroActions .btn{width:100%;}
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top:18px;
     }
 
-    .stats{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 14px;
-    }
-    @media (max-width: 560px){
-      .stats{grid-template-columns: 1fr 1fr;}
-    }
-    .stat{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.20);
-      border-radius: 16px;
-      padding: 12px 12px;
-    }
-    .stat .k{font-size: 12px; color: var(--muted); font-weight: 800;}
-    .stat .v{font-size: 14px; font-weight: 1000; margin-top: 4px;}
-
-    .heroMedia{
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.22);
-      padding: 12px;
-    }
-    .heroBanner{
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-    .scamBar{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(239,68,68,.08);
-      color: rgba(255,255,255,.92);
-      font-weight: 900;
-      font-size: 13px;
-      text-align:center;
-    }
-
-    /* Cards */
-    .card{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
+    .panel{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
       border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: 0 16px 40px rgba(0,0,0,.22);
-    }
-    .card h3{margin: 0 0 8px; font-size: 16px;}
-    .card p{margin: 0; color: var(--muted); font-weight: 650; line-height: 1.55;}
-    .title{
-      font-size: 28px;
-      font-weight: 1000;
-      margin: 0 0 10px;
-      letter-spacing: -.3px;
-    }
-    .lead{color: var(--muted); font-weight: 650; line-height: 1.6; margin: 0;}
-
-    /* Copy CA box */
-    .caBox{
-      margin-top: 12px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.22);
-      border-radius: 18px;
-      padding: 12px;
-      display:flex;
-      gap: 10px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-    }
-    .caText{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 13px;
-      color: rgba(234,241,255,.90);
-      overflow-wrap:anywhere;
-    }
-    .caBtns{display:flex; gap:10px; flex-wrap:wrap;}
-
-    /* Dex embed */
-    .embedWrap{
-      margin-top: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.22);
-      border-radius: 18px;
+      box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .embedHeader{
-      display:flex; gap: 10px; align-items:center; justify-content:space-between;
-      padding: 12px 12px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      flex-wrap:wrap;
+    .panel .head{
+      padding:18px 18px 0;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
     }
-    .embedHeader .left{display:flex; gap:10px; align-items:center; color:var(--muted); font-weight:900;}
-    iframe{width:100%; height: 560px; border:0; display:block;}
-    @media (max-width: 560px){ iframe{height: 520px;} }
+    .panel .head h3{
+      margin:0;
+      font-size:14px;
+      letter-spacing:.14em;
+      color:var(--muted);
+      text-transform:uppercase;
+    }
+    .panel .body{padding:16px 18px 18px}
+    .kpis{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:6px;
+    }
+    .kpi{
+      padding:14px 14px;
+      border-radius:14px;
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .kpi .v{
+      font-size:18px; font-weight:800;
+      letter-spacing:-.02em;
+    }
+    .kpi .l{color:var(--muted2); font-size:12px; margin-top:6px; line-height:1.3}
+    .ticklist{
+      list-style:none; padding:0; margin:14px 0 0;
+      display:grid; gap:10px;
+    }
+    .ticklist li{
+      display:flex; gap:10px; align-items:flex-start;
+      color:var(--muted);
+      font-size:13px; line-height:1.55;
+    }
+    .dot{
+      width:18px; height:18px; border-radius:8px;
+      display:inline-flex; align-items:center; justify-content:center;
+      background: rgba(59,130,246,.18);
+      border:1px solid rgba(59,130,246,.35);
+      flex:0 0 auto;
+      margin-top:1px;
+    }
 
-    /* Roadmap checks */
-    .checks{display:grid; gap:12px; margin-top: 14px;}
-    .check{
-      display:flex; gap:12px; align-items:flex-start;
-      padding: 14px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
+    /* Sections */
+    section{padding:42px 0}
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:16px; margin-bottom:16px;
+    }
+    .sectionTitle h2{
+      margin:0; font-size:22px; letter-spacing:-.01em;
+    }
+    .sectionTitle p{
+      margin:0; color:var(--muted); font-size:13px; max-width: 62ch; line-height:1.5;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 4;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.35);
+      min-height: 170px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background: radial-gradient(500px 200px at 10% 0%, rgba(59,130,246,.18), transparent 65%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .card h3{margin:0; font-size:16px; position:relative}
+    .card p{margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.55; position:relative}
+    .pillRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; position:relative}
+    .pill{
+      font-size:11px; color:var(--muted);
+      padding:7px 9px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
       background: rgba(0,0,0,.18);
     }
-    .badge{
-      min-width: 34px; height: 34px;
-      border-radius: 12px;
-      display:grid; place-items:center;
-      font-weight: 1000;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-    }
-    .badge.done{background: rgba(34,197,94,.16); border-color: rgba(34,197,94,.35);}
-    .badge.doing{background: rgba(245,158,11,.16); border-color: rgba(245,158,11,.35);}
-    .badge.todo{background: rgba(59,130,246,.14); border-color: rgba(59,130,246,.25);}
-    .check b{display:block; margin-bottom: 4px;}
-    .check ul{margin:8px 0 0; padding-left: 18px; color: var(--muted); font-weight: 650;}
-    .check li{margin: 6px 0;}
 
-    /* Footer */
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .quote{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+    }
+    .quote p{margin:0; color:var(--muted); line-height:1.7}
+    .quote b{color:var(--text)}
+    .quote .who{margin-top:10px; color:var(--muted2); font-size:12px}
+
+    /* Contact */
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    form{
+      display:grid; gap:10px;
+    }
+    label{font-size:12px; color:var(--muted)}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.22);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:120px; resize:vertical}
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(96,165,250,.55);
+      box-shadow: 0 0 0 4px rgba(59,130,246,.12);
+    }
+
+    .fine{
+      color:var(--muted2);
+      font-size:12px;
+      line-height:1.55;
+    }
+
     footer{
-      margin-top: 44px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-weight: 650;
-      font-size: 13px;
-      line-height: 1.55;
+      padding:28px 0 38px;
+      border-top:1px solid var(--line);
+      color:var(--muted2);
+      font-size:12px;
+    }
+    .footGrid{
+      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      align-items:center;
     }
 
-    section{scroll-margin-top: 84px;}
+    /* Reveal */
+    .reveal{opacity:0; transform: translateY(12px); transition: opacity .55s ease, transform .55s ease}
+    .reveal.show{opacity:1; transform:none}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns:1fr; }
+      .contactGrid{grid-template-columns:1fr;}
+      .split{grid-template-columns:1fr;}
+      .card{grid-column: span 6;}
+      .brand{min-width:auto;}
+    }
+    @media (max-width: 640px){
+      .links{display:none;}
+      .hamburger{display:inline-flex;}
+      .card{grid-column: span 12;}
+      .kpis{grid-template-columns:1fr 1fr;}
+    }
+
+    /* Mobile menu */
+    .mobileMenu{
+      display:none;
+      border-top:1px solid var(--line);
+      padding:12px 0 14px;
+    }
+    .mobileMenu a{
+      display:block;
+      padding:10px 10px;
+      border-radius:12px;
+      color:var(--muted);
+      border:1px solid transparent;
+    }
+    .mobileMenu a:hover{
+      color:var(--text);
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+
+    /* Small helpers */
+    .muted{color:var(--muted)}
+    .divider{height:1px; background: var(--line); margin:16px 0}
+    .icon{
+      width:18px; height:18px; display:inline-block;
+      vertical-align:-4px;
+    }
   </style>
 </head>
 
 <body>
-  <!-- Parallax background -->
-  <div class="bg" aria-hidden="true">
-    <div class="layer l1" id="bg1"></div>
-    <div class="layer l2" id="bg2"></div>
-    <div class="layer noise" id="bg3"></div>
-  </div>
-
+  <!-- TOPBAR -->
   <div class="topbar">
-    <div class="nav">
-      <div class="brand">
-        <div class="logo">
-          <img src="rig-mascot.png.PNG" alt="$RIG mascot">
-        </div>
-        <div>
-          <div>$RIG</div>
-          <small>Built to work. Ready to earn.</small>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Axis Field Group">
+          <div class="logoMark" aria-hidden="true"></div>
+          <div class="brandTitle">
+            <strong>AXIS FIELD GROUP</strong>
+            <span>Observation • Documentation • Technical Support</span>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Primary navigation">
+          <a href="#services">Services</a>
+          <a href="#industries">Industries</a>
+          <a href="#deliverables">Deliverables</a>
+          <a href="#process">Process</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="mailto:axisfieldgroup@outlook.com?subject=Axis%20Field%20Group%20Inquiry">
+            Email
+            <small>↗</small>
+          </a>
+          <a class="btn primary" href="#contact">Request Coverage</a>
+          <button class="btn hamburger" id="hamburger" aria-label="Open menu">☰</button>
         </div>
       </div>
 
-      <div class="navlinks">
+      <div class="mobileMenu" id="mobileMenu" aria-label="Mobile navigation">
+        <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#deliverables">Deliverables</a>
+        <a href="#process">Process</a>
         <a href="#about">About</a>
-        <a href="#how">How to Buy</a>
-        <a href="#tokenomics">Tokenomics</a>
-        <a href="#chart">Chart</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#safety">Safety</a>
-        <a href="#faq">FAQ</a>
-        <a href="#links">Links</a>
-      </div>
-
-      <div class="cta">
-        <a class="btn small ghost" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a>
-        <a class="btn small primary" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
-        <button class="btn small menuBtn" id="menuBtn" aria-label="Open menu">☰ Menu</button>
-      </div>
-    </div>
-
-    <div class="mobileMenu" id="mobileMenu">
-      <a href="#about">About</a>
-      <a href="#how">How to Buy</a>
-      <a href="#tokenomics">Tokenomics</a>
-      <a href="#chart">Chart</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#safety">Safety</a>
-      <a href="#faq">FAQ</a>
-      <a href="#links">Links</a>
-      <div class="row">
-        <a href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
-        <a href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </div>
 
-  <div class="wrap">
-
-    <!-- HERO -->
-    <div class="hero">
-      <div class="heroCard">
-        <div class="heroInner">
-          <div>
-            <div class="kicker">🛠️ blue-collar culture • credibility first • long-term build</div>
-            <h1 class="headline">Built to work.<br/>Ready to earn.</h1>
-            <p class="subhead">
-              $RIG is a Solana community built on Proof-of-Work values: grind, integrity, and building something real.
-              No “team” DMs. No fake promises. We build it right.
-            </p>
-
-            <div class="heroActions">
-              <a class="btn primary" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a>
-              <a class="btn ghost" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a>
-
-              <a class="btn good" id="buyBtn" href="#" target="_blank" rel="noreferrer">Buy $RIG</a>
-              <a class="btn warn" id="chartBtn" href="#" target="_blank" rel="noreferrer">View Chart</a>
-            </div>
-
-            <!-- Copy CA -->
-            <div class="caBox">
-              <div>
-                <div class="pill">Contract Address</div>
-                <div class="caText" id="caText">—</div>
-              </div>
-              <div class="caBtns">
-                <button class="btn small warn" id="copyCaBtn" type="button">📋 Copy CA</button>
-              </div>
-            </div>
-
-            <!-- Stats bar -->
-            <div class="stats">
-              <div class="stat"><div class="k">Holders</div><div class="v" id="holdersVal">—</div></div>
-              <div class="stat"><div class="k">Market Cap / FDV</div><div class="v" id="mcVal">—</div></div>
-              <div class="stat"><div class="k">Liquidity</div><div class="v" id="liqVal">—</div></div>
-              <div class="stat"><div class="k">24h Volume</div><div class="v" id="volVal">—</div></div>
-            </div>
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="wrap">
+      <div class="heroGrid">
+        <div class="reveal">
+          <div class="badgeRow">
+            <div class="badge"><b>Independent</b> Field Observation</div>
+            <div class="badge"><b>Clean</b> Documentation Packages</div>
+            <div class="badge"><b>Fast</b> 24-Hour Reporting</div>
           </div>
 
-          <div class="heroMedia">
-            <div class="heroBanner">
-              <img src="rig-hero.png.PNG" alt="$RIG hero banner">
+          <h1>Technical field coverage you can trust — from pour day to closeout.</h1>
+          <p class="sub">
+            Axis Field Group supports owners, GCs, and trade partners with structured observation, documentation, and field reporting
+            for concrete placements and other critical construction activities — built for accountability and clarity.
+          </p>
+
+          <div class="heroActions">
+            <a class="btn primary" href="#contact">Request Coverage</a>
+            <a class="btn" href="#services">View Services</a>
+            <a class="btn" href="mailto:axisfieldgroup@outlook.com?subject=Axis%20Field%20Group%20-%20Sample%20Report%20Request&body=Hi%20Axis%20Field%20Group%2C%0A%0AI%E2%80%99d%20like%20to%20see%20a%20sample%20field%20report.%0A%0AProject%3A%0ALocation%3A%0ADate%3A%0A%0AThanks%2C">
+              Request Sample Report
+            </a>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="fine">
+            <b>Positioning note:</b> Axis Field Group provides independent observation and documentation support.
+            Services can be tailored for owner/GC reporting needs and project requirements.
+          </div>
+        </div>
+
+        <aside class="panel reveal" aria-label="Quick overview panel">
+          <div class="head">
+            <h3>Field Coverage Snapshot</h3>
+            <span class="badge" title="Typical turnaround">Turnaround: <b>24 hrs</b></span>
+          </div>
+          <div class="body">
+            <div class="kpis">
+              <div class="kpi">
+                <div class="v">Pour Day</div>
+                <div class="l">Tickets, testing, placement, finishing, cure start</div>
+              </div>
+              <div class="kpi">
+                <div class="v">Critical Work</div>
+                <div class="l">Embeds, sleeves, anchor sets, slab readiness</div>
+              </div>
+              <div class="kpi">
+                <div class="v">Photo Log</div>
+                <div class="l">Structured, time-stamped, easy to search</div>
+              </div>
+              <div class="kpi">
+                <div class="v">Closeout</div>
+                <div class="l">Punch walkdowns, issue logs, evidence packages</div>
+              </div>
             </div>
-            <div class="scamBar">
-              ⚠️ Admins will NEVER DM you first. Only trust links on this site + pinned Telegram message.
-            </div>
+
+            <ul class="ticklist">
+              <li><span class="dot">✓</span><span><b>Neutral documentation</b> that reduces finger-pointing and protects schedule.</span></li>
+              <li><span class="dot">✓</span><span><b>Project-ready PDFs</b> you can forward to owners and stakeholders.</span></li>
+              <li><span class="dot">✓</span><span><b>Jobsite-to-jobsite</b> coverage with consistent reporting standards.</span></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sectionTitle reveal">
+        <div>
+          <h2>Services</h2>
+          <p>Technical coverage designed to support accountability, documentation quality, and smooth handoffs between teams.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card reveal">
+          <h3>Concrete Placement Observation</h3>
+          <p>Structured pour-day coverage including pre-pour readiness, ticket capture, testing witness, placement, finishing, and cure start documentation.</p>
+          <div class="pillRow">
+            <span class="pill">Truck tickets</span><span class="pill">Slump/air/temp (as available)</span><span class="pill">Time log</span><span class="pill">Cure verification</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3>Embed / Sleeve / Anchor Verification</h3>
+          <p>Photo-driven verification of embeds, sleeves, blockouts, and anchor sets prior to placement — organized by gridline/area for easy retrieval.</p>
+          <div class="pillRow">
+            <span class="pill">Area indexing</span><span class="pill">Red-flag notes</span><span class="pill">Pre-cover evidence</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3>Daily Field Reporting</h3>
+          <p>Concise, professional daily summaries with progress photos, constraints, and issue tracking — ideal for owner updates and internal accountability.</p>
+          <div class="pillRow">
+            <span class="pill">Progress photos</span><span class="pill">Issue log</span><span class="pill">RFI/constraint highlights</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3>Closeout Documentation Support</h3>
+          <p>Walkdowns, punch documentation, and evidence packages that help teams close open items efficiently and reduce rework debates.</p>
+          <div class="pillRow">
+            <span class="pill">Punch mapping</span><span class="pill">Photo evidence</span><span class="pill">Owner-ready packages</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3>Critical Activity Coverage</h3>
+          <p>Observation and documentation support for other critical activities where clean records matter — tailored per project requirements.</p>
+          <div class="pillRow">
+            <span class="pill">Phased work</span><span class="pill">Night work</span><span class="pill">Handoffs</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3>Custom Reporting Standards</h3>
+          <p>We can align reporting formats to your project standards (area naming, gridlines, distribution lists, required photo sets, and closeout needs).</p>
+          <div class="pillRow">
+            <span class="pill">Owner formats</span><span class="pill">GC formats</span><span class="pill">Standardized templates</span>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="kicker">📌 About</div>
-      <h2 class="title">A memecoin with real-world work ethic.</h2>
-      <p class="lead">
-        Most coins chase hype. $RIG builds a recognizable brand: workers, builders, and grinders.
-        We grow the culture first, then ship real utility (Proof-of-Work edition) over time.
-      </p>
-
-      <div style="height:16px"></div>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>🧰 Culture</h3>
-          <p>For workers, builders, and grinders. A community you can actually recognize.</p>
-        </div>
-        <div class="card">
-          <h3>🔎 Transparency</h3>
-          <p>Clear links, clear rules, consistent updates. Trust is the product.</p>
-        </div>
-        <div class="card">
-          <h3>📈 Long-term</h3>
-          <p>Not a one-day meme. Step-by-step growth into something bigger.</p>
+  <!-- INDUSTRIES -->
+  <section id="industries">
+    <div class="wrap">
+      <div class="sectionTitle reveal">
+        <div>
+          <h2>Industries & Project Types</h2>
+          <p>Experience aligned with high-accountability environments where documentation quality impacts schedule, cost, and closeout.</p>
         </div>
       </div>
-    </section>
 
-    <!-- HOW TO BUY -->
-    <section id="how" class="section">
-      <div class="kicker">🛒 How to Buy</div>
-      <h2 class="title">Simple, scam-proof steps.</h2>
-      <p class="lead">Only use official links from this site + pinned Telegram message.</p>
-
-      <div style="height:16px"></div>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>1) Get a Solana wallet</h3>
-          <p>Use Phantom (recommended) or another trusted Solana wallet. Never share your seed phrase.</p>
+      <div class="split">
+        <div class="panel reveal">
+          <div class="head"><h3>Typical Projects</h3></div>
+          <div class="body">
+            <ul class="ticklist">
+              <li><span class="dot">✓</span><span>Data centers & mission-critical facilities</span></li>
+              <li><span class="dot">✓</span><span>Industrial & manufacturing</span></li>
+              <li><span class="dot">✓</span><span>Commercial slabs, foundations, equipment pads</span></li>
+              <li><span class="dot">✓</span><span>Fit-outs, expansions, and phased builds</span></li>
+            </ul>
+          </div>
         </div>
-        <div class="card">
-          <h3>2) Load SOL</h3>
-          <p>Buy SOL on a reputable exchange and send it to your wallet address.</p>
+
+        <div class="panel reveal">
+          <div class="head"><h3>Who We Support</h3></div>
+          <div class="body">
+            <ul class="ticklist">
+              <li><span class="dot">✓</span><span><b>Owners</b> needing clean photo & record packages</span></li>
+              <li><span class="dot">✓</span><span><b>GCs</b> wanting consistent field documentation</span></li>
+              <li><span class="dot">✓</span><span><b>Trade partners</b> who value objective records</span></li>
+              <li><span class="dot">✓</span><span><b>JV teams</b> coordinating across companies</span></li>
+            </ul>
+          </div>
         </div>
-        <div class="card">
-          <h3>3) Use the official buy link</h3>
-          <p>Use the “Buy $RIG” button on this site. Ignore DMs.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TOKENOMICS -->
-    <section id="tokenomics" class="section">
-      <div class="kicker">🧾 Tokenomics</div>
-      <h2 class="title">Clear details. No confusion.</h2>
-      <p class="lead">Update these the moment you go live (don’t guess).</p>
-
-      <div style="height:16px"></div>
-
-      <div class="grid-4">
-        <div class="card"><h3>Ticker</h3><p>$RIG</p></div>
-        <div class="card"><h3>Chain</h3><p>Solana</p></div>
-        <div class="card"><h3>Total Supply</h3><p id="supplyVal">—</p></div>
-        <div class="card"><h3>Taxes</h3><p id="taxVal">—</p></div>
       </div>
 
       <div style="height:14px"></div>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>Liquidity / Lock</h3>
-          <p id="lpVal">—</p>
-        </div>
-        <div class="card">
-          <h3>Top Holder Notes</h3>
-          <p id="holdersNote">We’ll publish transparency updates as we scale.</p>
-        </div>
-        <div class="card">
-          <h3>Execution</h3>
-          <p>Roadmap progress will be updated publicly. Credibility is the meta.</p>
+      <div class="quote reveal">
+        <p><b>Simple goal:</b> Provide clear, organized evidence and field reporting so teams can move faster, reduce disputes, and close out cleaner.</p>
+        <div class="who">— Axis Field Group</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section id="deliverables">
+    <div class="wrap">
+      <div class="sectionTitle reveal">
+        <div>
+          <h2>Deliverables</h2>
+          <p>What you get after coverage — built to be forwarded, archived, and used in closeout.</p>
         </div>
       </div>
-    </section>
 
-    <!-- CHART -->
-    <section id="chart" class="section">
-      <div class="kicker">📈 Chart</div>
-      <h2 class="title">Live chart (Dexscreener)</h2>
-      <p class="lead">
-        This turns on automatically once Dexscreener has a Solana pair for your CA.
-      </p>
-
-      <div class="embedWrap" id="dexWrap" style="display:none;">
-        <div class="embedHeader">
-          <div class="left">✅ Verified links • Dexscreener embed</div>
-          <div class="right">
-            <a class="btn small ghost" id="dexOpenBtn" href="#" target="_blank" rel="noreferrer">Open on Dexscreener</a>
-          </div>
+      <div class="cards">
+        <div class="card reveal">
+          <h3>24-Hour Pour Report (PDF)</h3>
+          <p>Structured timeline, ticket photos, testing photos (as available), placement/finish documentation, cure start verification, and notes by area.</p>
+          <div class="pillRow"><span class="pill">PDF</span><span class="pill">Indexed</span><span class="pill">Shareable</span></div>
         </div>
-        <iframe id="dexIframe" title="$RIG chart"></iframe>
+
+        <div class="card reveal">
+          <h3>Searchable Photo Log</h3>
+          <p>Organized images labeled by date/area/gridline for quick retrieval. Delivered as a folder + optional summary sheet.</p>
+          <div class="pillRow"><span class="pill">Folder structure</span><span class="pill">Area tags</span><span class="pill">Time-stamped</span></div>
+        </div>
+
+        <div class="card reveal">
+          <h3>Issue & Risk Notes</h3>
+          <p>Neutral red-flag notes captured with supporting photos, focused on clarity and accountability (not approvals or engineering sign-off).</p>
+          <div class="pillRow"><span class="pill">Neutral language</span><span class="pill">Photo evidence</span><span class="pill">Actionable</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="sectionTitle reveal">
+        <div>
+          <h2>Process</h2>
+          <p>Fast onboarding. Consistent documentation. Repeatable standards across jobsites.</p>
+        </div>
       </div>
 
-      <div class="card" id="dexPlaceholder" style="margin-top:14px;">
-        <h3>Chart indexing…</h3>
-        <p>If this stays here, Dexscreener hasn’t indexed your pair yet. It will auto-load when available.</p>
+      <div class="cards">
+        <div class="card reveal">
+          <h3>1) Scope & Standards</h3>
+          <p>We align on areas, required photo sets, distribution list, and any owner/GC format requirements.</p>
+          <div class="pillRow"><span class="pill">Area map</span><span class="pill">Deliverable checklist</span></div>
+        </div>
+        <div class="card reveal">
+          <h3>2) Field Coverage</h3>
+          <p>Onsite observation and documentation during critical windows — with real-time notes when needed.</p>
+          <div class="pillRow"><span class="pill">Pour day</span><span class="pill">Night work</span><span class="pill">Handoffs</span></div>
+        </div>
+        <div class="card reveal">
+          <h3>3) Report Delivery</h3>
+          <p>Clean report package delivered within 24 hours (or per project need) — ready to forward and archive.</p>
+          <div class="pillRow"><span class="pill">PDF report</span><span class="pill">Photo log</span><span class="pill">Issue notes</span></div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ROADMAP -->
-    <section id="roadmap" class="section">
-      <div class="kicker">🗺️ Roadmap</div>
-      <h2 class="title">Progress you can track.</h2>
-      <p class="lead">Doge/Shiba-style: clear steps + visible execution.</p>
-
-      <div class="checks">
-        <div class="check">
-          <div class="badge done">✓</div>
-          <div>
-            <b>Website Live</b>
-            <div class="lead">Official website + branding online.</div>
-          </div>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sectionTitle reveal">
+        <div>
+          <h2>About Axis Field Group</h2>
+          <p>A technical field support partner focused on evidence-quality documentation, accountability, and repeatable reporting.</p>
         </div>
+      </div>
 
-        <div class="check">
-          <div class="badge done">✓</div>
-          <div>
-            <b>Community Hubs</b>
-            <div class="lead">Telegram + X are active and growing.</div>
-          </div>
-        </div>
-
-        <div class="check">
-          <div class="badge doing">•</div>
-          <div>
-            <b>Launch + Official Links</b>
-            <ul>
-              <li>Post CA on website + pinned Telegram</li>
-              <li>Enable Buy + Chart buttons</li>
-              <li>Dexscreener profile submission</li>
+      <div class="split">
+        <div class="panel reveal">
+          <div class="head"><h3>Mission</h3></div>
+          <div class="body">
+            <p class="muted" style="margin:0; line-height:1.7">
+              Axis Field Group helps teams build faster and cleaner by delivering structured field observation and documentation that reduces uncertainty,
+              supports decision-making, and strengthens closeout packages.
+            </p>
+            <div class="divider"></div>
+            <ul class="ticklist">
+              <li><span class="dot">✓</span><span>Clear records that reduce disputes</span></li>
+              <li><span class="dot">✓</span><span>Consistent standards across jobsites</span></li>
+              <li><span class="dot">✓</span><span>Professional reporting for owners & stakeholders</span></li>
             </ul>
           </div>
         </div>
 
-        <div class="check">
-          <div class="badge todo">→</div>
-          <div>
-            <b>Proof-of-Work Mechanism</b>
-            <ul>
-              <li>Reward contributions (builders/workers)</li>
-              <li>Community milestones + events</li>
-              <li>Partnership outreach (blue-collar creators/brands)</li>
-            </ul>
+        <div class="panel reveal">
+          <div class="head"><h3>FAQs</h3></div>
+          <div class="body">
+            <p class="muted" style="margin:0 0 10px; line-height:1.65"><b>Do you “inspect” or “approve” work?</b><br/>We provide independent observation and documentation support. Any formal inspection/approval requirements can be coordinated per project standards and responsible parties.</p>
+            <p class="muted" style="margin:0 0 10px; line-height:1.65"><b>Can you cover night pours?</b><br/>Yes — night and weekend coverage can be arranged based on schedule and site requirements.</p>
+            <p class="muted" style="margin:0; line-height:1.65"><b>How fast do we get the report?</b><br/>Typical turnaround is within 24 hours unless otherwise required.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SAFETY -->
-    <section id="safety" class="section">
-      <div class="kicker">🛡️ Safety</div>
-      <h2 class="title">Stay safe. Stay real.</h2>
-      <p class="lead">Admins will never DM first. Only trust official links.</p>
-
-      <div style="height:16px"></div>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>Admins never DM first</h3>
-          <p>If someone messages you “support” or “verification” — it’s a scam.</p>
-        </div>
-        <div class="card">
-          <h3>Only trust pinned links</h3>
-          <p>Official links live on this website + pinned Telegram message.</p>
-        </div>
-        <div class="card">
-          <h3>Never share seed phrases</h3>
-          <p>Not for “airdrops”, not for “whitelists”, not for anything.</p>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="sectionTitle reveal">
+        <div>
+          <h2>Contact</h2>
+          <p>Request coverage, ask for a sample report, or tell us your schedule window. We’ll respond quickly.</p>
         </div>
       </div>
-    </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
-      <div class="kicker">❓ FAQ</div>
-      <h2 class="title">Quick answers.</h2>
+      <div class="contactGrid">
+        <div class="panel reveal">
+          <div class="head"><h3>Get in Touch</h3></div>
+          <div class="body">
+            <p class="muted" style="margin:0 0 12px; line-height:1.7">
+              Email is the fastest way to reach us:
+              <b><a href="mailto:axisfieldgroup@outlook.com">axisfieldgroup@outlook.com</a></b>
+            </p>
 
-      <div style="height:16px"></div>
+            <div class="divider"></div>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>Is the contract live?</h3>
-          <p>Yes — the CA is posted on this page. Always verify it matches the pinned Telegram message.</p>
+            <div class="fine">
+              <b>Typical info to include:</b><br/>
+              Project name • location • pour date/time • scope (slab/foundation/pad) • required deliverables • site access details.
+            </div>
+
+            <div style="height:12px"></div>
+
+            <a class="btn primary" href="mailto:axisfieldgroup@outlook.com?subject=Axis%20Field%20Group%20-%20Coverage%20Request&body=Hi%20Axis%20Field%20Group%2C%0A%0AProject%20Name%3A%0ALocation%3A%0ADate%2FTime%20Window%3A%0AScope%3A%0ADeliverables%20Needed%3A%0A%0AThanks%2C">
+              Email a Coverage Request
+            </a>
+          </div>
         </div>
-        <div class="card">
-          <h3>Where’s the community?</h3>
-          <p>Telegram for real-time + X for updates and content drops.</p>
-        </div>
-        <div class="card">
-          <h3>What makes $RIG different?</h3>
-          <p>Blue-collar identity + long-term credibility. We build first.</p>
+
+        <div class="panel reveal">
+          <div class="head"><h3>Quick Request Form</h3></div>
+          <div class="body">
+            <form id="contactForm">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="company">Company</label>
+                <input id="company" name="company" autocomplete="organization" placeholder="GC / Owner / Trade Partner" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required />
+              </div>
+              <div>
+                <label for="topic">Request Type</label>
+                <select id="topic" name="topic">
+                  <option>Pour Coverage</option>
+                  <option>Daily Reporting</option>
+                  <option>Closeout Documentation</option>
+                  <option>Sample Report Request</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Project name, location, schedule window, and what you need documented…" required></textarea>
+              </div>
+              <button class="btn primary" type="submit">Send via Email</button>
+              <div class="fine">
+                This form opens your email client (no data stored on the website).
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- LINKS -->
-    <section id="links" class="section">
-      <div class="kicker">🔗 Links</div>
-      <h2 class="title">Official links only.</h2>
-      <p class="lead">Bookmark these. Ignore everything else.</p>
+      <div style="height:14px"></div>
 
-      <div style="height:16px"></div>
+      <div class="quote reveal">
+        <p><b>Axis Field Group</b> — built for high-accountability jobsites where documentation quality matters.</p>
+        <div class="who">Email: <a href="mailto:axisfieldgroup@outlook.com">axisfieldgroup@outlook.com</a></div>
+      </div>
+    </div>
+  </section>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>Telegram</h3>
-          <p><a class="btn small primary" href="https://t.me/+cWImjvs-KrYzZjAx" target="_blank" rel="noreferrer">Join Telegram</a></p>
-        </div>
-        <div class="card">
-          <h3>X</h3>
-          <p><a class="btn small ghost" href="https://x.com/rigmachinecoin?s=21&t=2-jQJF8LuOegxcbLKP4Rmw" target="_blank" rel="noreferrer">Follow on X</a></p>
-        </div>
-        <div class="card">
-          <h3>Buy / Chart</h3>
-          <p><span class="pill">Live • Official links only</span></p>
+  <footer>
+    <div class="wrap">
+      <div class="footGrid">
+        <div>© <span id="year"></span> Axis Field Group. All rights reserved.</div>
+        <div class="muted">
+          <a href="#top">Back to top ↑</a>
         </div>
       </div>
-    </section>
-
-    <footer>
-      <div><b>Disclaimer:</b> $RIG is a community memecoin. Crypto is risky. Never invest money you can’t afford to lose.</div>
-      <div style="margin-top:10px;">Security note: Admins will never DM first. Only trust links on this site + pinned Telegram message.</div>
-    </footer>
-
-  </div>
+    </div>
+  </footer>
 
   <script>
-    /***************
-     * LIVE CONFIG
-     ***************/
-    const RIG = {
-      contract: "ECfjJM1B4NQhbuTHaqMcGuVGZYVkrBveCrWnDpeipump",
-      // Buy on pump.fun (common pattern)
-      buyUrl: "https://pump.fun/coin/ECfjJM1B4NQhbuTHaqMcGuVGZYVkrBveCrWnDpeipump",
-      dexscreenerUrl: "",        // auto-filled
-      dexscreenerEmbedUrl: "",   // auto-filled
-      stats: {
-        holders: "—",            // Dexscreener API usually doesn't provide holders
-        marketCap: "—",
-        liquidity: "—",
-        volume24h: "—"
-      }
-    };
-
-    /***************
-     * Mobile menu
-     ***************/
-    const menuBtn = document.getElementById('menuBtn');
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    if (menuBtn && mobileMenu){
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.style.display = (mobileMenu.style.display === 'block') ? 'none' : 'block';
-      });
-    }
-
-    /***************
-     * Parallax background
-     ***************/
-    const bg1 = document.getElementById('bg1');
-    const bg2 = document.getElementById('bg2');
-    const bg3 = document.getElementById('bg3');
-    let ticking = false;
-    function onScroll(){
-      const y = window.scrollY || 0;
-      bg1.style.transform = `translate3d(0, ${y * 0.10}px, 0)`;
-      bg2.style.transform = `translate3d(0, ${y * 0.18}px, 0)`;
-      bg3.style.transform = `translate3d(0, ${y * 0.06}px, 0)`;
-      ticking = false;
-    }
-    window.addEventListener('scroll', () => {
-      if (!ticking){
-        window.requestAnimationFrame(onScroll);
-        ticking = true;
-      }
+    hamburger?.addEventListener('click', () => {
+      const open = mobileMenu.style.display === 'block';
+      mobileMenu.style.display = open ? 'none' : 'block';
+      hamburger.textContent = open ? '☰' : '✕';
     });
-    onScroll();
 
-    /***************
-     * Wire UI
-     ***************/
-    const caText = document.getElementById('caText');
-    const copyCaBtn = document.getElementById('copyCaBtn');
-    const buyBtn = document.getElementById('buyBtn');
-    const chartBtn = document.getElementById('chartBtn');
-
-    const holdersVal = document.getElementById('holdersVal');
-    const mcVal = document.getElementById('mcVal');
-    const liqVal = document.getElementById('liqVal');
-    const volVal = document.getElementById('volVal');
-
-    const dexWrap = document.getElementById('dexWrap');
-    const dexIframe = document.getElementById('dexIframe');
-    const dexPlaceholder = document.getElementById('dexPlaceholder');
-    const dexOpenBtn = document.getElementById('dexOpenBtn');
-
-    function fmtUSD(n){
-      const x = Number(n);
-      if (!isFinite(x) || x <= 0) return "—";
-      if (x >= 1e9) return `$${(x/1e9).toFixed(2)}B`;
-      if (x >= 1e6) return `$${(x/1e6).toFixed(2)}M`;
-      if (x >= 1e3) return `$${(x/1e3).toFixed(2)}K`;
-      if (x >= 1) return `$${x.toFixed(2)}`;
-      return `$${x.toPrecision(4)}`;
-    }
-
-    function applyConfig(){
-      // CA
-      if (caText) caText.textContent = RIG.contract || "—";
-
-      // Stats
-      if (holdersVal) holdersVal.textContent = RIG.stats.holders ?? "—";
-      if (mcVal) mcVal.textContent = RIG.stats.marketCap ?? "—";
-      if (liqVal) liqVal.textContent = RIG.stats.liquidity ?? "—";
-      if (volVal) volVal.textContent = RIG.stats.volume24h ?? "—";
-
-      // Buy
-      if (buyBtn){
-        buyBtn.textContent = "Buy $RIG";
-        buyBtn.href = RIG.buyUrl;
-        buyBtn.target = "_blank";
-        buyBtn.rel = "noreferrer";
-      }
-
-      // Chart button
-      if (chartBtn){
-        chartBtn.textContent = RIG.dexscreenerUrl ? "View Chart" : "Chart (Indexing...)";
-        chartBtn.href = RIG.dexscreenerUrl || "#chart";
-        chartBtn.target = "_blank";
-        chartBtn.rel = "noreferrer";
-      }
-
-      // Dex embed
-      if (RIG.dexscreenerEmbedUrl){
-        if (dexIframe) dexIframe.src = RIG.dexscreenerEmbedUrl;
-        if (dexOpenBtn) dexOpenBtn.href = RIG.dexscreenerUrl || RIG.dexscreenerEmbedUrl;
-        if (dexWrap) dexWrap.style.display = "block";
-        if (dexPlaceholder) dexPlaceholder.style.display = "none";
-      } else {
-        if (dexWrap) dexWrap.style.display = "none";
-        if (dexPlaceholder) dexPlaceholder.style.display = "block";
-      }
-    }
-
-    applyConfig();
-
-    /***************
-     * Copy CA
-     ***************/
-    if (copyCaBtn){
-      copyCaBtn.addEventListener('click', async () => {
-        try{
-          await navigator.clipboard.writeText(RIG.contract);
-          const old = copyCaBtn.textContent;
-          copyCaBtn.textContent = "Copied ✓";
-          setTimeout(()=> copyCaBtn.textContent = old, 900);
-        }catch(e){
-          alert("Couldn’t copy. Try selecting the CA manually.");
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+        if (mobileMenu.style.display === 'block') {
+          mobileMenu.style.display = 'none';
+          hamburger.textContent = '☰';
         }
       });
-    }
+    });
 
-    /***************
-     * LIVE: Auto-detect Dexscreener pair + stats
-     ***************/
-    const DEX_API = `https://api.dexscreener.com/latest/dex/tokens/${encodeURIComponent(RIG.contract)}`;
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, {threshold: 0.12});
 
-    async function refreshDex(){
-      try{
-        const res = await fetch(DEX_API, { cache: "no-store" });
-        if (!res.ok) throw new Error("Dex API error");
-        const data = await res.json();
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        const pairs = Array.isArray(data?.pairs) ? data.pairs : [];
-        const solPairs = pairs.filter(p => (p?.chainId || "").toLowerCase() === "solana");
+    // Contact form -> mailto
+    const form = document.getElementById('contactForm');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const topic = document.getElementById('topic').value;
+      const message = document.getElementById('message').value.trim();
 
-        if (!solPairs.length) {
-          // Still indexing
-          RIG.dexscreenerUrl = "";
-          RIG.dexscreenerEmbedUrl = "";
-          RIG.stats.marketCap = "—";
-          RIG.stats.liquidity = "—";
-          RIG.stats.volume24h = "—";
-          applyConfig();
-          return;
-        }
+      const subject = encodeURIComponent(`Axis Field Group - ${topic}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\nCompany: ${company}\nEmail: ${email}\nRequest Type: ${topic}\n\nMessage:\n${message}\n`
+      );
 
-        // Best pair = highest liquidity (USD)
-        solPairs.sort((a,b)=> (Number(b?.liquidity?.usd||0) - Number(a?.liquidity?.usd||0)));
-        const best = solPairs[0];
+      window.location.href = `mailto:axisfieldgroup@outlook.com?subject=${subject}&body=${body}`;
+    });
 
-        const pairAddr = best?.pairAddress;
-        if (!pairAddr) return;
-
-        const pairUrl = `https://dexscreener.com/solana/${pairAddr}`;
-        const embedUrl = `${pairUrl}?embed=1&theme=dark&info=0&trades=0`;
-
-        RIG.dexscreenerUrl = pairUrl;
-        RIG.dexscreenerEmbedUrl = embedUrl;
-
-        // Stats
-        const liq = best?.liquidity?.usd;
-        const vol24 = best?.volume?.h24;
-        const mcOrFdv = best?.marketCap ?? best?.fdv;
-
-        RIG.stats.liquidity = fmtUSD(liq);
-        RIG.stats.volume24h = fmtUSD(vol24);
-        RIG.stats.marketCap = fmtUSD(mcOrFdv);
-
-        applyConfig();
-      } catch (e) {
-        // don’t crash UI
-      }
-    }
-
-    refreshDex();
-    setInterval(refreshDex, 20000);
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
