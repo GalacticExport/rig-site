@@ -3,46 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Axis Field Group | Field Observation, Documentation & Technical Support</title>
+  <title>Axis Field Group | Athlete & Motorsport Sponsorship / NIL Strategy</title>
 
-  <meta name="description" content="Axis Field Group provides independent field observation, documentation, and technical support for concrete placements and critical construction activities." />
-  <meta name="theme-color" content="#0b0f1a" />
+  <meta name="description" content="Axis Field Group helps athletes and motorsports teams land sponsorship and NIL deals with a proven system: positioning, outreach, negotiation support, and brand-ready deliverables." />
+  <meta name="theme-color" content="#000000" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Axis Field Group" />
-  <meta property="og:description" content="Independent field observation, documentation, and technical support for concrete placements and critical construction activities." />
+  <meta property="og:title" content="Axis Field Group — Sponsorship & NIL" />
+  <meta property="og:description" content="Black-and-white, performance-first sponsorship and NIL strategy for athletes & motorsports." />
   <meta property="og:type" content="website" />
 
   <style>
     :root{
-      --bg:#070a12;
-      --bg2:#0b1020;
-      --card:rgba(255,255,255,.06);
-      --card2:rgba(255,255,255,.09);
-      --line:rgba(255,255,255,.10);
-      --text:#eaf1ff;
-      --muted:#a7b3d6;
-      --muted2:#7f8bb3;
-      --accent:#3b82f6;
-      --accent2:#60a5fa;
-      --good:#22c55e;
-      --warn:#f59e0b;
-
+      --bg:#050505;
+      --bg2:#000;
+      --panel:#0a0a0a;
+      --panel2:#0f0f0f;
+      --line:rgba(255,255,255,.12);
+      --line2:rgba(255,255,255,.18);
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.70);
+      --muted2:rgba(255,255,255,.55);
+      --glass:rgba(255,255,255,.06);
+      --glass2:rgba(255,255,255,.10);
       --radius:18px;
-      --shadow: 0 18px 55px rgba(0,0,0,.55);
-      --max: 1140px;
+      --shadow: 0 18px 55px rgba(0,0,0,.70);
+      --max: 1160px;
+
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+      /* motion */
+      --ease: cubic-bezier(.2,.8,.2,1);
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family:var(--font);
       color:var(--text);
       background:
-        radial-gradient(900px 500px at 20% 10%, rgba(59,130,246,.20), transparent 60%),
-        radial-gradient(900px 550px at 85% 20%, rgba(96,165,250,.18), transparent 60%),
-        radial-gradient(900px 550px at 50% 85%, rgba(34,197,94,.10), transparent 60%),
+        radial-gradient(1200px 600px at 15% 10%, rgba(255,255,255,.09), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(255,255,255,.07), transparent 60%),
+        radial-gradient(900px 500px at 50% 90%, rgba(255,255,255,.05), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
     }
@@ -50,11 +54,29 @@
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
 
-    /* Top bar */
+    /* subtle animated grid */
+    .gridFX{
+      position:fixed; inset:-60px;
+      background:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity:.18;
+      pointer-events:none;
+      transform: translateZ(0);
+      mask-image: radial-gradient(circle at 50% 20%, rgba(0,0,0,1), rgba(0,0,0,.0) 70%);
+      animation: drift 18s linear infinite;
+    }
+    @keyframes drift{
+      from{transform: translate3d(0,0,0)}
+      to{transform: translate3d(-56px,-56px,0)}
+    }
+
+    /* TOPBAR */
     .topbar{
       position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(7,10,18,.55);
+      backdrop-filter: blur(16px);
+      background: rgba(0,0,0,.62);
       border-bottom:1px solid var(--line);
     }
     .nav{
@@ -62,93 +84,112 @@
       padding:14px 0;
       gap:16px;
     }
+
     .brand{
       display:flex; align-items:center; gap:12px;
-      min-width: 220px;
+      min-width: 260px;
     }
     .logoMark{
-      width:38px; height:38px; border-radius:12px;
+      width:40px; height:40px;
+      border-radius:14px;
+      border:1px solid var(--line2);
       background:
-        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.25), transparent 60%),
-        conic-gradient(from 220deg, rgba(59,130,246,.95), rgba(96,165,250,.45), rgba(59,130,246,.95));
-      box-shadow: 0 14px 30px rgba(59,130,246,.18);
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.30), transparent 60%),
+        radial-gradient(26px 26px at 70% 70%, rgba(255,255,255,.10), transparent 70%),
+        linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.04));
       position:relative;
-      border:1px solid rgba(255,255,255,.12);
       overflow:hidden;
+      box-shadow: 0 18px 40px rgba(0,0,0,.65);
     }
     .logoMark:before{
       content:"";
       position:absolute; inset:-40%;
-      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.0), rgba(0,0,0,.35) 70%);
-      transform: rotate(25deg);
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,.25) 0px,
+          rgba(255,255,255,.25) 2px,
+          transparent 2px,
+          transparent 9px
+        );
+      transform: rotate(18deg);
+      opacity:.20;
     }
-    .brandTitle{
-      display:flex; flex-direction:column; line-height:1.05;
+    .logoMark:after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(400px 220px at 20% 20%, rgba(255,255,255,.18), transparent 60%);
+      opacity:.9;
     }
-    .brandTitle strong{letter-spacing:.12em; font-size:13px}
-    .brandTitle span{font-size:12px; color:var(--muted); letter-spacing:.08em}
+
+    .brandTitle{display:flex; flex-direction:column; line-height:1.05}
+    .brandTitle strong{
+      letter-spacing:.14em;
+      font-size:12px;
+    }
+    .brandTitle span{
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.08em;
+    }
 
     .links{
-      display:flex; align-items:center; gap:18px;
+      display:flex; align-items:center; gap:14px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
     .links a{
       font-size:13px; color:var(--muted);
-      padding:8px 10px; border-radius:10px;
+      padding:8px 10px; border-radius:12px;
       border:1px solid transparent;
+      transition: background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
     }
     .links a:hover{
       color:var(--text);
-      border-color: rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
     }
-    .cta{
-      display:flex; align-items:center; gap:10px;
-    }
+
+    .cta{display:flex; align-items:center; gap:10px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:10px;
       padding:11px 14px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.06);
       color:var(--text);
-      font-weight:600;
+      font-weight:700;
       font-size:13px;
       cursor:pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      transition: transform .14s var(--ease), background .14s var(--ease), border-color .14s var(--ease), filter .14s var(--ease);
       user-select:none;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.20)}
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.24)}
+    .btn:active{transform: translateY(0px) scale(.99)}
     .btn.primary{
-      border-color: rgba(59,130,246,.45);
-      background: linear-gradient(135deg, rgba(59,130,246,.95), rgba(96,165,250,.60));
-      color:#071018;
-      box-shadow: 0 14px 35px rgba(59,130,246,.18);
+      background: linear-gradient(135deg, #ffffff, rgba(255,255,255,.72));
+      color:#000;
+      border-color: rgba(255,255,255,.60);
+      box-shadow: 0 18px 40px rgba(255,255,255,.08);
     }
-    .btn.primary:hover{transform: translateY(-1px); filter: brightness(1.04)}
-    .btn small{opacity:.8; font-weight:700}
-    .hamburger{
-      display:none;
-      width:42px; height:40px; border-radius:12px;
-    }
+    .btn.primary:hover{filter: brightness(1.05)}
+    .btn small{opacity:.9; font-weight:900}
+    .hamburger{display:none; width:42px; height:40px; border-radius:14px}
 
-    /* Hero */
+    /* HERO */
     .hero{
-      padding:64px 0 28px;
+      padding:70px 0 22px;
       position:relative;
     }
     .heroGrid{
       display:grid;
-      grid-template-columns: 1.25fr .85fr;
-      gap:22px;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
       align-items:stretch;
     }
-    .badgeRow{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-bottom:14px;
-    }
+
+    .badgeRow{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px}
     .badge{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 10px;
@@ -157,63 +198,133 @@
       border:1px solid rgba(255,255,255,.12);
       color:var(--muted);
       font-size:12px;
+      letter-spacing:.02em;
     }
     .badge b{color:var(--text)}
+    .badge .dot{
+      width:7px; height:7px; border-radius:99px;
+      background:#fff;
+      box-shadow: 0 0 0 3px rgba(255,255,255,.10);
+    }
+
     h1{
       margin:0;
-      font-size: clamp(32px, 4vw, 52px);
-      line-height:1.05;
-      letter-spacing:-.02em;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height:1.04;
+      letter-spacing:-.03em;
     }
     .sub{
       margin:14px 0 0;
       color:var(--muted);
       font-size:16px;
-      line-height:1.6;
-      max-width: 60ch;
+      line-height:1.7;
+      max-width: 62ch;
     }
-    .heroActions{
-      display:flex; gap:12px; flex-wrap:wrap;
+    .heroActions{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+
+    /* marquee */
+    .marquee{
       margin-top:18px;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+      position:relative;
+    }
+    .marqueeTrack{
+      display:flex;
+      gap:26px;
+      padding:12px 0;
+      white-space:nowrap;
+      animation: scroll 18s linear infinite;
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.70);
+    }
+    .marqueeTrack span{opacity:.9}
+    .marqueeTrack b{color:#fff}
+    @keyframes scroll{
+      from{transform: translateX(0)}
+      to{transform: translateX(-50%)}
     }
 
+    /* Panels */
     .panel{
-      background: rgba(255,255,255,.06);
+      background: rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.12);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
+      position:relative;
+    }
+    .panel:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(700px 240px at 10% 0%, rgba(255,255,255,.12), transparent 60%),
+        radial-gradient(700px 240px at 90% 40%, rgba(255,255,255,.08), transparent 65%);
+      opacity:.9;
+      pointer-events:none;
     }
     .panel .head{
       padding:18px 18px 0;
       display:flex; align-items:center; justify-content:space-between;
       gap:12px;
+      position:relative;
     }
     .panel .head h3{
       margin:0;
-      font-size:14px;
-      letter-spacing:.14em;
+      font-size:12px;
+      letter-spacing:.18em;
       color:var(--muted);
       text-transform:uppercase;
+      font-family:var(--mono);
     }
-    .panel .body{padding:16px 18px 18px}
-    .kpis{
+    .panel .body{padding:16px 18px 18px; position:relative}
+
+    /* KPI scoreboard */
+    .scoreboard{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:12px;
       margin-top:6px;
     }
-    .kpi{
-      padding:14px 14px;
-      border-radius:14px;
-      background: rgba(0,0,0,.22);
-      border:1px solid rgba(255,255,255,.10);
+    .score{
+      padding:14px;
+      border-radius:16px;
+      background: rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.12);
+      position:relative;
+      overflow:hidden;
     }
-    .kpi .v{
-      font-size:18px; font-weight:800;
+    .score:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,.12) 0px,
+          rgba(255,255,255,.12) 1px,
+          transparent 1px,
+          transparent 12px
+        );
+      opacity:.12;
+      pointer-events:none;
+    }
+    .score .v{
+      font-size:18px;
+      font-weight:900;
       letter-spacing:-.02em;
     }
-    .kpi .l{color:var(--muted2); font-size:12px; margin-top:6px; line-height:1.3}
+    .score .l{
+      color:var(--muted2);
+      font-size:12px;
+      margin-top:6px;
+      line-height:1.35;
+    }
+
     .ticklist{
       list-style:none; padding:0; margin:14px 0 0;
       display:grid; gap:10px;
@@ -221,28 +332,36 @@
     .ticklist li{
       display:flex; gap:10px; align-items:flex-start;
       color:var(--muted);
-      font-size:13px; line-height:1.55;
+      font-size:13px; line-height:1.6;
     }
-    .dot{
-      width:18px; height:18px; border-radius:8px;
+    .check{
+      width:20px; height:20px; border-radius:10px;
       display:inline-flex; align-items:center; justify-content:center;
-      background: rgba(59,130,246,.18);
-      border:1px solid rgba(59,130,246,.35);
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
       flex:0 0 auto;
       margin-top:1px;
+      font-weight:900;
+      color:#fff;
     }
 
     /* Sections */
-    section{padding:42px 0}
+    section{padding:44px 0}
     .sectionTitle{
       display:flex; align-items:flex-end; justify-content:space-between;
       gap:16px; margin-bottom:16px;
     }
     .sectionTitle h2{
-      margin:0; font-size:22px; letter-spacing:-.01em;
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.01em;
     }
     .sectionTitle p{
-      margin:0; color:var(--muted); font-size:13px; max-width: 62ch; line-height:1.5;
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      max-width: 66ch;
+      line-height:1.6;
     }
 
     .cards{
@@ -252,45 +371,114 @@
     }
     .card{
       grid-column: span 4;
-      background: rgba(255,255,255,.06);
+      background: rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.12);
       border-radius: var(--radius);
       padding:16px;
-      box-shadow: 0 12px 35px rgba(0,0,0,.35);
-      min-height: 170px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.45);
+      min-height: 168px;
       position:relative;
       overflow:hidden;
+      transform: translateZ(0);
     }
     .card:before{
       content:"";
       position:absolute; inset:-1px;
-      background: radial-gradient(500px 200px at 10% 0%, rgba(59,130,246,.18), transparent 65%);
+      background:
+        radial-gradient(600px 220px at 15% 0%, rgba(255,255,255,.14), transparent 62%),
+        repeating-linear-gradient(135deg, rgba(255,255,255,.10) 0px, rgba(255,255,255,.10) 1px, transparent 1px, transparent 10px);
+      opacity:.10;
       pointer-events:none;
-      opacity:.9;
     }
     .card h3{margin:0; font-size:16px; position:relative}
-    .card p{margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.55; position:relative}
+    .card p{margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.6; position:relative}
     .pillRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; position:relative}
     .pill{
-      font-size:11px; color:var(--muted);
+      font-size:11px; color:rgba(255,255,255,.72);
       padding:7px 9px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.22);
+      font-family:var(--mono);
+      letter-spacing:.06em;
+      text-transform:uppercase;
     }
 
-    .split{
+    .split{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+
+    /* Proof / work section */
+    .workGrid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr .8fr;
       gap:14px;
+      align-items:stretch;
+    }
+    .caseCard{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.30);
+      overflow:hidden;
+      position:relative;
+    }
+    .caseCard:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background: radial-gradient(700px 260px at 15% 0%, rgba(255,255,255,.16), transparent 60%);
+      opacity:.25;
+      pointer-events:none;
+    }
+    .caseHeader{
+      display:flex; justify-content:space-between; gap:10px; align-items:flex-start;
+      position:relative;
+    }
+    .caseHeader .tag{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.70);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding:7px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .caseHeader h3{margin:0; font-size:16px}
+    .caseMeta{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      position:relative;
+    }
+    .mini{
+      padding:12px;
+      border-radius:14px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .mini b{display:block; font-size:16px; letter-spacing:-.02em}
+    .mini span{display:block; margin-top:4px; font-size:12px; color:var(--muted2)}
+    .monoLine{
+      margin-top:12px;
+      padding:12px;
+      border-radius:14px;
+      background: rgba(0,0,0,.35);
+      border:1px dashed rgba(255,255,255,.20);
+      font-family:var(--mono);
+      font-size:12px;
+      color:rgba(255,255,255,.72);
+      line-height:1.6;
+      position:relative;
     }
 
     .quote{
       padding:18px;
       border-radius: var(--radius);
       border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.22);
+      background: rgba(0,0,0,.28);
     }
-    .quote p{margin:0; color:var(--muted); line-height:1.7}
+    .quote p{margin:0; color:var(--muted); line-height:1.8}
     .quote b{color:var(--text)}
     .quote .who{margin-top:10px; color:var(--muted2); font-size:12px}
 
@@ -300,30 +488,24 @@
       grid-template-columns: 1fr 1fr;
       gap:14px;
     }
-    form{
-      display:grid; gap:10px;
-    }
+    form{display:grid; gap:10px}
     label{font-size:12px; color:var(--muted)}
     input, textarea, select{
       width:100%;
       padding:12px 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.22);
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.34);
       color:var(--text);
       outline:none;
     }
     textarea{min-height:120px; resize:vertical}
     input:focus, textarea:focus, select:focus{
-      border-color: rgba(96,165,250,.55);
-      box-shadow: 0 0 0 4px rgba(59,130,246,.12);
+      border-color: rgba(255,255,255,.55);
+      box-shadow: 0 0 0 4px rgba(255,255,255,.10);
     }
 
-    .fine{
-      color:var(--muted2);
-      font-size:12px;
-      line-height:1.55;
-    }
+    .fine{color:var(--muted2); font-size:12px; line-height:1.6}
 
     footer{
       padding:28px 0 38px;
@@ -337,22 +519,25 @@
     }
 
     /* Reveal */
-    .reveal{opacity:0; transform: translateY(12px); transition: opacity .55s ease, transform .55s ease}
+    .reveal{opacity:0; transform: translateY(12px); transition: opacity .55s var(--ease), transform .55s var(--ease)}
     .reveal.show{opacity:1; transform:none}
 
-    /* Responsive */
+    /* Mobile / Responsive */
     @media (max-width: 980px){
-      .heroGrid{grid-template-columns:1fr; }
-      .contactGrid{grid-template-columns:1fr;}
-      .split{grid-template-columns:1fr;}
-      .card{grid-column: span 6;}
-      .brand{min-width:auto;}
+      .heroGrid{grid-template-columns:1fr}
+      .workGrid{grid-template-columns:1fr}
+      .contactGrid{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .card{grid-column: span 6}
+      .brand{min-width:auto}
+      .caseMeta{grid-template-columns: 1fr 1fr 1fr}
     }
     @media (max-width: 640px){
-      .links{display:none;}
-      .hamburger{display:inline-flex;}
-      .card{grid-column: span 12;}
-      .kpis{grid-template-columns:1fr 1fr;}
+      .links{display:none}
+      .hamburger{display:inline-flex}
+      .card{grid-column: span 12}
+      .scoreboard{grid-template-columns:1fr 1fr}
+      .caseMeta{grid-template-columns: 1fr}
     }
 
     /* Mobile menu */
@@ -364,64 +549,69 @@
     .mobileMenu a{
       display:block;
       padding:10px 10px;
-      border-radius:12px;
+      border-radius:14px;
       color:var(--muted);
       border:1px solid transparent;
     }
     .mobileMenu a:hover{
       color:var(--text);
-      border-color: rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
     }
 
     /* Small helpers */
     .muted{color:var(--muted)}
     .divider{height:1px; background: var(--line); margin:16px 0}
-    .icon{
-      width:18px; height:18px; display:inline-block;
-      vertical-align:-4px;
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .reveal{transition:none}
+      .gridFX{animation:none}
+      .marqueeTrack{animation:none}
+      .btn{transition:none}
     }
   </style>
 </head>
 
 <body>
+  <div class="gridFX" aria-hidden="true"></div>
+
   <!-- TOPBAR -->
   <div class="topbar">
     <div class="wrap">
       <div class="nav">
-        <a class="brand" href="#top" aria-label="Axis Field Group">
+        <a class="brand" href="#top" aria-label="Axis Field Group — Sponsorship & NIL">
           <div class="logoMark" aria-hidden="true"></div>
           <div class="brandTitle">
             <strong>AXIS FIELD GROUP</strong>
-            <span>Observation • Documentation • Technical Support</span>
+            <span>Sponsorship • NIL • Athlete Partnerships</span>
           </div>
         </a>
 
         <nav class="links" aria-label="Primary navigation">
-          <a href="#services">Services</a>
-          <a href="#industries">Industries</a>
-          <a href="#deliverables">Deliverables</a>
-          <a href="#process">Process</a>
-          <a href="#about">About</a>
+          <a href="#what">What we do</a>
+          <a href="#systems">System</a>
+          <a href="#work">Work</a>
+          <a href="#offers">For Athletes</a>
+          <a href="#brands">For Brands</a>
           <a href="#contact">Contact</a>
         </nav>
 
         <div class="cta">
-          <a class="btn" href="mailto:axisfieldgroup@outlook.com?subject=Axis%20Field%20Group%20Inquiry">
-            Email
-            <small>↗</small>
+          <a class="btn" href="mailto:axisfieldgroup@outlook.com?subject=Axis%20Field%20Group%20-%20Sponsorship%20%2F%20NIL%20Inquiry">
+            Email <small>↗</small>
           </a>
-          <a class="btn primary" href="#contact">Request Coverage</a>
+          <a class="btn primary" href="#contact">Get a Deal Plan</a>
           <button class="btn hamburger" id="hamburger" aria-label="Open menu">☰</button>
         </div>
       </div>
 
       <div class="mobileMenu" id="mobileMenu" aria-label="Mobile navigation">
-        <a href="#services">Services</a>
-        <a href="#industries">Industries</a>
-        <a href="#deliverables">Deliverables</a>
-        <a href="#process">Process</a>
-        <a href="#about">About</a>
+        <a href="#what">What we do</a>
+        <a href="#systems">System</a>
+        <a href="#work">Work</a>
+        <a href="#offers">For Athletes</a>
+        <a href="#brands">For Brands</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -433,163 +623,262 @@
       <div class="heroGrid">
         <div class="reveal">
           <div class="badgeRow">
-            <div class="badge"><b>Independent</b> Field Observation</div>
-            <div class="badge"><b>Clean</b> Documentation Packages</div>
-            <div class="badge"><b>Fast</b> 24-Hour Reporting</div>
+            <div class="badge"><span class="dot" aria-hidden="true"></span><b>ATHLETES</b> Sponsorship + NIL</div>
+            <div class="badge"><span class="dot" aria-hidden="true"></span><b>MOTORSPORTS</b> Partner Pipeline</div>
+            <div class="badge"><span class="dot" aria-hidden="true"></span><b>DELIVERABLES</b> Brand-ready kits</div>
           </div>
 
-          <h1>Technical field coverage you can trust — from pour day to closeout.</h1>
+          <h1>Turn performance into partnerships.</h1>
           <p class="sub">
-            Axis Field Group supports owners, GCs, and trade partners with structured observation, documentation, and field reporting
-            for concrete placements and other critical construction activities — built for accountability and clarity.
+            Axis Field Group builds sponsor pipelines for athletes and motorsports teams — positioning, outreach, and
+            deal support that makes brands say “yes.” Clean, fast, repeatable.
           </p>
 
           <div class="heroActions">
-            <a class="btn primary" href="#contact">Request Coverage</a>
-            <a class="btn" href="#services">View Services</a>
-            <a class="btn" href="mailto:axisfieldgroup@outlook.com?subject=Axis%20Field%20Group%20-%20Sample%20Report%20Request&body=Hi%20Axis%20Field%20Group%2C%0A%0AI%E2%80%99d%20like%20to%20see%20a%20sample%20field%20report.%0A%0AProject%3A%0ALocation%3A%0ADate%3A%0A%0AThanks%2C">
-              Request Sample Report
-            </a>
+            <a class="btn primary" href="#contact">Request a Deal Plan</a>
+            <a class="btn" href="#offers">For Athletes</a>
+            <a class="btn" href="#brands">For Brands</a>
+          </div>
+
+          <div class="marquee" aria-label="Capabilities marquee">
+            <div class="marqueeTrack">
+              <span><b>POSITIONING</b> + STORY</span>
+              <span>•</span>
+              <span><b>SPONSOR LIST</b> BUILD</span>
+              <span>•</span>
+              <span><b>OUTREACH</b> + FOLLOW-UP</span>
+              <span>•</span>
+              <span><b>MEDIA KIT</b> + RATE CARD</span>
+              <span>•</span>
+              <span><b>DEAL TRACKING</b> SYSTEM</span>
+              <span>•</span>
+              <span><b>NIL</b> COMPLIANCE AWARE</span>
+              <span>•</span>
+              <span><b>POSITIONING</b> + STORY</span>
+              <span>•</span>
+              <span><b>SPONSOR LIST</b> BUILD</span>
+              <span>•</span>
+              <span><b>OUTREACH</b> + FOLLOW-UP</span>
+              <span>•</span>
+              <span><b>MEDIA KIT</b> + RATE CARD</span>
+              <span>•</span>
+              <span><b>DEAL TRACKING</b> SYSTEM</span>
+              <span>•</span>
+              <span><b>NIL</b> COMPLIANCE AWARE</span>
+              <span>•</span>
+            </div>
           </div>
 
           <div class="divider"></div>
 
           <div class="fine">
-            <b>Positioning note:</b> Axis Field Group provides independent observation and documentation support.
-            Services can be tailored for owner/GC reporting needs and project requirements.
+            <b>How we win:</b> A clear offer + a tight target list + relentless (professional) follow-up.
+            Your brand stays premium, your deliverables stay clean, and your pipeline stays active.
           </div>
         </div>
 
         <aside class="panel reveal" aria-label="Quick overview panel">
           <div class="head">
-            <h3>Field Coverage Snapshot</h3>
-            <span class="badge" title="Typical turnaround">Turnaround: <b>24 hrs</b></span>
+            <h3>Deal Pipeline Snapshot</h3>
+            <span class="badge" title="Typical time to first responses"><b>Week 1:</b> Outreach live</span>
           </div>
+
           <div class="body">
-            <div class="kpis">
-              <div class="kpi">
-                <div class="v">Pour Day</div>
-                <div class="l">Tickets, testing, placement, finishing, cure start</div>
+            <div class="scoreboard">
+              <div class="score">
+                <div class="v">Offer</div>
+                <div class="l">What brands get + why it fits</div>
               </div>
-              <div class="kpi">
-                <div class="v">Critical Work</div>
-                <div class="l">Embeds, sleeves, anchor sets, slab readiness</div>
+              <div class="score">
+                <div class="v">Targets</div>
+                <div class="l">50–150 curated brand list</div>
               </div>
-              <div class="kpi">
-                <div class="v">Photo Log</div>
-                <div class="l">Structured, time-stamped, easy to search</div>
+              <div class="score">
+                <div class="v">Kit</div>
+                <div class="l">Media kit, rates, proof assets</div>
               </div>
-              <div class="kpi">
-                <div class="v">Closeout</div>
-                <div class="l">Punch walkdowns, issue logs, evidence packages</div>
+              <div class="score">
+                <div class="v">Follow-up</div>
+                <div class="l">Systematic, tracked, consistent</div>
               </div>
             </div>
 
             <ul class="ticklist">
-              <li><span class="dot">✓</span><span><b>Neutral documentation</b> that reduces finger-pointing and protects schedule.</span></li>
-              <li><span class="dot">✓</span><span><b>Project-ready PDFs</b> you can forward to owners and stakeholders.</span></li>
-              <li><span class="dot">✓</span><span><b>Jobsite-to-jobsite</b> coverage with consistent reporting standards.</span></li>
+              <li><span class="check">✓</span><span><b>Brand-ready deliverables</b> (kit + outreach copy + tracking sheet).</span></li>
+              <li><span class="check">✓</span><span><b>Motorsports-friendly</b> (partners, paddock, sponsor activation).</span></li>
+              <li><span class="check">✓</span><span><b>Built for growth</b> — repeatable deal system, not one-offs.</span></li>
             </ul>
+
+            <div class="divider"></div>
+
+            <div class="fine">
+              <b>Note:</b> We support sponsorship/NIL strategy and outreach. Contract/legal review should be handled by the athlete’s attorney/agency as needed.
+            </div>
           </div>
         </aside>
       </div>
     </div>
   </main>
 
-  <!-- SERVICES -->
-  <section id="services">
+  <!-- WHAT WE DO -->
+  <section id="what">
     <div class="wrap">
       <div class="sectionTitle reveal">
         <div>
-          <h2>Services</h2>
-          <p>Technical coverage designed to support accountability, documentation quality, and smooth handoffs between teams.</p>
+          <h2>What we do</h2>
+          <p>We build the sponsorship machine behind the scenes — so athletes and teams can focus on performance.</p>
         </div>
       </div>
 
       <div class="cards">
         <div class="card reveal">
-          <h3>Concrete Placement Observation</h3>
-          <p>Structured pour-day coverage including pre-pour readiness, ticket capture, testing witness, placement, finishing, and cure start documentation.</p>
+          <h3>Positioning & Offer Design</h3>
+          <p>We turn your story + audience into a sponsor-ready offer: clear deliverables, clear value, clear pricing.</p>
           <div class="pillRow">
-            <span class="pill">Truck tickets</span><span class="pill">Slump/air/temp (as available)</span><span class="pill">Time log</span><span class="pill">Cure verification</span>
+            <span class="pill">OFFER</span><span class="pill">NARRATIVE</span><span class="pill">PACKAGES</span>
           </div>
         </div>
 
         <div class="card reveal">
-          <h3>Embed / Sleeve / Anchor Verification</h3>
-          <p>Photo-driven verification of embeds, sleeves, blockouts, and anchor sets prior to placement — organized by gridline/area for easy retrieval.</p>
+          <h3>Sponsor Target List (Curated)</h3>
+          <p>Not spray-and-pray. We build a brand list that fits your sport, vibe, geography, and audience.</p>
           <div class="pillRow">
-            <span class="pill">Area indexing</span><span class="pill">Red-flag notes</span><span class="pill">Pre-cover evidence</span>
+            <span class="pill">RESEARCH</span><span class="pill">FIT</span><span class="pill">CONTACTS</span>
           </div>
         </div>
 
         <div class="card reveal">
-          <h3>Daily Field Reporting</h3>
-          <p>Concise, professional daily summaries with progress photos, constraints, and issue tracking — ideal for owner updates and internal accountability.</p>
+          <h3>Outreach & Follow-Up System</h3>
+          <p>Emails that get replies, follow-ups that stay professional, and tracking so nothing gets lost.</p>
           <div class="pillRow">
-            <span class="pill">Progress photos</span><span class="pill">Issue log</span><span class="pill">RFI/constraint highlights</span>
+            <span class="pill">EMAIL</span><span class="pill">DM SCRIPT</span><span class="pill">CRM-LITE</span>
           </div>
         </div>
 
         <div class="card reveal">
-          <h3>Closeout Documentation Support</h3>
-          <p>Walkdowns, punch documentation, and evidence packages that help teams close open items efficiently and reduce rework debates.</p>
+          <h3>Media Kit + Rate Card</h3>
+          <p>Clean visuals and proof assets that make you look like a serious partner, not a “maybe.”</p>
           <div class="pillRow">
-            <span class="pill">Punch mapping</span><span class="pill">Photo evidence</span><span class="pill">Owner-ready packages</span>
+            <span class="pill">KIT</span><span class="pill">RATES</span><span class="pill">PROOF</span>
           </div>
         </div>
 
         <div class="card reveal">
-          <h3>Critical Activity Coverage</h3>
-          <p>Observation and documentation support for other critical activities where clean records matter — tailored per project requirements.</p>
+          <h3>Activation Ideas</h3>
+          <p>How sponsors actually get value: content series, trackside activations, appearances, and integrations.</p>
           <div class="pillRow">
-            <span class="pill">Phased work</span><span class="pill">Night work</span><span class="pill">Handoffs</span>
+            <span class="pill">CONTENT</span><span class="pill">EVENTS</span><span class="pill">ROI</span>
           </div>
         </div>
 
         <div class="card reveal">
-          <h3>Custom Reporting Standards</h3>
-          <p>We can align reporting formats to your project standards (area naming, gridlines, distribution lists, required photo sets, and closeout needs).</p>
+          <h3>Negotiation Support</h3>
+          <p>We help shape the terms and deliverables. Legal review stays with your attorney/agent.</p>
           <div class="pillRow">
-            <span class="pill">Owner formats</span><span class="pill">GC formats</span><span class="pill">Standardized templates</span>
+            <span class="pill">TERMS</span><span class="pill">SCOPE</span><span class="pill">TIMELINES</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- INDUSTRIES -->
-  <section id="industries">
+  <!-- SYSTEM -->
+  <section id="systems">
     <div class="wrap">
       <div class="sectionTitle reveal">
         <div>
-          <h2>Industries & Project Types</h2>
-          <p>Experience aligned with high-accountability environments where documentation quality impacts schedule, cost, and closeout.</p>
+          <h2>The system</h2>
+          <p>A repeatable framework to go from “no sponsors” to an active pipeline you can run every month.</p>
         </div>
       </div>
 
-      <div class="split">
-        <div class="panel reveal">
-          <div class="head"><h3>Typical Projects</h3></div>
-          <div class="body">
-            <ul class="ticklist">
-              <li><span class="dot">✓</span><span>Data centers & mission-critical facilities</span></li>
-              <li><span class="dot">✓</span><span>Industrial & manufacturing</span></li>
-              <li><span class="dot">✓</span><span>Commercial slabs, foundations, equipment pads</span></li>
-              <li><span class="dot">✓</span><span>Fit-outs, expansions, and phased builds</span></li>
-            </ul>
+      <div class="cards">
+        <div class="card reveal">
+          <h3>1) Build the Offer</h3>
+          <p>Define sponsor packages (starter/mid/premium), deliverables, and the brand fit story.</p>
+          <div class="pillRow"><span class="pill">WEEK 1</span><span class="pill">PACKAGES</span></div>
+        </div>
+        <div class="card reveal">
+          <h3>2) Build the List</h3>
+          <p>Curate 50–150 brands with matching audiences, plus the right contacts to reach.</p>
+          <div class="pillRow"><span class="pill">WEEK 1</span><span class="pill">TARGETS</span></div>
+        </div>
+        <div class="card reveal">
+          <h3>3) Run Outreach</h3>
+          <p>Launch emails + follow-ups on schedule. Track responses. Book calls.</p>
+          <div class="pillRow"><span class="pill">WEEK 2</span><span class="pill">OUTREACH</span></div>
+        </div>
+        <div class="card reveal">
+          <h3>4) Close & Activate</h3>
+          <p>Lock terms, plan activation, and deliver clean proof reports for renewal.</p>
+          <div class="pillRow"><span class="pill">WEEK 3+</span><span class="pill">RENEWALS</span></div>
+        </div>
+        <div class="card reveal">
+          <h3>5) Scale</h3>
+          <p>Keep the pipeline alive, improve conversion, and raise your rates with proof.</p>
+          <div class="pillRow"><span class="pill">MONTHLY</span><span class="pill">SCALE</span></div>
+        </div>
+        <div class="card reveal">
+          <h3>6) Protect the Brand</h3>
+          <p>Consistency across your look, voice, deliverables, and partner standards.</p>
+          <div class="pillRow"><span class="pill">STANDARD</span><span class="pill">PREMIUM</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sectionTitle reveal">
+        <div>
+          <h2>Work & deliverables</h2>
+          <p>Showcase your system here. Replace placeholders with your real results as you build them.</p>
+        </div>
+      </div>
+
+      <div class="workGrid">
+        <div class="caseCard reveal">
+          <div class="caseHeader">
+            <div>
+              <h3>Sample Sponsor Pipeline (Template)</h3>
+              <p class="muted" style="margin:8px 0 0; line-height:1.7">
+                This is the exact “behind-the-scenes” work brands never see — your research, your offer, your outreach cadence, your tracking.
+              </p>
+            </div>
+            <div class="tag">PROOF / PROCESS</div>
+          </div>
+
+          <div class="caseMeta">
+            <div class="mini"><b>1–2</b><span>Offer drafts</span></div>
+            <div class="mini"><b>50–150</b><span>Targets per run</span></div>
+            <div class="mini"><b>7–14</b><span>Days to momentum</span></div>
+          </div>
+
+          <div class="monoLine">
+            <b>Deliverables you can show:</b><br/>
+            • Sponsor list (industry, contact, notes)<br/>
+            • Outreach scripts (email + DM + follow-up)<br/>
+            • Media kit structure + rate card<br/>
+            • Deal tracker (stages: prospect → contacted → replied → call → proposal → closed)
           </div>
         </div>
 
         <div class="panel reveal">
-          <div class="head"><h3>Who We Support</h3></div>
+          <div class="head"><h3>What athletes get</h3></div>
           <div class="body">
             <ul class="ticklist">
-              <li><span class="dot">✓</span><span><b>Owners</b> needing clean photo & record packages</span></li>
-              <li><span class="dot">✓</span><span><b>GCs</b> wanting consistent field documentation</span></li>
-              <li><span class="dot">✓</span><span><b>Trade partners</b> who value objective records</span></li>
-              <li><span class="dot">✓</span><span><b>JV teams</b> coordinating across companies</span></li>
+              <li><span class="check">✓</span><span><b>Deal plan</b> tailored to their sport + audience.</span></li>
+              <li><span class="check">✓</span><span><b>Brand targets</b> that actually fit (not random).</span></li>
+              <li><span class="check">✓</span><span><b>Outreach done right</b> — professional, consistent, tracked.</span></li>
+              <li><span class="check">✓</span><span><b>Brand kits</b> that look premium in black & white.</span></li>
             </ul>
+
+            <div class="divider"></div>
+
+            <div class="fine">
+              <b>Tip:</b> When you sign your first wins, add a “Results” card here with: sponsor type, activation, and outcome (even if you keep dollars private).
+            </div>
           </div>
         </div>
       </div>
@@ -597,107 +886,86 @@
       <div style="height:14px"></div>
 
       <div class="quote reveal">
-        <p><b>Simple goal:</b> Provide clear, organized evidence and field reporting so teams can move faster, reduce disputes, and close out cleaner.</p>
+        <p><b>Positioning matters.</b> Most athletes ask for money. We sell a partner outcome: audience access + performance culture + clean delivery.</p>
         <div class="who">— Axis Field Group</div>
       </div>
     </div>
   </section>
 
-  <!-- DELIVERABLES -->
-  <section id="deliverables">
+  <!-- FOR ATHLETES -->
+  <section id="offers">
     <div class="wrap">
       <div class="sectionTitle reveal">
         <div>
-          <h2>Deliverables</h2>
-          <p>What you get after coverage — built to be forwarded, archived, and used in closeout.</p>
+          <h2>For Athletes & Motorsports</h2>
+          <p>Pick a starting point. You can tighten this into real pricing later. Keep it simple and confident.</p>
         </div>
       </div>
 
       <div class="cards">
         <div class="card reveal">
-          <h3>24-Hour Pour Report (PDF)</h3>
-          <p>Structured timeline, ticket photos, testing photos (as available), placement/finish documentation, cure start verification, and notes by area.</p>
-          <div class="pillRow"><span class="pill">PDF</span><span class="pill">Indexed</span><span class="pill">Shareable</span></div>
+          <h3>Starter: Deal Plan + Kit</h3>
+          <p>Offer design + kit outline + sponsor categories + outreach scripts. You execute or we can help run outreach.</p>
+          <div class="pillRow"><span class="pill">PLAN</span><span class="pill">MEDIA KIT</span><span class="pill">SCRIPTS</span></div>
         </div>
-
         <div class="card reveal">
-          <h3>Searchable Photo Log</h3>
-          <p>Organized images labeled by date/area/gridline for quick retrieval. Delivered as a folder + optional summary sheet.</p>
-          <div class="pillRow"><span class="pill">Folder structure</span><span class="pill">Area tags</span><span class="pill">Time-stamped</span></div>
+          <h3>Pipeline: Target List + Outreach</h3>
+          <p>Curated sponsor list + email sequences + follow-up schedule + tracking sheet setup.</p>
+          <div class="pillRow"><span class="pill">TARGETS</span><span class="pill">OUTREACH</span><span class="pill">TRACKING</span></div>
         </div>
-
         <div class="card reveal">
-          <h3>Issue & Risk Notes</h3>
-          <p>Neutral red-flag notes captured with supporting photos, focused on clarity and accountability (not approvals or engineering sign-off).</p>
-          <div class="pillRow"><span class="pill">Neutral language</span><span class="pill">Photo evidence</span><span class="pill">Actionable</span></div>
+          <h3>Retainer: Monthly Deal Runs</h3>
+          <p>Monthly outreach campaigns, booked calls, proposal support, and renewal proof packages.</p>
+          <div class="pillRow"><span class="pill">MONTHLY</span><span class="pill">CALLS</span><span class="pill">RENEWALS</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section id="process">
+  <!-- FOR BRANDS -->
+  <section id="brands">
     <div class="wrap">
       <div class="sectionTitle reveal">
         <div>
-          <h2>Process</h2>
-          <p>Fast onboarding. Consistent documentation. Repeatable standards across jobsites.</p>
-        </div>
-      </div>
-
-      <div class="cards">
-        <div class="card reveal">
-          <h3>1) Scope & Standards</h3>
-          <p>We align on areas, required photo sets, distribution list, and any owner/GC format requirements.</p>
-          <div class="pillRow"><span class="pill">Area map</span><span class="pill">Deliverable checklist</span></div>
-        </div>
-        <div class="card reveal">
-          <h3>2) Field Coverage</h3>
-          <p>Onsite observation and documentation during critical windows — with real-time notes when needed.</p>
-          <div class="pillRow"><span class="pill">Pour day</span><span class="pill">Night work</span><span class="pill">Handoffs</span></div>
-        </div>
-        <div class="card reveal">
-          <h3>3) Report Delivery</h3>
-          <p>Clean report package delivered within 24 hours (or per project need) — ready to forward and archive.</p>
-          <div class="pillRow"><span class="pill">PDF report</span><span class="pill">Photo log</span><span class="pill">Issue notes</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap">
-      <div class="sectionTitle reveal">
-        <div>
-          <h2>About Axis Field Group</h2>
-          <p>A technical field support partner focused on evidence-quality documentation, accountability, and repeatable reporting.</p>
+          <h2>For Brands</h2>
+          <p>Brands can also come here and see how you run partnerships like a system — not a favor.</p>
         </div>
       </div>
 
       <div class="split">
         <div class="panel reveal">
-          <div class="head"><h3>Mission</h3></div>
+          <div class="head"><h3>What brands get</h3></div>
           <div class="body">
-            <p class="muted" style="margin:0; line-height:1.7">
-              Axis Field Group helps teams build faster and cleaner by delivering structured field observation and documentation that reduces uncertainty,
-              supports decision-making, and strengthens closeout packages.
-            </p>
-            <div class="divider"></div>
             <ul class="ticklist">
-              <li><span class="dot">✓</span><span>Clear records that reduce disputes</span></li>
-              <li><span class="dot">✓</span><span>Consistent standards across jobsites</span></li>
-              <li><span class="dot">✓</span><span>Professional reporting for owners & stakeholders</span></li>
+              <li><span class="check">✓</span><span><b>Clean deliverables</b> with timelines and expectations.</span></li>
+              <li><span class="check">✓</span><span><b>Proof reporting</b> (content links, reach metrics, recap).</span></li>
+              <li><span class="check">✓</span><span><b>Performance culture</b> alignment with athletes & teams.</span></li>
+              <li><span class="check">✓</span><span><b>Easy renewals</b> — organized and professional.</span></li>
             </ul>
           </div>
         </div>
 
         <div class="panel reveal">
-          <div class="head"><h3>FAQs</h3></div>
+          <div class="head"><h3>Brand categories we like</h3></div>
           <div class="body">
-            <p class="muted" style="margin:0 0 10px; line-height:1.65"><b>Do you “inspect” or “approve” work?</b><br/>We provide independent observation and documentation support. Any formal inspection/approval requirements can be coordinated per project standards and responsible parties.</p>
-            <p class="muted" style="margin:0 0 10px; line-height:1.65"><b>Can you cover night pours?</b><br/>Yes — night and weekend coverage can be arranged based on schedule and site requirements.</p>
-            <p class="muted" style="margin:0; line-height:1.65"><b>How fast do we get the report?</b><br/>Typical turnaround is within 24 hours unless otherwise required.</p>
+            <div class="fine" style="margin-bottom:10px">
+              (These are examples — update to match your network.)
+            </div>
+            <div class="pillRow">
+              <span class="pill">WORKWEAR</span>
+              <span class="pill">TOOLS</span>
+              <span class="pill">TRUCKS</span>
+              <span class="pill">ENERGY</span>
+              <span class="pill">FITNESS</span>
+              <span class="pill">LOCAL BUSINESS</span>
+              <span class="pill">EQUIPMENT</span>
+              <span class="pill">AUTO</span>
+              <span class="pill">TECH</span>
+            </div>
+            <div class="divider"></div>
+            <div class="fine">
+              Want to sponsor an athlete/team? Email us with your goals + budget range and we’ll propose a fit.
+            </div>
           </div>
         </div>
       </div>
@@ -710,30 +978,30 @@
       <div class="sectionTitle reveal">
         <div>
           <h2>Contact</h2>
-          <p>Request coverage, ask for a sample report, or tell us your schedule window. We’ll respond quickly.</p>
+          <p>Whether you’re an athlete, team, or brand — tell us your goals and we’ll map the next move.</p>
         </div>
       </div>
 
       <div class="contactGrid">
         <div class="panel reveal">
-          <div class="head"><h3>Get in Touch</h3></div>
+          <div class="head"><h3>Direct Email</h3></div>
           <div class="body">
-            <p class="muted" style="margin:0 0 12px; line-height:1.7">
-              Email is the fastest way to reach us:
+            <p class="muted" style="margin:0 0 12px; line-height:1.8">
+              Fastest way to reach us:
               <b><a href="mailto:axisfieldgroup@outlook.com">axisfieldgroup@outlook.com</a></b>
             </p>
 
             <div class="divider"></div>
 
             <div class="fine">
-              <b>Typical info to include:</b><br/>
-              Project name • location • pour date/time • scope (slab/foundation/pad) • required deliverables • site access details.
+              <b>Athletes/Teams:</b> sport • location • audience links • goals • current sponsors (if any)<br/>
+              <b>Brands:</b> product • goal (awareness/sales) • audience • budget range • timeline
             </div>
 
             <div style="height:12px"></div>
 
-            <a class="btn primary" href="mailto:axisfieldgroup@outlook.com?subject=Axis%20Field%20Group%20-%20Coverage%20Request&body=Hi%20Axis%20Field%20Group%2C%0A%0AProject%20Name%3A%0ALocation%3A%0ADate%2FTime%20Window%3A%0AScope%3A%0ADeliverables%20Needed%3A%0A%0AThanks%2C">
-              Email a Coverage Request
+            <a class="btn primary" href="mailto:axisfieldgroup@outlook.com?subject=Axis%20Field%20Group%20-%20Sponsorship%20%2F%20NIL%20Plan&body=Hi%20Axis%20Field%20Group%2C%0A%0A(Choose%20one)%3A%20I%20am%20an%20athlete%2Fteam%20%7C%20I%20am%20a%20brand%0A%0ASport%2FSeries%3A%0ALocation%3A%0ALinks%20(IG%2FX%2FYouTube%2FWebsite)%3A%0AGoals%3A%0ATimeline%3A%0A%0AThanks%2C">
+              Email for a Deal Plan
             </a>
           </div>
         </div>
@@ -747,31 +1015,35 @@
                 <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
               </div>
               <div>
-                <label for="company">Company</label>
-                <input id="company" name="company" autocomplete="organization" placeholder="GC / Owner / Trade Partner" />
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required />
-              </div>
-              <div>
-                <label for="topic">Request Type</label>
-                <select id="topic" name="topic">
-                  <option>Pour Coverage</option>
-                  <option>Daily Reporting</option>
-                  <option>Closeout Documentation</option>
-                  <option>Sample Report Request</option>
+                <label for="role">You are</label>
+                <select id="role" name="role">
+                  <option>Athlete</option>
+                  <option>Motorsports Team</option>
+                  <option>Brand / Sponsor</option>
                   <option>Other</option>
                 </select>
               </div>
               <div>
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Project name, location, schedule window, and what you need documented…" required></textarea>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+              </div>
+              <div>
+                <label for="topic">What do you need?</label>
+                <select id="topic" name="topic">
+                  <option>Sponsorship Deal Plan</option>
+                  <option>NIL Offer + Media Kit</option>
+                  <option>Brand Target List</option>
+                  <option>Outreach / Follow-up System</option>
+                  <option>Monthly Retainer</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="message">Details</label>
+                <textarea id="message" name="message" placeholder="Your sport/series, links, goals, timeline, and any sponsor ideas…" required></textarea>
               </div>
               <button class="btn primary" type="submit">Send via Email</button>
-              <div class="fine">
-                This form opens your email client (no data stored on the website).
-              </div>
+              <div class="fine">This form opens your email client (no data stored on the website).</div>
             </form>
           </div>
         </div>
@@ -780,7 +1052,7 @@
       <div style="height:14px"></div>
 
       <div class="quote reveal">
-        <p><b>Axis Field Group</b> — built for high-accountability jobsites where documentation quality matters.</p>
+        <p><b>Axis Field Group</b> — a sponsorship & NIL engine built for athletes and motorsports.</p>
         <div class="who">Email: <a href="mailto:axisfieldgroup@outlook.com">axisfieldgroup@outlook.com</a></div>
       </div>
     </div>
@@ -837,14 +1109,14 @@
     form?.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.getElementById('name').value.trim();
-      const company = document.getElementById('company').value.trim();
+      const role = document.getElementById('role').value;
       const email = document.getElementById('email').value.trim();
       const topic = document.getElementById('topic').value;
       const message = document.getElementById('message').value.trim();
 
       const subject = encodeURIComponent(`Axis Field Group - ${topic}`);
       const body = encodeURIComponent(
-        `Name: ${name}\nCompany: ${company}\nEmail: ${email}\nRequest Type: ${topic}\n\nMessage:\n${message}\n`
+        `Name: ${name}\nRole: ${role}\nEmail: ${email}\nRequest: ${topic}\n\nDetails:\n${message}\n`
       );
 
       window.location.href = `mailto:axisfieldgroup@outlook.com?subject=${subject}&body=${body}`;
@@ -852,6 +1124,11 @@
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Duplicate marquee track for seamless scroll
+    // (Simple approach: clone the marquee content)
+    const track = document.querySelector('.marqueeTrack');
+    if (track) track.innerHTML = track.innerHTML + track.innerHTML;
   </script>
 </body>
 </html>
